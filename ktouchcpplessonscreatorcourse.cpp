@@ -74,7 +74,7 @@ void ribi::ktclc::course::test() noexcept
     const lessons a(rng_engine);
     assert(!a.to_xml().empty());
   }
-  const test_timer my_test_timer(__func__,__FILE__,10.0);
+  const test_timer my_test_timer(__func__,__FILE__,1.0);
   {
     constexpr int rng_seed = 42;
     const course a(rng_seed);

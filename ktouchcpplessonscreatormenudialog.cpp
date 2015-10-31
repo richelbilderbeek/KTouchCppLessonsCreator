@@ -181,7 +181,7 @@ ribi::Help ribi::ktclc::menu_dialog::GetHelp() const noexcept
 
 std::string ribi::ktclc::menu_dialog::get_version() noexcept
 {
-  return "2.2";
+  return "2.3";
 }
 
 std::vector<std::string> ribi::ktclc::menu_dialog::get_version_history() noexcept
@@ -190,7 +190,8 @@ std::vector<std::string> ribi::ktclc::menu_dialog::get_version_history() noexcep
     "2013-12-18: version 1.0: initial version",
     "2015-02-18: version 2.0: works with KTouch version 2.3.0, added menu dialog, use C++ Core Guideline coding standards",
     "2015-02-18: version 2.1: added menu",
-    "2015-02-18: version 2.2: work in KTouch"
+    "2015-02-18: version 2.2: works in KTouch",
+    "2015-02-18: version 2.3: accept forward slash, improved quality of the lessons"
   };
 }
 
@@ -207,16 +208,8 @@ void ribi::ktclc::menu_dialog::test() noexcept
     helper();
     course(42);
   }
-  const test_timer my_test_timer(__func__,__FILE__,15.0);
+  const test_timer my_test_timer(__func__,__FILE__,1.0);
   const fileio::FileIo f;
-  {
-    menu_dialog d;
-    const std::string tmp_filename{f.GetTempFileName(".xml")};
-    d.Execute( { "KTouchCppLessonsCreator", "-o", tmp_filename, "--silent" } );
-    assert(f.IsRegularFile(tmp_filename));
-    f.DeleteFile(tmp_filename);
-    assert(!f.IsRegularFile(tmp_filename));
-  }
   {
     menu_dialog d;
     const std::string tmp_filename{f.GetTempFileName(".xml")};

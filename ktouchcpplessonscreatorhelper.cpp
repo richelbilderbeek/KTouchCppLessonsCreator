@@ -87,7 +87,8 @@ std::string ribi::ktclc::helper::convert_to_escape(const char c) const noexcept
   std::string s;
   switch (c)
   {
-    case '<' : s+="&lt;"  ; break;
+    case '<' : s+="\\<"  ; break;
+    //case '<' : s+="&lt;"  ; break;
     case '>' : s+="&gt;"  ; break;
     case '&' : s+="&amp;" ; break;
     case '\'': s+="&apos;"; break;
@@ -151,6 +152,21 @@ std::string ribi::ktclc::helper::enumerate(const std::string& s) const noexcept
   return s;
 }
 
+int ribi::ktclc::helper::get_sum_length(
+  const std::vector<std::string>& v
+) const noexcept
+{
+   return std::accumulate(
+    std::begin(v),
+    std::end(v),
+    0,
+    [](int& init, const std::string& s)
+    {
+      return init + static_cast<int>(s.size());
+    }
+  );
+}
+
 std::string ribi::ktclc::helper::get_version() noexcept
 {
   return "1.2";
@@ -161,13 +177,19 @@ std::vector<std::string> ribi::ktclc::helper::get_version_history() noexcept
   return {
     "2015-02-18: version 1.0: collected function used in KTouchCppLessonsCreator 1.0 in this class"
     "2015-02-18: version 1.1: added convert_to_escape"
-    "2015-02-18: version 1.2: added is_desired, calculate_score, enumerate, cap_at_sum_length"
+    "2015-02-18: version 1.2: added is_desired, calculate_score, enumerate, cap_at_sum_length, get_sum_length"
   };
 }
 
 bool ribi::ktclc::helper::has_forbidden(const std::string& s) const noexcept
 {
-  const std::set<char> forbidden = { '<', '>', '&', '/', '"', '\'' };
+  const std::set<char> forbidden = {
+    '<',
+    '>',
+    '&',
+    '"',
+    '\''
+  };
 
   const auto iter = std::find_if(
     std::begin(s),
@@ -215,10 +237,10 @@ void ribi::ktclc::helper::test() noexcept
   //has_forbidden
   {
     assert(!h.has_forbidden("static_cast"));
+    assert(!h.has_forbidden("1 / 2"));
     assert( h.has_forbidden("1 < 2"));
     assert( h.has_forbidden("1 > 2"));
     assert( h.has_forbidden("1 & 2"));
-    assert( h.has_forbidden("1 / 2"));
     assert( h.has_forbidden("1 \" 2"));
     assert( h.has_forbidden("1 \' 2"));
   }
@@ -227,7 +249,8 @@ void ribi::ktclc::helper::test() noexcept
     assert(h.convert_to_escape('a') == "a");
     assert(h.convert_to_escape('A') == "A");
     assert(h.convert_to_escape('!') == "!");
-    assert(h.convert_to_escape('<') == "&lt;");
+    //assert(h.convert_to_escape('<') == "&lt;");
+    assert(h.convert_to_escape('<') == "\\<");
     assert(h.convert_to_escape('>') == "&gt;");
     assert(h.convert_to_escape('&') == "&amp;");
     assert(h.convert_to_escape('\'') == "&apos;");
@@ -238,7 +261,8 @@ void ribi::ktclc::helper::test() noexcept
     assert(h.convert_to_escape("a") == "a");
     assert(h.convert_to_escape("A") == "A");
     assert(h.convert_to_escape("!") == "!");
-    assert(h.convert_to_escape("<") == "&lt;");
+    assert(h.convert_to_escape("<") == "\\<");
+    //assert(h.convert_to_escape("<") == "&lt;");
     assert(h.convert_to_escape(">") == "&gt;");
     assert(h.convert_to_escape("&") == "&amp;");
     assert(h.convert_to_escape("\'") == "&apos;");
@@ -295,6 +319,17 @@ void ribi::ktclc::helper::test() noexcept
     assert(h.cap_at_sum_length(v,7) == w);
     assert(h.cap_at_sum_length(v,8) == w);
     assert(h.cap_at_sum_length(v,9) == v);
+  }
+  //get_sum_length
+  {
+    const std::vector<std::string> v = {"abc","def","ghi"};
+    const std::vector<std::string> w = {"abc","def"};
+    const std::vector<std::string> x = {"abc"};
+    const std::vector<std::string> y = {};
+    assert(h.get_sum_length(v) == 9);
+    assert(h.get_sum_length(w) == 6);
+    assert(h.get_sum_length(x) == 3);
+    assert(h.get_sum_length(y) == 0);
   }
 }
 #endif

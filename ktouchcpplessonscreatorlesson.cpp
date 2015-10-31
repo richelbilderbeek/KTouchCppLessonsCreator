@@ -58,42 +58,67 @@ std::string ribi::ktclc::lesson::create_line(
   const word_list& any_word_list
 ) noexcept
 {
-  std::vector<std::string> w = any_word_list.get_all_legal_and_fitting_and_new();
-
-  //If there are no new words, just use old ones
-  if (w.empty()) { w = any_word_list.get_all_legal_and_fitting(); }
-
-  std::shuffle(std::begin(w),std::end(w),rng_engine);
-
-  w = helper().cap_at_sum_length(w,n_characters_per_line);
-
-  //Add words until n_characters_per_line chars is reached
-  const int n_chars_used = std::accumulate(
-    std::begin(w),
-    std::end(w),
-    0,
-    [](int& init, const std::string& s)
-    {
-      return init + static_cast<int>(s.size());
-    }
-  );
-
-  // - a lesson has about n_characters_per_line chars
-  const int n_chars_extra = n_characters_per_line - n_chars_used;
-  const int level = get_lesson_index(any_word_list);
-  for (int i=0; i!=n_chars_extra; ++i)
+  //Always add one new_chars word
+  std::vector<std::string> v;
   {
-    // - word length = 2 + (level / 3)
-    const int word_length = 2 + (level / 3);
-    if (i % word_length == 0) { w.push_back(""); }
-    const int index = std::rand() % static_cast<int>(any_word_list.get_chars_in_lesson().size());
-    w.back()+=any_word_list.get_chars_in_lesson()[index];
+    const std::vector<std::string> w
+      = helper().shuffle(
+        any_word_list.get_new_char_words(),
+        rng_engine
+      );
+    assert(!w.empty());
+    v.push_back(w[0]);
   }
 
-  std::shuffle(std::begin(w),std::end(w),rng_engine);
+  //Collect the new words
+  {
+    const std::vector<std::string> w
+      = helper().shuffle(
+          any_word_list.get_all_legal_and_fitting_and_new(),
+          rng_engine
+        );
+    std::copy(
+      std::begin(w),
+      std::end(w),
+      std::back_inserter(v)
+    );
+  }
 
+  //If there are no new words, just use a random subset of old ones
+  if (helper().get_sum_length(v) < n_characters_per_line)
+  {
+    const std::vector<std::string> w
+      = helper().shuffle(
+        any_word_list.get_all_legal_and_fitting(),
+        rng_engine
+      );
+    std::copy(
+      std::begin(w),
+      std::end(w),
+      std::back_inserter(v)
+    );
+  }
 
-  const std::string result = helper().concatenate(w," ");
+  //If there are no new and old words, just use a random new characters
+  while (helper().get_sum_length(v) < n_characters_per_line)
+  {
+    const std::vector<std::string> w
+      = helper().shuffle(
+        any_word_list.get_new_char_words(),
+        rng_engine
+      );
+    std::copy(
+      std::begin(w),
+      std::end(w),
+      std::back_inserter(v)
+    );
+  }
+
+  v = helper().cap_at_sum_length(v,n_characters_per_line);
+
+  std::shuffle(std::begin(v),std::end(v),rng_engine);
+
+  const std::string result = helper().concatenate(v," ");
   return result;
 }
 
@@ -184,14 +209,16 @@ void ribi::ktclc::lesson::test() noexcept
     is_tested = true;
   }
   {
-    helper();
-    word_list("abcdefghijklmnopqrstuvwxyz","ab");
-  }
-  const test_timer test_timer(__func__,__FILE__,1.0);
-  const word_list a_word_list("abcdefghijklmnopqrstuvwxyz","ab");
-  {
     constexpr int rng_seed = 42;
     std::mt19937 rng_engine(rng_seed);
+    helper();
+    word_list("abcdefghijklmnopqrstuvwxyz","ab",rng_engine);
+  }
+  const test_timer test_timer(__func__,__FILE__,1.0);
+  constexpr int rng_seed = 42;
+  std::mt19937 rng_engine(rng_seed);
+  const word_list a_word_list("abcdefghijklmnopqrstuvwxyz","ab",rng_engine);
+  {
     const lesson a(
       "AB",
       "test title",

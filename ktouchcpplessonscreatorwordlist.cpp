@@ -28,13 +28,15 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 ribi::ktclc::word_list::word_list(
   const std::string& chars_in_lesson,
-  const std::string& new_characters
+  const std::string& new_characters,
+  std::mt19937& rng_engine
 ) noexcept
-  : m_all{create_all()},
-    m_all_legal{create_all_legal()},
+  : //m_all{create_all()},
+    //m_all_legal{create_all_legal()},
     m_all_legal_and_fitting{create_all_legal_and_fitting(chars_in_lesson)},
     m_all_legal_and_fitting_and_new{create_all_legal_and_fitting_and_new(chars_in_lesson,new_characters)},
-    m_chars_in_lesson{chars_in_lesson}
+    m_chars_in_lesson{chars_in_lesson},
+    m_new_char_words{create_new_char_words(new_characters,10,get_lesson_index(chars_in_lesson),rng_engine)}
 
 {
   #ifndef NDEBUG
@@ -52,10 +54,11 @@ std::vector<std::string> ribi::ktclc::word_list::create_all() noexcept
     ">=",
     ">>",
     "||",
-    //" ", //space here
     "!=",
     "//",
     "/*",
+    "{0}",
+    "{1}",
     "*/",
     "&&",
     "++a",
@@ -346,26 +349,8 @@ std::vector<std::string> ribi::ktclc::word_list::create_all() noexcept
     "using",
     "v[0]",
     "v[1]",
-    "v[2]",
-    "v[3]",
-    "v[4]",
-    "v[5]",
-    "v[6]",
-    "v[7]",
-    "v[8]",
-    "v[9]",
-    "v[10]",
     "v.at(0)",
     "v.at(1)",
-    "v.at(2)",
-    "v.at(3)",
-    "v.at(4)",
-    "v.at(5)",
-    "v.at(6)",
-    "v.at(7)",
-    "v.at(8)",
-    "v.at(9)",
-    "v.at(10)",
     "v.empty()",
     "v.size()",
     "virtual",
@@ -449,9 +434,40 @@ std::vector<std::string> ribi::ktclc::word_list::create_all_legal_and_fitting_an
   return w;
 }
 
+std::vector<std::string> ribi::ktclc::word_list::create_new_char_words(
+  const std::string& new_characters,
+  const int how_many,
+  const int level,
+  std::mt19937& rng_engine
+) noexcept
+{
+  assert(!new_characters.empty());
+  const int word_length = 2 + (level / 3);
+  //Create a string of word_length
+  const int n_additions = word_length / static_cast<int>(new_characters.size());
+  std::string s = new_characters;
+  for (int i=0; i!=n_additions; ++i)
+  {
+    s += new_characters;
+  }
+  std::vector<std::string> v;
+  for (int i=0; i!=how_many; ++i)
+  {
+    std::shuffle(std::begin(s),std::end(s),rng_engine);
+    v.push_back(s);
+  }
+  return v;
+}
+
 int ribi::ktclc::get_lesson_index(const word_list& a_word_list) noexcept
 {
-  const int lesson_index = static_cast<int>(a_word_list.get_chars_in_lesson().size()) / 2;
+  const int lesson_index = get_lesson_index(a_word_list.get_chars_in_lesson());
+  return lesson_index;
+}
+
+int ribi::ktclc::get_lesson_index(const std::string& chars_in_lesson) noexcept
+{
+  const int lesson_index = static_cast<int>(chars_in_lesson.size()) / 2;
   return lesson_index;
 }
 
@@ -475,9 +491,11 @@ void ribi::ktclc::word_list::test() noexcept
     if (is_tested) return;
     is_tested = true;
   }
-  const test_timer my_test_timer(__func__,__FILE__,10.0);
-  const word_list w("abcdefghijklmnopqrstuvwxyz","ab");
-  assert(!w.get_all().empty());
+  const test_timer my_test_timer(__func__,__FILE__,1.0);
+  constexpr int rng_seed = 42;
+  std::mt19937 rng_engine(rng_seed);
+  const word_list w("abcdefghijklmnopqrstuvwxyz","ab",rng_engine);
+  //assert(!w.get_all().empty());
 }
 #endif
 

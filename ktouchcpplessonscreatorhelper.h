@@ -23,7 +23,7 @@ struct helper
   ///cap_at_sum_length( {"abc","def","ghi"},7 ) == {"abc","def"}
   std::vector<std::string> cap_at_sum_length(std::vector<std::string> v, const int sum_length) const noexcept;
 
-  std::string concatenate(const std::vector<std::string>& s,const std::string seperator) const noexcept;
+  std::string concatenate(const std::vector<std::string>& v,const std::string seperator) const noexcept;
 
   ///Convert to escaped character sequence
   ///Convert "<>" to "&lt;&gt;"
@@ -42,6 +42,8 @@ struct helper
   ///Convert 'abc' to 'a, b and c'
   std::string enumerate(const std::string& s) const noexcept;
 
+  int get_sum_length(const std::vector<std::string>& v) const noexcept;
+
   static std::string get_version() noexcept;
   static std::vector<std::string> get_version_history() noexcept;
 
@@ -52,6 +54,13 @@ struct helper
     const char c,
     const std::string& desired_characters
   ) const noexcept;
+
+  template <class T, class R>
+  T shuffle(T t, R& rng_engine) const noexcept
+  {
+    std::shuffle(std::begin(t),std::end(t),rng_engine);
+    return t;
+  }
 
   template <class T>
   T sort(T t) const noexcept
