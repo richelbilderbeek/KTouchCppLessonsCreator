@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 /*
-KTouchLectureCreator, create KTouch lecture for C++ programmers
-Copyright (C) 2013 Richel Bilderbeek
+KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
+Copyright (C) 2013-2015 Richel Bilderbeek
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,28 +16,46 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 //---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchLectureCreator.htm
+//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
-#ifndef KTOUCHLECTURE_H
-#define KTOUCHLECTURE_H
+#ifndef KTOUCHLEVEL_H
+#define KTOUCHLEVEL_H
 
+#include <random>
 #include <string>
 #include <vector>
 
-#include "ktouchlevels.h"
+namespace ribi {
+namespace ktclc {
 
-struct KTouchLecture
+struct lesson
 {
-  KTouchLecture();
-  const std::vector<std::string> ToXml() const;
+  lesson(
+    const std::string& chars,
+    const std::string& new_chars,
+    const std::string& title,
+    std::mt19937& rng_engine
+  ) noexcept;
+  std::vector<std::string> to_xml() const noexcept;
 
   private:
-  const std::string m_comment;
-  const std::string m_font_suggestion;
-  const KTouchLevels m_levels;
+  const std::string m_line;
+  const std::string m_new_chars;
   const std::string m_title;
 
-  static const KTouchLevels CreateLevels();
+  static std::string create_line(
+    const std::string& chars,
+    std::mt19937& rng_engine
+  ) noexcept;
+
+  constexpr static const int n_characters_per_lesson = 1000;
+
+  #ifndef NDEBUG
+  static void test() noexcept;
+  #endif
 };
 
-#endif // KTOUCHLECTURE_H
+} //~namespace ktclc
+} //~namespace ribi
+
+#endif // KTOUCHLEVEL_H

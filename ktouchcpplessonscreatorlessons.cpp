@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 /*
-KTouchLectureCreator, create KTouch lecture for C++ programmers
-Copyright (C) 2013 Richel Bilderbeek
+KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
+Copyright (C) 2013-2015 Richel Bilderbeek
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,30 +16,28 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 //---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchLectureCreator.htm
+//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
-#include "ktouchlevels.h"
+#include "ktouchcpplessonscreatorlessons.h"
 
 #include <algorithm>
 #include <cassert>
 #include <numeric>
 
+#include "ktouchcpplessonscreatorhelper.h"
 #include "trace.h"
 
-template <class T>
-const T Sort(T t)
+ribi::ktclc::lessons::lessons(std::mt19937& rng_engine) noexcept
+  : m_v(create_levels(rng_engine))
 {
-  std::sort(t.begin(),t.end());
-  return t;
+  #ifndef NDEBUG
+  test();
+  #endif
 }
 
-KTouchLevels::KTouchLevels()
-  : m_v(CreateLevels())
-{
-
-}
-
-const std::vector<KTouchLevel> KTouchLevels::CreateLevels()
+std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_levels(
+  std::mt19937& rng_engine
+) noexcept
 {
   const std::vector<std::string> new_chars
   {
@@ -58,22 +56,33 @@ const std::vector<KTouchLevel> KTouchLevels::CreateLevels()
   #ifndef NDEBUG
   {
     const std::string all_chars = "`1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./~!@#$%^*()_+QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM>?|";
-    const std::string all_chars_sorted = Sort(all_chars);
+    const std::string all_chars_sorted = helper().sort(all_chars);
 
     std::string new_chars_str;
-    std::for_each(new_chars.begin(),new_chars.end(),
+    std::for_each(
+      std::begin(new_chars),
+      std::end(new_chars),
       [&new_chars_str](const std::string& s) { new_chars_str+=s; }
     );
-    const std::string new_chars_str_sorted = Sort(new_chars_str);
+    const std::string new_chars_str_sorted = helper().sort(new_chars_str);
 
     std::string difference;
-    std::set_difference(new_chars_str_sorted.begin(),new_chars_str_sorted.end(),all_chars_sorted.begin(),all_chars_sorted.end(),std::back_inserter(difference));
+    std::set_difference(
+      std::begin(new_chars_str_sorted),
+      std::end(new_chars_str_sorted),
+      std::begin(all_chars_sorted),
+      std::end(all_chars_sorted),
+      std::back_inserter(difference)
+    );
     //TRACE(difference);
 
 
     assert(new_chars_str.size() == all_chars.size());
     assert(
-      std::accumulate(new_chars.begin(),new_chars.end(),0,
+      std::accumulate(
+        std::begin(new_chars),
+        std::end(new_chars),
+        0,
         [](const int init, const std::string& t)
         {
           return init + static_cast<int>(t.size());
@@ -97,30 +106,53 @@ const std::vector<KTouchLevel> KTouchLevels::CreateLevels()
       }
     }
   }
+
   assert(all_chars.size() == new_chars.size());
   const int sz = all_chars.size();
 
-  std::vector<KTouchLevel> levels;
+  std::vector<lesson> levels;
 
   for (int i=0; i!=sz; ++i)
   {
-    KTouchLevel level(all_chars.at(i),new_chars.at(i));
+    lesson level(
+      all_chars.at(i),
+      new_chars.at(i),
+      "Lesson " + std::to_string(i),
+      rng_engine
+    );
     levels.push_back(level);
 
   }
   return levels;
 }
 
-const std::vector<std::string> KTouchLevels::ToXml() const
+#ifndef NDEBUG
+void ribi::ktclc::lessons::test() noexcept
+{
+  {
+    static bool is_tested = false;
+    if (is_tested) return;
+    is_tested = true;
+  }
+  helper();
+}
+#endif
+
+std::vector<std::string> ribi::ktclc::lessons::to_xml() const noexcept
 {
   std::vector<std::string> v;
-  v.push_back("<Levels>");
+  v.push_back("<lessons>");
   {
-    std::for_each(m_v.begin(),m_v.end(),
-      [&v](const KTouchLevel& level)
+    std::for_each(
+      std::begin(m_v),
+      std::end(m_v),
+      [&v](const lesson& level)
       {
-        const auto w = level.ToXml();
-        std::transform(w.begin(),w.end(),std::back_inserter(v),
+        const auto w = level.to_xml();
+        std::transform(
+          std::begin(w),
+          std::end(w),
+          std::back_inserter(v),
           [](const std::string& s)
           {
             return std::string("  ") + s;
@@ -129,6 +161,6 @@ const std::vector<std::string> KTouchLevels::ToXml() const
       }
     );
   }
-  v.push_back("</Levels>");
+  v.push_back("</lessons>");
   return v;
 }

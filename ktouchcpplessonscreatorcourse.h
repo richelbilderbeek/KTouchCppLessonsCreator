@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 /*
-KTouchLectureCreator, create KTouch lecture for C++ programmers
-Copyright (C) 2013 Richel Bilderbeek
+KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
+Copyright (C) 2013-2015 Richel Bilderbeek
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,24 +16,38 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 //---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchLectureCreator.htm
+//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
-#ifndef KTOUCHLEVELS_H
-#define KTOUCHLEVELS_H
+#ifndef KTOUCHLECTURE_H
+#define KTOUCHLECTURE_H
 
 #include <string>
 #include <vector>
-#include "ktouchlevel.h"
 
-struct KTouchLevels
+#include "ktouchcpplessonscreatorlessons.h"
+
+namespace ribi {
+namespace ktclc {
+
+struct course
 {
-  KTouchLevels();
-  const std::vector<std::string> ToXml() const;
+  course(const int rng_seed) noexcept;
+  std::vector<std::string> to_xml() const noexcept;
 
   private:
+  const std::string m_description;
+  const lessons m_levels;
+  const std::string m_title;
 
-  const std::vector<KTouchLevel> m_v;
-  static const std::vector<KTouchLevel> CreateLevels();
+  static lessons create_levels(const int rng_seed) noexcept;
+
+  #ifndef NDEBUG
+  static void test() noexcept;
+  #endif
 };
 
-#endif // KTOUCHLEVELS_H
+} //~namespace ktclc
+} //~namespace ribi
+
+
+#endif // KTOUCHLECTURE_H

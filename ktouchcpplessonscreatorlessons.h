@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 /*
-KTouchLectureCreator, create KTouch lecture for C++ programmers
-Copyright (C) 2013 Richel Bilderbeek
+KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
+Copyright (C) 2013-2015 Richel Bilderbeek
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,30 +16,35 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 //---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchLectureCreator.htm
+//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
-#ifndef KTOUCHLEVEL_H
-#define KTOUCHLEVEL_H
+#ifndef KTOUCHLEVELS_H
+#define KTOUCHLEVELS_H
 
+#include <random>
 #include <string>
 #include <vector>
+#include "ktouchcpplessonscreatorlesson.h"
 
-struct KTouchLevel
+namespace ribi {
+namespace ktclc {
+
+struct lessons
 {
-  KTouchLevel(const std::string& chars, const std::string& new_chars);
-  const std::vector<std::string> ToXml() const;
+  lessons(std::mt19937& rng_engine) noexcept;
+  std::vector<std::string> to_xml() const noexcept;
 
   private:
-  const std::vector<std::string> m_lines;
-  const std::string m_new_chars;
 
-  static const std::vector<std::string> CreateLines(const std::string& chars);
-  static const std::string CreateLine(const std::string& chars);
+  const std::vector<lesson> m_v;
+  static std::vector<lesson> create_levels(std::mt19937& rng_engine) noexcept;
 
-  ///Are all chars in s present in all?
-  static bool DoesFit(const std::string& s, const std::string all);
-
-  static void Test();
+  #ifndef NDEBUG
+  static void test() noexcept;
+  #endif
 };
 
-#endif // KTOUCHLEVEL_H
+} //~namespace ktclc
+} //~namespace ribi
+
+#endif // KTOUCHLEVELS_H

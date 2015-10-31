@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 /*
-KTouchLectureCreator, create KTouch lecture for C++ programmers
-Copyright (C) 2013 Richel Bilderbeek
+KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
+Copyright (C) 2013-2015 Richel Bilderbeek
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,32 +16,38 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 //---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchLectureCreator.htm
+//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
-#include "ktouchlevel.h"
-
+#include "ktouchcpplessonscreatorlesson.h"
+#include "ktouchcpplessonscreatorhelper.h"
 #include <algorithm>
 #include <cassert>
 #include <numeric>
 #include <set>
 
-template <class T>
-const T Sort(T t)
-{
-  std::sort(t.begin(),t.end());
-  return t;
-}
+#include <boost/uuid/uuid.hpp>
+#include <boost/uuid/uuid_generators.hpp>
+#include <boost/uuid/uuid_io.hpp>
 
-KTouchLevel::KTouchLevel(const std::string& chars, const std::string& new_chars)
-  : m_lines(CreateLines(chars)),
-    m_new_chars(new_chars)
+ribi::ktclc::lesson::lesson(
+  const std::string& chars,
+  const std::string& new_chars,
+  const std::string& title,
+  std::mt19937& rng_engine
+)  noexcept
+  : m_line{create_line(chars,rng_engine)},
+    m_new_chars{new_chars},
+    m_title{title}
 {
   #ifndef NDEBUG
-  Test();
+  test();
   #endif
 }
 
-const std::string KTouchLevel::CreateLine(const std::string& chars)
+std::string ribi::ktclc::lesson::create_line(
+  const std::string& chars,
+  std::mt19937& rng_engine
+) noexcept
 {
   const std::vector<std::string> v
   {
@@ -59,22 +65,13 @@ const std::string KTouchLevel::CreateLine(const std::string& chars)
     "asm",
     "auto",
     "bool",
-    "boost::any",
-    "boost::array",
-    "boost::compressed_pair",
-    "boost::dynamic_bitset",
-    "boost::multi_array",
-    "boost::ptr_array",
-    "boost::ptr_deque",
-    "boost::ptr_list",
-    "boost::ptr_map",
-    "boost::ptr_multimap",
-    "boost::ptr_multiset",
-    "boost::ptr_set",
-    "boost::ptr_vector",
-    "boost::shared_array",
-    "boost::tuple",
-    "boost::variant",
+    "boost::bimap",
+    "boost::lexical_cast",
+    "boost::scoped_ptr",
+    "boost::shared_ptr",
+    "boost::timer",
+    "boost::xpressive",
+    "boost::weak_ptr",
     "break;",
     "break",
     "C++11",
@@ -171,6 +168,19 @@ const std::string KTouchLevel::CreateLine(const std::string& chars)
     "std::adjacent_find",
     "std::all_of",
     "std::any_of",
+    "std::array",
+    "std::array",
+    "std::array<int,1>",
+    "std::array<int,2>",
+    "std::array<int,3>",
+    "std::array<double,4>",
+    "std::array<double,5>",
+    "std::array<double,6>",
+    "std::array<std::string,7>",
+    "std::array<std::array<int,8>,9>",
+    "std::array<std::array<double,10>,10>",
+    "std::array<std::array<std::string,10>,10>",
+    "std::begin",
     "std::binary_search",
     "std::bitset",
     "std::bit_vector",
@@ -184,6 +194,7 @@ const std::string KTouchLevel::CreateLine(const std::string& chars)
     "std::deque<int>",
     "std::deque<double>",
     "std::deque<std::string>",
+    "std::end",
     "std::equal",
     "std::equal_range",
     "std::fill",
@@ -252,7 +263,7 @@ const std::string KTouchLevel::CreateLine(const std::string& chars)
     "std::queue<double>",
     "std::queue<std::string>",
     "std::random_shuffle",
-    "std::random_shuffle(v.begin(),v.end())",
+    "std::random_shuffle(std::begin(v),std::end(v))",
     "std::remove",
     "std::remove_copy",
     "std::remove_copy_if",
@@ -277,7 +288,7 @@ const std::string KTouchLevel::CreateLine(const std::string& chars)
     "std::set_union",
     "std::slist",
     "std::sort",
-    "std::sort(v.begin(),v.end())",
+    "std::sort(std::begin(v),std::end(v))",
     "std::sort_heap",
     "std::stable_partition",
     "std::stable_sort",
@@ -334,13 +345,13 @@ const std::string KTouchLevel::CreateLine(const std::string& chars)
   };
   //Collect all fitting words
   std::vector<std::string> w;
-  std::copy_if(v.begin(),v.end(),std::back_inserter(w),
+  std::copy_if(std::begin(v),std::end(v),std::back_inserter(w),
     [chars](const std::string& s)
     {
-      return DoesFit(s,chars);
+      return helper().does_fit(s,chars);
     }
   );
-  std::random_shuffle(w.begin(),w.end());
+  std::shuffle(std::begin(w),std::end(w),rng_engine);
 
   //Keep the first 30 chars of words
   {
@@ -360,14 +371,17 @@ const std::string KTouchLevel::CreateLine(const std::string& chars)
   //const std::vector<std::pair<char,int> > histogram = Tally(w,chars);
 
   //Add words until 60 chars is reached
-  const int n_chars_used = std::accumulate(w.begin(),w.end(),0,
+  const int n_chars_used = std::accumulate(
+    std::begin(w),
+    std::end(w),
+    0,
     [](int& init, const std::string& s)
     {
       return init + static_cast<int>(s.size());
     }
   );
-  // - a line must have about 60 chars
-  const int n_chars_extra = 60 - n_chars_used;
+  // - a lesson have about n_characters_per_lesson chars
+  const int n_chars_extra = n_characters_per_lesson - n_chars_used;
   // - level = number_of_chars / 2
   const int level = static_cast<int>(chars.size());
   for (int i=0; i!=n_chars_extra; ++i)
@@ -379,10 +393,12 @@ const std::string KTouchLevel::CreateLine(const std::string& chars)
     w.back()+=chars[index];
   }
 
-  std::random_shuffle(w.begin(),w.end());
+  std::random_shuffle(std::begin(w),std::end(w));
 
   std::string result;
-  std::for_each(w.begin(),w.end(),
+  std::for_each(
+    std::begin(w),
+    std::end(w),
     [&result](const std::string& s)
     {
       result += (s + std::string(" "));
@@ -393,57 +409,26 @@ const std::string KTouchLevel::CreateLine(const std::string& chars)
   return result;
 }
 
-const std::vector<std::string> KTouchLevel::CreateLines(const std::string& chars)
+std::vector<std::string> ribi::ktclc::lesson::to_xml() const noexcept
 {
   std::vector<std::string> v;
-  const int n_lines = 10;
-  for (int i=0; i!=n_lines; ++i) { v.push_back(CreateLine(chars)); }
+  v.push_back("<lesson>");
+  v.push_back("<id>" + helper().create_uuid() + "</id>");
+  v.push_back("<title>" + m_title + "</title>");
+  v.push_back("<newCharacters>" + m_new_chars + "</newCharacters>");
+  v.push_back("<text>" + m_line + "</text>");
+  v.push_back("</lesson>");
   return v;
 }
 
-bool KTouchLevel::DoesFit(const std::string& s, const std::string all)
-{
-  const std::string t = Sort(s);
-  const std::string u = Sort(all);
-  //const std::set<char> a(s.begin(),s.end());
-  //const std::set<char> b(all.begin(),all.end());
-  std::string overlap;
-  std::set_intersection(t.begin(),t.end(),u.begin(),u.end(),std::back_inserter(overlap));
-  return overlap.size() == s.size();
-}
-
-const std::vector<std::string> KTouchLevel::ToXml() const
-{
-  std::vector<std::string> v;
-  v.push_back("<Level>");
-  {
-    const std::string s = "<NewCharacters>" + m_new_chars + "</NewCharacters>";
-    v.push_back(s);
-  }
-  std::transform(m_lines.begin(),m_lines.end(),std::back_inserter(v),
-    [](const std::string& s)
-    {
-      return std::string("  <Line>") + s + std::string("</Line>");
-    }
-  );
-  v.push_back("</Level>");
-  return v;
-}
-
-void KTouchLevel::Test()
+#ifndef NDEBUG
+void ribi::ktclc::lesson::test() noexcept
 {
   {
     static bool is_tested = false;
     if (is_tested) return;
     is_tested = true;
   }
-  //DoesFit
-  {
-    assert( DoesFit("a","a"));
-    assert(!DoesFit("b","a"));
-    assert( DoesFit("a","ab"));
-    assert( DoesFit("b","ab"));
-    assert( DoesFit("a","ba"));
-    assert( DoesFit("b","ba"));
-  }
+  helper();
 }
+#endif

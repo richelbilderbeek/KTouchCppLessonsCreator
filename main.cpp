@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 /*
-KTouchLectureCreator, create KTouch lecture for C++ programmers
-Copyright (C) 2013 Richel Bilderbeek
+KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
+Copyright (C) 2013-2015 Richel Bilderbeek
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,9 +16,9 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 //---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchLectureCreator.htm
+//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
-#include "ktouchlecture.h"
+#include "ktouchcpplessonscreatorcourse.h"
 
 #include <fstream>
 #include <iterator>
@@ -28,31 +28,30 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <cstdlib>
 #include <ctime>
 
-//From http://www.richelbilderbeek.nl/CppRandomizeTimer.htm
-void RandomizeTimer()
-{
-  std::srand(std::time(0));
-}
-
 //Version:
 //YYYY-MM-DD: Vx.y: [description]
 //2013-02-18: V1.0: initial version
+//2015-10-31: V2.0: initial version
 
 int main()
 {
   //Guidelines:
-  // - a line must have about 60 chars
+  // - a lesson must have about 1000 chars
   // - level = number_of_chars / 2
   // - word length = 2 + (level / 3)
-  // - a level must have about 10 lines
   // - every level must have about two new characters
   // - I do not care if words exist
   // - if a C++ construct exists, add it
   // - use all keys in the final level
   START_TRACE();
-  RandomizeTimer();
-
-  const auto v = KTouchLecture().ToXml();
+  const int rng_seed = 42;
+  const auto v = ribi::ktclc::course(rng_seed).to_xml();
   std::ofstream f("cpp.ktouch.xml");
-  std::copy(v.begin(),v.end(),std::ostream_iterator<std::string>(f,"\n"));
+  std::copy(
+    std::begin(v),
+    std::end(v),
+    std::ostream_iterator<std::string>(f,"\n")
+  );
+  // Under Lubuntu, lessons are here:
+  ///usr/share/kde4/apps/ktouch/courses
 }
