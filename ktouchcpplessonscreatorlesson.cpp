@@ -59,24 +59,14 @@ std::string ribi::ktclc::lesson::create_line(
 ) noexcept
 {
   std::vector<std::string> w = any_word_list.get_all_legal_and_fitting_and_new();
+
+  //If there are no new words, just use old ones
+  if (w.empty()) { w = any_word_list.get_all_legal_and_fitting(); }
+
   std::shuffle(std::begin(w),std::end(w),rng_engine);
 
-  //Keep the first 30 chars of words
-  {
-    const int sz = static_cast<int>(w.size());
-    int sum = 0;
-    for (int i=0; i!=sz; ++i)
-    {
-      assert(i >= 0);
-      assert(i < static_cast<int>(w.size()));
-      sum += static_cast<int>(w[i].size());
-      if (sum > 30)
-      {
-        w.resize(i);
-        break;
-      }
-    }
-  }
+  w = helper().cap_at_sum_length(w,n_characters_per_line);
+
   //Add words until n_characters_per_line chars is reached
   const int n_chars_used = std::accumulate(
     std::begin(w),
@@ -87,7 +77,8 @@ std::string ribi::ktclc::lesson::create_line(
       return init + static_cast<int>(s.size());
     }
   );
-  // - a lesson have about n_characters_per_line chars
+
+  // - a lesson has about n_characters_per_line chars
   const int n_chars_extra = n_characters_per_line - n_chars_used;
   const int level = get_lesson_index(any_word_list);
   for (int i=0; i!=n_chars_extra; ++i)
@@ -101,19 +92,9 @@ std::string ribi::ktclc::lesson::create_line(
 
   std::shuffle(std::begin(w),std::end(w),rng_engine);
 
-  std::string result;
-  std::for_each(
-    std::begin(w),
-    std::end(w),
-    [&result](const std::string& s)
-    {
-      result += (s + std::string(" "));
-    }
-  );
-  //Remove trailing whitespace
-  result.resize(result.size()-1);
 
- return result;
+  const std::string result = helper().concatenate(w," ");
+  return result;
 }
 
 std::vector<std::string> ribi::ktclc::lesson::create_lines(

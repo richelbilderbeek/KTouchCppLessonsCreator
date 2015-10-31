@@ -17,6 +17,13 @@ struct helper
     const std::string& desired_characters
   ) const noexcept;
 
+  ///Resize the vector before the sum of strings exceeds the sum_length,
+  ///Examples:
+  ///cap_at_sum_length( {"abc","def","ghi"},5 ) == {"abc"}
+  ///cap_at_sum_length( {"abc","def","ghi"},7 ) == {"abc","def"}
+  std::vector<std::string> cap_at_sum_length(std::vector<std::string> v, const int sum_length) const noexcept;
+
+  std::string concatenate(const std::vector<std::string>& s,const std::string seperator) const noexcept;
 
   ///Convert to escaped character sequence
   ///Convert "<>" to "&lt;&gt;"
@@ -30,6 +37,10 @@ struct helper
 
   ///Are all chars in s present in all?
   bool does_fit(const std::string& s, const std::string all) const noexcept;
+
+  ///Convert 'ab' to 'a and b'
+  ///Convert 'abc' to 'a, b and c'
+  std::string enumerate(const std::string& s) const noexcept;
 
   static std::string get_version() noexcept;
   static std::vector<std::string> get_version_history() noexcept;

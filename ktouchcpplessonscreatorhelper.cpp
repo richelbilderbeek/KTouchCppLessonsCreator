@@ -33,7 +33,53 @@ int ribi::ktclc::helper::calculate_score(
       ;
     }
   );
+}
 
+
+std::vector<std::string> ribi::ktclc::helper::cap_at_sum_length(
+  std::vector<std::string> v,
+  const int sum_length
+) const noexcept
+{
+  //Keep the first n_characters_per_line chars of words
+  const int sz = static_cast<int>(v.size());
+  int sum = 0;
+  for (int i=0; i!=sz; ++i)
+  {
+    assert(i >= 0);
+    assert(i < static_cast<int>(v.size()));
+    sum += static_cast<int>(v[i].size());
+    if (sum > sum_length)
+    {
+      v.resize(i);
+      break;
+    }
+    if (sum == sum_length)
+    {
+      assert(i + 1 <= static_cast<int>(v.size()));
+      v.resize(i + 1);
+      break;
+    }
+  }
+  return v;
+}
+
+std::string ribi::ktclc::helper::concatenate(const std::vector<std::string>& v,const std::string seperator) const noexcept
+{
+  std::string result;
+  std::for_each(
+    std::begin(v),
+    std::end(v),
+    [&result, seperator](const std::string& s)
+    {
+      result += (s + seperator);
+    }
+  );
+  //Remove trailing seperator
+  assert(result.size() >= seperator.size());
+  result.resize(result.size() - seperator.size());
+
+  return result;
 }
 
 std::string ribi::ktclc::helper::convert_to_escape(const char c) const noexcept
@@ -85,9 +131,29 @@ bool ribi::ktclc::helper::does_fit(const std::string& s, const std::string all) 
   return overlap.size() == s.size();
 }
 
+std::string ribi::ktclc::helper::enumerate(const std::string& s) const noexcept
+{
+  if (s.size() <= 1)
+  {
+    // "" -> ""
+    // "A" -> "A"
+    return s;
+  }
+  if (s.size() == 2)
+  {
+    return s[0] + std::string(" and ") + s[1];
+  }
+  if (s.size() == 3)
+  {
+    return s[0] + std::string(", ") + s[1] + " and " + s[2];
+  }
+  assert(!"Not implemented");
+  return s;
+}
+
 std::string ribi::ktclc::helper::get_version() noexcept
 {
-  return "1.1";
+  return "1.2";
 }
 
 std::vector<std::string> ribi::ktclc::helper::get_version_history() noexcept
@@ -95,6 +161,7 @@ std::vector<std::string> ribi::ktclc::helper::get_version_history() noexcept
   return {
     "2015-02-18: version 1.0: collected function used in KTouchCppLessonsCreator 1.0 in this class"
     "2015-02-18: version 1.1: added convert_to_escape"
+    "2015-02-18: version 1.2: added is_desired, calculate_score, enumerate, cap_at_sum_length"
   };
 }
 
@@ -196,6 +263,38 @@ void ribi::ktclc::helper::test() noexcept
     assert(h.calculate_score("" ,"") == 0);
     assert(h.calculate_score("a" ,"") == 0);
     assert(h.calculate_score("" ,"a") == 0);
+  }
+  //enumerate
+  {
+    assert(h.enumerate("A") == "A");
+    assert(h.enumerate("AB") == "A and B");
+    assert(h.enumerate("ABC") == "A, B and C");
+  }
+  //concatenate
+  {
+    assert(h.concatenate( {"A","B"}, " ") == "A B");
+    assert(h.concatenate( {"A","B","C"}, " ") == "A B C");
+    assert(h.concatenate( {"A","B","C"}, "_") == "A_B_C");
+    assert(h.concatenate( {"A","B","C"}, "--") == "A--B--C");
+    assert(h.concatenate( {"A"}, " ") == "A");
+    assert(h.concatenate( {"A"}, "--") == "A");
+  }
+  //cap_at_sum_length
+  {
+    const std::vector<std::string> v = {"abc","def","ghi"};
+    const std::vector<std::string> w = {"abc","def"};
+    const std::vector<std::string> x = {"abc"};
+    const std::vector<std::string> y = {};
+    assert(h.cap_at_sum_length(v,0) == y);
+    assert(h.cap_at_sum_length(v,1) == y);
+    assert(h.cap_at_sum_length(v,2) == y);
+    assert(h.cap_at_sum_length(v,3) == x);
+    assert(h.cap_at_sum_length(v,4) == x);
+    assert(h.cap_at_sum_length(v,5) == x);
+    assert(h.cap_at_sum_length(v,6) == w);
+    assert(h.cap_at_sum_length(v,7) == w);
+    assert(h.cap_at_sum_length(v,8) == w);
+    assert(h.cap_at_sum_length(v,9) == v);
   }
 }
 #endif

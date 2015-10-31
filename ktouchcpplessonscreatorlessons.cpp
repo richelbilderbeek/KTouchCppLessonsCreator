@@ -165,7 +165,10 @@ std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_lessons(
     );
     lesson this_lesson(
       new_chars[i],
-      "Lesson " + std::to_string(i),
+      "Lesson "
+        + std::to_string(i + 1) // Human counting
+        + ": "
+        + helper().enumerate(new_chars[i]),
       rng_engine,
       word_list_for_this_lesson
     );
