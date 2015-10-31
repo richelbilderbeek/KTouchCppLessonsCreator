@@ -28,7 +28,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "testtimer.h"
 
 ribi::ktclc::course::course(const int rng_seed) noexcept
-  : m_description("KTouch lessons file created by KTouchCppLessonsCreator, www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm"),
+  : m_description("KTouch lessons file created by KTouchCppLessonsCreator (using seed " + std::to_string(rng_seed) + "), www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm"),
     m_levels(create_levels(rng_seed)),
     m_title("C++")
 {
