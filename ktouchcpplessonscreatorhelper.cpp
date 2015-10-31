@@ -5,6 +5,8 @@
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
 
+#include "testtimer.h"
+
 ribi::ktclc::helper::helper() noexcept
 {
   #ifndef NDEBUG
@@ -34,6 +36,18 @@ bool ribi::ktclc::helper::does_fit(const std::string& s, const std::string all) 
   return overlap.size() == s.size();
 }
 
+std::string ribi::ktclc::helper::get_version() noexcept
+{
+  return "1.0";
+}
+
+std::vector<std::string> ribi::ktclc::helper::get_version_history() noexcept
+{
+  return {
+    "2015-02-18: version 1.0: collected function used in KTouchCppLessonsCreator 1.0 in this class"
+  };
+}
+
 #ifndef NDEBUG
 void ribi::ktclc::helper::test() noexcept
 {
@@ -42,6 +56,7 @@ void ribi::ktclc::helper::test() noexcept
     if (is_tested) return;
     is_tested = true;
   }
+  const test_timer my_test_timer(__func__,__FILE__,1.0);
   const helper h;
   //DoesFit
   {

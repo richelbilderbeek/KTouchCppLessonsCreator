@@ -18,40 +18,49 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 //---------------------------------------------------------------------------
 //From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
-#ifndef KTOUCHCPPLESSONSCREATORCOURSE_H
-#define KTOUCHCPPLESSONSCREATORCOURSE_H
+#ifndef KTOUCHCPPLESSONSCREATORMENUDIALOG_H
+#define KTOUCHCPPLESSONSCREATORMENUDIALOG_H
 
-#include <string>
-#include <vector>
-
-#include "ktouchcpplessonscreatorlessons.h"
+#include "menudialog.h"
 
 namespace ribi {
 namespace ktclc {
 
-struct course
+///GUI independent TestConceptMap menu dialog
+struct menu_dialog final : public ::ribi::MenuDialog
 {
-  course(const int rng_seed) noexcept;
+  using about = About;
+  using help = Help;
+
+  menu_dialog() noexcept;
+
+  static std::vector<std::string> convert_arguments(const int argc, const char * const argv[]) noexcept { return ConvertArguments(argc,argv); }
+
+  int execute(const std::vector<std::string>& args) noexcept { return Execute(args); }
+
+  static about get_about() noexcept { return menu_dialog().GetAbout(); }
+  static help get_help() noexcept { return menu_dialog().GetHelp(); }
 
   static std::string get_version() noexcept;
   static std::vector<std::string> get_version_history() noexcept;
 
-  std::vector<std::string> to_xml() const noexcept;
-
   private:
-  const std::string m_description;
-  const lessons m_levels;
-  const std::string m_title;
 
-  static lessons create_levels(const int rng_seed) noexcept;
+  int execute_specific(const std::vector<std::string>& args) noexcept;
 
   #ifndef NDEBUG
   static void test() noexcept;
   #endif
+
+  int ExecuteSpecific(const std::vector<std::string>& args) noexcept override { return execute_specific(args); }
+  about GetAbout() const noexcept override;
+  help GetHelp() const noexcept override;
+  std::string GetVersion() const noexcept override { return get_version(); }
+  std::vector<std::string> GetVersionHistory() const noexcept override { return get_version_history(); }
 };
 
 } //~namespace ktclc
 } //~namespace ribi
 
 
-#endif // KTOUCHCPPLESSONSCREATORCOURSE_H
+#endif // KTOUCHCPPLESSONSCREATORMENUDIALOG_H

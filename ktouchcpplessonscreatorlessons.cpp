@@ -25,6 +25,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <numeric>
 
 #include "ktouchcpplessonscreatorhelper.h"
+#include "testtimer.h"
 #include "trace.h"
 
 ribi::ktclc::lessons::lessons(std::mt19937& rng_engine) noexcept
@@ -126,6 +127,19 @@ std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_levels(
   return levels;
 }
 
+std::string ribi::ktclc::lessons::get_version() noexcept
+{
+  return "2.0";
+}
+
+std::vector<std::string> ribi::ktclc::lessons::get_version_history() noexcept
+{
+  return {
+    "2013-12-18: version 1.0: initial version",
+    "2015-02-18: version 2.0: works with KTouch version 2.3.0, use C++ Core Guideline coding standards"
+  };
+}
+
 #ifndef NDEBUG
 void ribi::ktclc::lessons::test() noexcept
 {
@@ -135,6 +149,13 @@ void ribi::ktclc::lessons::test() noexcept
     is_tested = true;
   }
   helper();
+  const test_timer my_test_timer(__func__,__FILE__,1.0);
+  {
+    constexpr int rng_seed = 42;
+    std::mt19937 rng_engine(rng_seed);
+    const lessons a(rng_engine);
+    assert(!a.to_xml().empty());
+  }
 }
 #endif
 

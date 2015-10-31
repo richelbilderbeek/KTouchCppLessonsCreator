@@ -19,15 +19,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 //From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
 #include "ktouchcpplessonscreatorlesson.h"
-#include "ktouchcpplessonscreatorhelper.h"
 #include <algorithm>
 #include <cassert>
 #include <numeric>
 #include <set>
-
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
+
+#include "ktouchcpplessonscreatorhelper.h"
+#include "testtimer.h"
 
 ribi::ktclc::lesson::lesson(
   const std::string& chars,
@@ -409,6 +410,19 @@ std::string ribi::ktclc::lesson::create_line(
   return result;
 }
 
+std::string ribi::ktclc::lesson::get_version() noexcept
+{
+  return "2.0";
+}
+
+std::vector<std::string> ribi::ktclc::lesson::get_version_history() noexcept
+{
+  return {
+    "2013-12-18: version 1.0: initial version",
+    "2015-02-18: version 2.0: works with KTouch version 2.3.0, use C++ Core Guideline coding standards"
+  };
+}
+
 std::vector<std::string> ribi::ktclc::lesson::to_xml() const noexcept
 {
   std::vector<std::string> v;
@@ -430,5 +444,17 @@ void ribi::ktclc::lesson::test() noexcept
     is_tested = true;
   }
   helper();
+  const test_timer test_timer(__func__,__FILE__,1.0);
+  {
+    constexpr int rng_seed = 42;
+    std::mt19937 rng_engine(rng_seed);
+    const lesson a(
+      "ab",
+      "cd",
+      "test title",
+      rng_engine
+    );
+    assert(!a.to_xml().empty());
+  }
 }
 #endif

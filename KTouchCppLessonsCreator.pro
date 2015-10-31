@@ -5,10 +5,12 @@ SOURCES += main.cpp \
     ktouchcpplessonscreatorhelper.cpp \
     ktouchcpplessonscreatorcourse.cpp \
     ktouchcpplessonscreatorlessons.cpp \
-    ktouchcpplessonscreatorlesson.cpp
+    ktouchcpplessonscreatorlesson.cpp \
+    ktouchcpplessonscreatormenudialog.cpp
 
 HEADERS += \
     ktouchcpplessonscreatorhelper.h \
     ktouchcpplessonscreatorcourse.h \
     ktouchcpplessonscreatorlesson.h \
-    ktouchcpplessonscreatorlessons.h
+    ktouchcpplessonscreatorlessons.h \
+    ktouchcpplessonscreatormenudialog.h

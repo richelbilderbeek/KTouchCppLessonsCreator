@@ -18,8 +18,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 //---------------------------------------------------------------------------
 //From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
-#ifndef KTOUCHLEVELS_H
-#define KTOUCHLEVELS_H
+#ifndef KTOUCHCPPLESSONSCREATORLESSONS_H
+#define KTOUCHCPPLESSONSCREATORLESSONS_H
 
 #include <random>
 #include <string>
@@ -34,6 +34,9 @@ struct lessons
   lessons(std::mt19937& rng_engine) noexcept;
   std::vector<std::string> to_xml() const noexcept;
 
+  static std::string get_version() noexcept;
+  static std::vector<std::string> get_version_history() noexcept;
+
   private:
 
   const std::vector<lesson> m_v;
@@ -47,4 +50,4 @@ struct lessons
 } //~namespace ktclc
 } //~namespace ribi
 
-#endif // KTOUCHLEVELS_H
+#endif // KTOUCHCPPLESSONSCREATORLESSONS_H

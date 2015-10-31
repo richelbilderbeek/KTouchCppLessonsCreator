@@ -21,9 +21,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "ktouchcpplessonscreatorcourse.h"
 
 #include <algorithm>
-
+#include <cassert>
 #include <sstream>
+
 #include "ktouchcpplessonscreatorhelper.h"
+#include "testtimer.h"
 
 ribi::ktclc::course::course(const int rng_seed) noexcept
   : m_description("KTouch lessons file created by KTouchCppLessonsCreator, www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm"),
@@ -41,6 +43,19 @@ ribi::ktclc::lessons ribi::ktclc::course::create_levels(const int rng_seed) noex
   return lessons(rng_engine);
 }
 
+std::string ribi::ktclc::course::get_version() noexcept
+{
+  return "2.0";
+}
+
+std::vector<std::string> ribi::ktclc::course::get_version_history() noexcept
+{
+  return {
+    "2013-12-18: version 1.0: initial version",
+    "2015-02-18: version 2.0: works with KTouch version 2.3.0, use C++ Core Guideline coding standards"
+  };
+}
+
 #ifndef NDEBUG
 void ribi::ktclc::course::test() noexcept
 {
@@ -49,7 +64,22 @@ void ribi::ktclc::course::test() noexcept
     if (is_tested) return;
     is_tested = true;
   }
-  helper();
+  {
+    helper();
+  }
+  //Trigger lessons
+  {
+    constexpr int rng_seed = 42;
+    std::mt19937 rng_engine(rng_seed);
+    const lessons a(rng_engine);
+    assert(!a.to_xml().empty());
+  }
+  const test_timer my_test_timer(__func__,__FILE__,1.0);
+  {
+    constexpr int rng_seed = 42;
+    const course a(rng_seed);
+    assert(!a.to_xml().empty());
+  }
 }
 #endif
 

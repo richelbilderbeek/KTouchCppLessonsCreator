@@ -16,6 +16,9 @@ struct helper
   ///Are all chars in s present in all?
   bool does_fit(const std::string& s, const std::string all) const noexcept;
 
+  static std::string get_version() noexcept;
+  static std::vector<std::string> get_version_history() noexcept;
+
   template <class T>
   T sort(T t) const noexcept
   {
