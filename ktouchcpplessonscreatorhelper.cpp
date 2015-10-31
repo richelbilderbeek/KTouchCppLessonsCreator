@@ -15,6 +15,33 @@ ribi::ktclc::helper::helper() noexcept
   #endif
 }
 
+std::string ribi::ktclc::helper::convert_to_escape(const char c) const noexcept
+{
+  std::string s;
+  switch (c)
+  {
+    case '<' : s+="&lt;"  ; break;
+    case '>' : s+="&gt;"  ; break;
+    case '&' : s+="&amp;" ; break;
+    case '\'': s+="&apos;"; break;
+    case '\"': s+="&quot;"; break;
+    default  : s+=c       ; break;
+  }
+  return s;
+}
+
+std::string ribi::ktclc::helper::convert_to_escape(const std::string& s) const noexcept
+{
+  std::string t;
+  //Cannot use std::transform here, as a std::string cannot be back_inserted to a std::string
+  for (const auto c: s)
+  {
+    t += helper().convert_to_escape(c);
+  }
+  return t;
+}
+
+
 std::string ribi::ktclc::helper::create_uuid() const noexcept
 {
   std::stringstream s;
@@ -39,13 +66,14 @@ bool ribi::ktclc::helper::does_fit(const std::string& s, const std::string all) 
 
 std::string ribi::ktclc::helper::get_version() noexcept
 {
-  return "1.0";
+  return "1.1";
 }
 
 std::vector<std::string> ribi::ktclc::helper::get_version_history() noexcept
 {
   return {
     "2015-02-18: version 1.0: collected function used in KTouchCppLessonsCreator 1.0 in this class"
+    "2015-02-18: version 1.1: added convert_to_escape"
   };
 }
 
@@ -88,6 +116,32 @@ void ribi::ktclc::helper::test() noexcept
     assert(!h.has_forbidden("static_cast"));
     assert( h.has_forbidden("1 < 2"));
     assert( h.has_forbidden("1 > 2"));
+    assert( h.has_forbidden("1 & 2"));
+    assert( h.has_forbidden("1 / 2"));
+    assert( h.has_forbidden("1 \" 2"));
+    assert( h.has_forbidden("1 \' 2"));
+  }
+  //convert_to_escape
+  {
+    assert(h.convert_to_escape('a') == "a");
+    assert(h.convert_to_escape('A') == "A");
+    assert(h.convert_to_escape('!') == "!");
+    assert(h.convert_to_escape('<') == "&lt;");
+    assert(h.convert_to_escape('>') == "&gt;");
+    assert(h.convert_to_escape('&') == "&amp;");
+    assert(h.convert_to_escape('\'') == "&apos;");
+    assert(h.convert_to_escape('\"') == "&quot;");
+  }
+  //convert_to_escape
+  {
+    assert(h.convert_to_escape("a") == "a");
+    assert(h.convert_to_escape("A") == "A");
+    assert(h.convert_to_escape("!") == "!");
+    assert(h.convert_to_escape("<") == "&lt;");
+    assert(h.convert_to_escape(">") == "&gt;");
+    assert(h.convert_to_escape("&") == "&amp;");
+    assert(h.convert_to_escape("\'") == "&apos;");
+    assert(h.convert_to_escape("\"") == "&quot;");
   }
 }
 #endif

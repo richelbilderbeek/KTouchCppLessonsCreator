@@ -11,6 +11,14 @@ struct helper
 {
   helper() noexcept;
 
+  ///Convert to escaped character sequence
+  ///Convert "<>" to "&lt;&gt;"
+  std::string convert_to_escape(const std::string& s) const noexcept;
+
+  ///Convert to escaped character sequence
+  ///Convert '<' to '&lt'
+  std::string convert_to_escape(const char c) const noexcept;
+
   std::string create_uuid() const noexcept;
 
   ///Are all chars in s present in all?

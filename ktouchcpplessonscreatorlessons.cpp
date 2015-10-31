@@ -25,6 +25,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <numeric>
 
 #include "ktouchcpplessonscreatorhelper.h"
+#include "ktouchcpplessonscreatorwordlist.h"
 #include "testtimer.h"
 #include "trace.h"
 
@@ -42,7 +43,7 @@ std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_lessons(
 {
   const std::vector<std::string> new_chars
   {
-    #ifdef KTOUCH_CAN_HANDLE_BRACKETS
+    #ifdef KTOUCH_CAN_HANDLE_XML_ESCAPED_CHARACTERS
     //Cannot allow / because file will mess up
     //Cannot allow & because file will mess up
     //Cannot allow < because file will mess up
@@ -64,15 +65,15 @@ std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_lessons(
     "CN","VM","BX","Z?", //Shift + Low
     "EU","RI","TO","YP","W{","Q}", //Shift + High
     "#(","$*","%","^)","@_","!+","~|" //Shift + Numbers
-    #endif //KTOUCH_CAN_HANDLE_BRACKETS
+    #endif //KTOUCH_CAN_HANDLE_XML_ESCAPED_CHARACTERS
   };
   #ifndef NDEBUG
   {
-    #ifdef KTOUCH_CAN_HANDLE_BRACKETS
+    #ifdef KTOUCH_CAN_HANDLE_XML_ESCAPED_CHARACTERS
     const std::string all_chars = "`1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./~!@#$%^*()_+QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM>?|";
     #else
     const std::string all_chars = "`1234567890-=qwertyuiop[]asdfghjkl;zxcvbnm,.~!@#$%^*()_+QWERTYUIOP{}ASDFGHJKL:ZXCVBNM?|\\";
-    #endif //KTOUCH_CAN_HANDLE_BRACKETS
+    #endif //KTOUCH_CAN_HANDLE_XML_ESCAPED_CHARACTERS
     assert(!helper().has_forbidden(all_chars));
     const std::string all_chars_sorted = helper().sort(all_chars);
 
@@ -153,6 +154,7 @@ std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_lessons(
 
   std::vector<lesson> lessons;
 
+  const word_list any_word_list;
   for (int i=0; i!=sz; ++i)
   {
     assert(i >= 0);
@@ -162,7 +164,8 @@ std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_lessons(
       all_chars[i],
       new_chars[i],
       "Lesson " + std::to_string(i),
-      rng_engine
+      rng_engine,
+      any_word_list
     );
     lessons.push_back(level);
 
@@ -212,8 +215,8 @@ std::vector<std::string> ribi::ktclc::lessons::to_xml() const noexcept
       std::end(m_lesson),
       [&v](const lesson& lesson)
       {
-        //m_lesson must supply the correct indentation. Note that the
-        //XML text tag has an indentation level of zero
+        //m_lesson must supply the correct indentation.
+        //Note that the XML text tag has an indentation level of zero
         const auto w = lesson.to_xml();
         std::copy(
           std::begin(w),

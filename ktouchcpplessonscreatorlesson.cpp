@@ -31,15 +31,17 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <boost/uuid/uuid_io.hpp>
 
 #include "ktouchcpplessonscreatorhelper.h"
+#include "ktouchcpplessonscreatorwordlist.h"
 #include "testtimer.h"
 
 ribi::ktclc::lesson::lesson(
   const std::string& chars,
   const std::string& new_chars,
   const std::string& title,
-  std::mt19937& rng_engine
+  std::mt19937& rng_engine,
+  const word_list& any_word_list
 )  noexcept
-  : m_lines{create_lines(chars,rng_engine)},
+  : m_lines{create_lines(chars,rng_engine,any_word_list)},
     m_new_chars{new_chars},
     m_title{title},
     m_uuid{helper().create_uuid()}
@@ -54,321 +56,11 @@ ribi::ktclc::lesson::lesson(
 
 std::string ribi::ktclc::lesson::create_line(
   const std::string& chars,
-  std::mt19937& rng_engine
+  std::mt19937& rng_engine,
+  const word_list& any_word_list
 ) noexcept
 {
-  const std::vector<std::string> v_raw = {
-    " ",
-    "==",
-    "<=",
-    ">=",
-    "!=",
-    "^=",
-    "<<",
-    ">>",
-    "&&",
-    "||",
-    "//",
-    "/*",
-    "*/",
-    "++a",
-    "++b",
-    "a!=b",
-    "a==b",
-    "alignas",
-    "alignof",
-    "asm",
-    "auto",
-    "bool",
-    "boost::bimap",
-    "boost::lexical_cast",
-    "boost::scoped_ptr",
-    "boost::shared_ptr",
-    "boost::timer",
-    "boost::xpressive",
-    "boost::weak_ptr",
-    "break;",
-    "break",
-    "C++11",
-    "C++11",
-    "C++98",
-    "C++98",
-    "case:",
-    "case",
-    "catch",
-    "char",
-    "char16_t",
-    "char32_t",
-    "class",
-    "const",
-    "const_cast",
-    "const_cast<const double>",
-    "const_cast<const int>",
-    "const_cast<const std::string>",
-    "const_cast<double>",
-    "const_cast<int>",
-    "const_cast<std::string>",
-    "constexpr",
-    "continue;",
-    "continue",
-    "decltype",
-    "default:",
-    "default",
-    "#define",
-    "delete",
-    "do",
-    "double",
-    "dynamic_cast",
-    "dynamic_cast<const T*>",
-    "dynamic_cast<const T*>",
-    "dynamic_cast<const T* const>",
-    "dynamic_cast<T*>",
-    "dynamic_cast<T* const>",
-    "#elif",
-    "#else",
-    "else",
-    "enum",
-    "explicit",
-    "export",
-    "extern",
-    "false",
-    "final",
-    "float",
-    "for",
-    "friend",
-    "goto",
-    "if",
-    "++i",
-    "++j",
-    "i!=j",
-    "i==j",
-    "#ifdef",
-    "#ifndef",
-    "#include",
-    "inline",
-    "int",
-    "long",
-    "mutable",
-    "namespace",
-    "new",
-    "noexcept",
-    "nullptr",
-    "operator==",
-    "operator-=",
-    "operator--",
-    "operator/=",
-    "operator",
-    "operator*=",
-    "operator+=",
-    "operator++",
-    "private:",
-    "private",
-    "protected:",
-    "protected",
-    "public:",
-    "public",
-    "register",
-    "reinterpret_cast",
-    "reinterpret_cast<T*>",
-    "return",
-    "short",
-    "signed",
-    "sizeof",
-    "static",
-    "static_assert",
-    "static_cast",
-    "static_cast<double>",
-    "static_cast<int>",
-    "std::accumulate",
-    "std::adjacent_find",
-    "std::all_of",
-    "std::any_of",
-    "std::array",
-    "std::array",
-    "std::array<int,1>",
-    "std::array<int,2>",
-    "std::array<int,3>",
-    "std::array<double,4>",
-    "std::array<double,5>",
-    "std::array<double,6>",
-    "std::array<std::string,7>",
-    "std::array<std::array<int,8>,9>",
-    "std::array<std::array<double,10>,10>",
-    "std::array<std::array<std::string,10>,10>",
-    "std::begin",
-    "std::binary_search",
-    "std::bitset",
-    "std::bit_vector",
-    "std::copy",
-    "std::copy_backward",
-    "std::copy_if",
-    "std::copy_n",
-    "std::count",
-    "std::count_if",
-    "std::deque",
-    "std::deque<int>",
-    "std::deque<double>",
-    "std::deque<std::string>",
-    "std::end",
-    "std::equal",
-    "std::equal_range",
-    "std::fill",
-    "std::find",
-    "std::find_end",
-    "std::find_first_of",
-    "std::find_if",
-    "std::find_if_not",
-    "std::for_each",
-    "std::generate",
-    "std::generate_n",
-    "std::hash",
-    "std::hash_map",
-    "std::hash_multimap",
-    "std::hash_multiset",
-    "std::hash_set",
-    "std::includes",
-    "std::inplace_merge",
-    "std::iota",
-    "std::is_heap",
-    "std::is_heap_until",
-    "std::is_sorted",
-    "std::is_sorted_until",
-    "std::iter_swap",
-    "std::lexicographical_compare",
-    "std::list",
-    "std::list<int>",
-    "std::list<double>",
-    "std::list<std::string>",
-    "std::lower_bound",
-    "std::make_heap",
-    "std::map",
-    "std::map<int,int>",
-    "std::map<double,double>",
-    "std::map<std::string,std::string>",
-    "std::max",
-    "std::max_element",
-    "std::merge",
-    "std::min",
-    "std::min_element",
-    "std::minmax",
-    "std::minmax_element",
-    "std::mismatch",
-    "std::move",
-    "std::move_backward",
-    "std::multimap",
-    "std::multiset",
-    "std::next_permutation",
-    "std::none_of",
-    "std::nth_element",
-    "std::pair",
-    "std::pair<int,int>",
-    "std::pair<double,double>",
-    "std::pair<std::string,std::string>",
-    "std::partial_sort",
-    "std::partial_sort_copy",
-    "std::partition",
-    "std::partition_copy",
-    "std::partition_point",
-    "std::pop_heap",
-    "std::prev_permutation",
-    "std::priority_queue",
-    "std::push_heap",
-    "std::queue",
-    "std::queue<int>",
-    "std::queue<double>",
-    "std::queue<std::string>",
-    "std::random_shuffle",
-    "std::random_shuffle(std::begin(v),std::end(v))",
-    "std::remove",
-    "std::remove_copy",
-    "std::remove_copy_if",
-    "std::remove_if",
-    "std::replace",
-    "std::replace_copy",
-    "std::replace_copy_if",
-    "std::replace_if",
-    "std::reverse",
-    "std::reverse_copy",
-    "std::rope",
-    "std::rotate",
-    "std::rotate_copy",
-    "std::search",
-    "std::search_n",
-    "std::set",
-    "std::set<int>",
-    "std::set<std::string>",
-    "std::set_difference",
-    "std::set_intersection",
-    "std::set_symmetric_difference",
-    "std::set_union",
-    "std::slist",
-    "std::sort",
-    "std::sort(std::begin(v),std::end(v))",
-    "std::sort_heap",
-    "std::stable_partition",
-    "std::stable_sort",
-    "std::stack",
-    "std::stack<int>",
-    "std::stack<double>",
-    "std::stack<std::string>",
-    "std::string",
-    "std::swap",
-    "std::swap_ranges",
-    "std::transform",
-    "std::unique",
-    "std::unique_copy",
-    "std::upper_bound",
-    "std::valarray",
-    "std::vector",
-    "std::vector<int>",
-    "std::vector<double>",
-    "std::vector<std::string>",
-    "std::vector<std::vector<int>>",
-    "std::vector<std::vector<double>>",
-    "std::vector<std::vector<std::string>>",
-    "s.empty()",
-    "s.size()",
-    "s.at(0)",
-    "s[0]",
-    "struct",
-    "switch",
-    "t.empty()",
-    "t.size()",
-    "t.at(0)",
-    "t[0]",
-    "template",
-    "this",
-    "thread_local",
-    "throw",
-    "true",
-    "try",
-    "typedef",
-    "typeid",
-    "typename",
-    "union",
-    "unsigned",
-    "using",
-    "v.empty()",
-    "v.size()",
-    "v.at(0)",
-    "v[0]",
-    "virtual",
-    "void",
-    "volatile",
-    "wchar_t",
-    "while"
-  };
-  #ifdef KTOUCH_CAN_HANDLE_BRACKETS
-  const std::vector<std::string> v = v_raw;
-  #else
-  std::vector<std::string> v;
-  std::copy_if(
-    std::begin(v_raw),
-    std::end(v_raw),
-    std::back_inserter(v),
-    [](const std::string& s) { return !helper().has_forbidden(s); }
-  );
-  #endif
+  const std::vector<std::string> v = any_word_list.get_all_legal();
 
   //Collect all fitting words
   std::vector<std::string> w;
@@ -438,12 +130,16 @@ std::string ribi::ktclc::lesson::create_line(
 
 std::vector<std::string> ribi::ktclc::lesson::create_lines(
   const std::string& chars,
-  std::mt19937& rng_engine
+  std::mt19937& rng_engine,
+  const word_list& any_word_list
 ) noexcept
 {
   std::vector<std::string> v;
   const int n_lines = n_lines_per_lesson;
-  for (int i=0; i!=n_lines; ++i) { v.push_back(create_line(chars,rng_engine)); }
+  for (int i=0; i!=n_lines; ++i)
+  {
+    v.push_back(create_line(chars,rng_engine,any_word_list));
+  }
   return v;
 }
 
@@ -493,10 +189,13 @@ std::vector<std::string> ribi::ktclc::lesson::to_xml() const noexcept
     // series of spaces that need to be typed
     std::stringstream s;
     s << "      <text>";
-    std::copy(
+    //The string is converted to non-invasive XML here, i.e.
+    // '<' becomes '&lt;'
+    std::transform(
       std::begin(m_lines),
       std::end(m_lines),
-      std::ostream_iterator<std::string>(s,"\n")
+      std::ostream_iterator<std::string>(s,"\n"),
+      [](const std::string& s) { return helper().convert_to_escape(s); }
     );
     std::string text = s.str();
     assert(!text.empty());
@@ -516,8 +215,12 @@ void ribi::ktclc::lesson::test() noexcept
     if (is_tested) return;
     is_tested = true;
   }
-  helper();
+  {
+    helper();
+    word_list();
+  }
   const test_timer test_timer(__func__,__FILE__,1.0);
+  const word_list a_word_list;
   {
     constexpr int rng_seed = 42;
     std::mt19937 rng_engine(rng_seed);
@@ -525,7 +228,8 @@ void ribi::ktclc::lesson::test() noexcept
       "abcdefghijklmnopqrstuvwxyz",
       "AB",
       "test title",
-      rng_engine
+      rng_engine,
+      a_word_list
     );
     assert(!a.to_xml().empty());
   }

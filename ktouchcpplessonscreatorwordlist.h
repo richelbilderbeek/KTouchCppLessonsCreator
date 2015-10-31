@@ -18,59 +18,38 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 //---------------------------------------------------------------------------
 //From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
-#ifndef KTOUCHCPPLESSONSCREATORLESSON_H
-#define KTOUCHCPPLESSONSCREATORLESSON_H
+#ifndef KTOUCHCPPLESSONSCREATORWORDLIST_H
+#define KTOUCHCPPLESSONSCREATORWORDLIST_H
 
-#include <random>
 #include <string>
 #include <vector>
 
 namespace ribi {
 namespace ktclc {
 
-struct word_list;
-
-///Can create the XML of a KTouch lesson
-struct lesson
+///All words used
+struct word_list
 {
-  ///chars: character that can be assumed to be mastered
-  ///new_chars: new character that are to be mastered in this lesson
-  ///title: title of this lesson
-  ///rng_engine: RNG engine
-  lesson(
-    const std::string& chars,
-    const std::string& new_chars,
-    const std::string& title,
-    std::mt19937& rng_engine,
-    const word_list& any_word_list
-  ) noexcept;
+  word_list() noexcept;
+
+  ///Get all the words I want to train
+  const std::vector<std::string>& get_all() const noexcept { return m_all; }
+
+  ///Get all the words that can currently be handled ky KTouch
+  const std::vector<std::string>& get_all_legal() const noexcept { return m_all_legal; }
 
   static std::string get_version() noexcept;
   static std::vector<std::string> get_version_history() noexcept;
 
-  std::vector<std::string> to_xml() const noexcept;
-
   private:
-  const std::vector<std::string> m_lines;
-  const std::string m_new_chars;
-  const std::string m_title;
-  const std::string m_uuid;
+  const std::vector<std::string> m_all;
+  const std::vector<std::string> m_all_legal;
 
-  static std::string create_line(
-    const std::string& chars,
-    std::mt19937& rng_engine,
-    const word_list& any_word_list
-  ) noexcept;
+  ///Get all the words I want to train
+  static std::vector<std::string> create_all() noexcept;
 
-  static std::vector<std::string> create_lines(
-    const std::string& chars,
-    std::mt19937& rng_engine,
-    const word_list& any_word_list
-  ) noexcept;
-
-  constexpr static const int n_characters_per_line = 60;
-  constexpr static const int n_characters_per_lesson = 1000;
-  constexpr static const int n_lines_per_lesson = n_characters_per_lesson / n_characters_per_line;
+  ///Get all the words that can currently be handled ky KTouch
+  static std::vector<std::string> create_all_legal() noexcept;
 
   #ifndef NDEBUG
   static void test() noexcept;
@@ -80,4 +59,5 @@ struct lesson
 } //~namespace ktclc
 } //~namespace ribi
 
-#endif // KTOUCHCPPLESSONSCREATORLESSON_H
+
+#endif // KTOUCHCPPLESSONSCREATORWORDLIST_H

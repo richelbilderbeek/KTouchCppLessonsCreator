@@ -6,11 +6,13 @@ SOURCES += main.cpp \
     ktouchcpplessonscreatorcourse.cpp \
     ktouchcpplessonscreatorlessons.cpp \
     ktouchcpplessonscreatorlesson.cpp \
-    ktouchcpplessonscreatormenudialog.cpp
+    ktouchcpplessonscreatormenudialog.cpp \
+    ktouchcpplessonscreatorwordlist.cpp
 
 HEADERS += \
     ktouchcpplessonscreatorhelper.h \
     ktouchcpplessonscreatorcourse.h \
     ktouchcpplessonscreatorlesson.h \
     ktouchcpplessonscreatorlessons.h \
-    ktouchcpplessonscreatormenudialog.h
+    ktouchcpplessonscreatormenudialog.h \
+    ktouchcpplessonscreatorwordlist.h
