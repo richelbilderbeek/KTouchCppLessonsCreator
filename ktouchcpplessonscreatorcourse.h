@@ -44,7 +44,7 @@ struct course
   const lessons m_lessons;
   const std::string m_title;
 
-  static lessons create_levels(const int rng_seed) noexcept;
+  static lessons create_lessons(const int rng_seed) noexcept;
 
   #ifndef NDEBUG
   static void test() noexcept;

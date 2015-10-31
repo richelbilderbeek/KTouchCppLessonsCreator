@@ -26,9 +26,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "testtimer.h"
 #include "ktouchcpplessonscreatorhelper.h"
 
-ribi::ktclc::word_list::word_list() noexcept
+ribi::ktclc::word_list::word_list(
+  const std::string& chars_in_lesson,
+  const std::string& new_characters
+) noexcept
   : m_all{create_all()},
-    m_all_legal{create_all_legal()}
+    m_all_legal{create_all_legal()},
+    m_all_legal_and_fitting{create_all_legal_and_fitting(chars_in_lesson)},
+    m_all_legal_and_fitting_and_new{create_all_legal_and_fitting_and_new(chars_in_lesson,new_characters)},
+    m_chars_in_lesson{chars_in_lesson}
+
 {
   #ifndef NDEBUG
   test();
@@ -353,6 +360,68 @@ std::vector<std::string> ribi::ktclc::word_list::create_all_legal() noexcept
   return w;
 }
 
+std::vector<std::string> ribi::ktclc::word_list::create_all_legal_and_fitting(
+  const std::string& chars_in_lesson
+) noexcept
+{
+  const auto v = create_all_legal();
+  std::vector<std::string> w;
+  std::copy_if(
+    std::begin(v),
+    std::end(v),
+    std::back_inserter(w),
+    [chars_in_lesson](const std::string& s)
+    {
+      return helper().does_fit(s,chars_in_lesson);
+    }
+  );
+  return w;
+}
+
+std::vector<std::string> ribi::ktclc::word_list::create_all_legal_and_fitting_and_new(
+  const std::string& chars_in_lesson,
+  const std::string& new_characters
+) noexcept
+{
+  const auto v = create_all_legal_and_fitting(chars_in_lesson);
+
+  //Tally the new_characters a word has
+  std::vector<int> tally;
+  std::transform(
+    std::begin(v),
+    std::end(v),
+    std::back_inserter(tally),
+    [chars_in_lesson,new_characters](const std::string& s)
+    {
+      return helper().calculate_score(s,new_characters);
+    }
+  );
+  assert(v.size() == tally.size());
+
+  //Copy the words in the resulting vector 'tally' times
+  std::vector<std::string> w;
+  const int sz{static_cast<int>(v.size())};
+  for (int i=0; i!=sz; ++i)
+  {
+    assert(i >= 0);
+    assert(i < static_cast<int>(tally.size()));
+    assert(i < static_cast<int>(v.size()));
+    const int n = tally[i];
+    const std::string& s = v[i];
+    for (int j=0; j!=n; ++j)
+    {
+      w.push_back(s);
+    }
+  }
+  return w;
+}
+
+int ribi::ktclc::get_lesson_index(const word_list& a_word_list) noexcept
+{
+  const int lesson_index = static_cast<int>(a_word_list.get_chars_in_lesson().size()) / 2;
+  return lesson_index;
+}
+
 std::string ribi::ktclc::word_list::get_version() noexcept
 {
   return "1.0";
@@ -374,7 +443,7 @@ void ribi::ktclc::word_list::test() noexcept
     is_tested = true;
   }
   const test_timer my_test_timer(__func__,__FILE__,10.0);
-  const word_list w;
+  const word_list w("abcdefghijklmnopqrstuvwxyz","ab");
   assert(!w.get_all().empty());
 }
 #endif

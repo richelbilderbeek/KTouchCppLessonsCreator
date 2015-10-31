@@ -154,20 +154,22 @@ std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_lessons(
 
   std::vector<lesson> lessons;
 
-  const word_list any_word_list;
   for (int i=0; i!=sz; ++i)
   {
     assert(i >= 0);
     assert(i < static_cast<int>(all_chars.size()));
     assert(i < static_cast<int>(new_chars.size()));
-    lesson level(
+    const word_list word_list_for_this_lesson(
       all_chars[i],
+      new_chars[i]
+    );
+    lesson this_lesson(
       new_chars[i],
       "Lesson " + std::to_string(i),
       rng_engine,
-      any_word_list
+      word_list_for_this_lesson
     );
-    lessons.push_back(level);
+    lessons.push_back(this_lesson);
 
   }
   return lessons;

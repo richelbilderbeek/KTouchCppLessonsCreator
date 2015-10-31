@@ -11,6 +11,13 @@ struct helper
 {
   helper() noexcept;
 
+  //Score how much desired_characters are in string
+  int calculate_score(
+    const std::string& s,
+    const std::string& desired_characters
+  ) const noexcept;
+
+
   ///Convert to escaped character sequence
   ///Convert "<>" to "&lt;&gt;"
   std::string convert_to_escape(const std::string& s) const noexcept;
@@ -28,6 +35,12 @@ struct helper
   static std::vector<std::string> get_version_history() noexcept;
 
   bool has_forbidden(const std::string& s) const noexcept;
+
+  //Is the character desired
+  bool is_desired(
+    const char c,
+    const std::string& desired_characters
+  ) const noexcept;
 
   template <class T>
   T sort(T t) const noexcept

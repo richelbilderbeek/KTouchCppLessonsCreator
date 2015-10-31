@@ -38,7 +38,6 @@ struct lesson
   ///title: title of this lesson
   ///rng_engine: RNG engine
   lesson(
-    const std::string& chars,
     const std::string& new_chars,
     const std::string& title,
     std::mt19937& rng_engine,
@@ -57,13 +56,11 @@ struct lesson
   const std::string m_uuid;
 
   static std::string create_line(
-    const std::string& chars,
     std::mt19937& rng_engine,
     const word_list& any_word_list
   ) noexcept;
 
   static std::vector<std::string> create_lines(
-    const std::string& chars,
     std::mt19937& rng_engine,
     const word_list& any_word_list
   ) noexcept;

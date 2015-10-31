@@ -7,12 +7,33 @@
 #include <boost/uuid/uuid_io.hpp>
 
 #include "testtimer.h"
+#include "trace.h"
 
 ribi::ktclc::helper::helper() noexcept
 {
   #ifndef NDEBUG
   test();
   #endif
+}
+
+int ribi::ktclc::helper::calculate_score(
+  const std::string& s,
+  const std::string& desired_characters
+) const noexcept
+{
+  //count the number of desired characters in s
+  return std::accumulate(
+    std::begin(s),
+    std::end(s),
+    0,
+    [desired_characters](const int sum, const char c)
+    {
+      return sum
+        + (helper().is_desired(c,desired_characters) ? 1 : 0)
+      ;
+    }
+  );
+
 }
 
 std::string ribi::ktclc::helper::convert_to_escape(const char c) const noexcept
@@ -92,6 +113,19 @@ bool ribi::ktclc::helper::has_forbidden(const std::string& s) const noexcept
   return iter != std::end(s);
 }
 
+//Is the character desired
+bool ribi::ktclc::helper::is_desired(
+  const char c,
+  const std::string& desired_characters
+) const noexcept
+{
+  return std::find(
+    std::begin(desired_characters),
+    std::end(desired_characters),
+    c
+  ) != std::end(desired_characters);
+}
+
 #ifndef NDEBUG
 void ribi::ktclc::helper::test() noexcept
 {
@@ -142,6 +176,26 @@ void ribi::ktclc::helper::test() noexcept
     assert(h.convert_to_escape("&") == "&amp;");
     assert(h.convert_to_escape("\'") == "&apos;");
     assert(h.convert_to_escape("\"") == "&quot;");
+  }
+  //is_desired
+  {
+    assert( h.is_desired('a' ,"a"));
+    assert( h.is_desired('a' ,"ab"));
+    assert(!h.is_desired('a' ,"bc"));
+  }
+  //calculate_score
+  {
+    //calculate_score(s,desired)
+    assert(h.calculate_score("a","a") == 1);
+    assert(h.calculate_score("a","b") == 0);
+    assert(h.calculate_score("aa","a") == 2);
+    assert(h.calculate_score("aa","b") == 0);
+    assert(h.calculate_score("ab","ab") == 2);
+    assert(h.calculate_score("ab","abcd") == 2);
+    assert(h.calculate_score("abcd","cd") == 2);
+    assert(h.calculate_score("" ,"") == 0);
+    assert(h.calculate_score("a" ,"") == 0);
+    assert(h.calculate_score("" ,"a") == 0);
   }
 }
 #endif

@@ -29,7 +29,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 ribi::ktclc::course::course(const int rng_seed) noexcept
   : m_description("KTouch lessons file created by KTouchCppLessonsCreator (using seed " + std::to_string(rng_seed) + "), www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm"),
-    m_lessons(create_levels(rng_seed)),
+    m_lessons(create_lessons(rng_seed)),
     m_title("C++")
 {
   #ifndef NDEBUG
@@ -37,7 +37,7 @@ ribi::ktclc::course::course(const int rng_seed) noexcept
   #endif
 }
 
-ribi::ktclc::lessons ribi::ktclc::course::create_levels(const int rng_seed) noexcept
+ribi::ktclc::lessons ribi::ktclc::course::create_lessons(const int rng_seed) noexcept
 {
   std::mt19937 rng_engine(rng_seed);
   return lessons(rng_engine);

@@ -35,13 +35,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "testtimer.h"
 
 ribi::ktclc::lesson::lesson(
-  const std::string& chars,
   const std::string& new_chars,
   const std::string& title,
   std::mt19937& rng_engine,
   const word_list& any_word_list
 )  noexcept
-  : m_lines{create_lines(chars,rng_engine,any_word_list)},
+  : m_lines{create_lines(rng_engine,any_word_list)},
     m_new_chars{new_chars},
     m_title{title},
     m_uuid{helper().create_uuid()}
@@ -55,21 +54,11 @@ ribi::ktclc::lesson::lesson(
 }
 
 std::string ribi::ktclc::lesson::create_line(
-  const std::string& chars,
   std::mt19937& rng_engine,
   const word_list& any_word_list
 ) noexcept
 {
-  const std::vector<std::string> v = any_word_list.get_all_legal();
-
-  //Collect all fitting words
-  std::vector<std::string> w;
-  std::copy_if(std::begin(v),std::end(v),std::back_inserter(w),
-    [chars](const std::string& s)
-    {
-      return helper().does_fit(s,chars);
-    }
-  );
+  std::vector<std::string> w = any_word_list.get_all_legal_and_fitting_and_new();
   std::shuffle(std::begin(w),std::end(w),rng_engine);
 
   //Keep the first 30 chars of words
@@ -100,18 +89,17 @@ std::string ribi::ktclc::lesson::create_line(
   );
   // - a lesson have about n_characters_per_line chars
   const int n_chars_extra = n_characters_per_line - n_chars_used;
-  // - level = number_of_chars / 2
-  const int level = static_cast<int>(chars.size());
+  const int level = get_lesson_index(any_word_list);
   for (int i=0; i!=n_chars_extra; ++i)
   {
     // - word length = 2 + (level / 3)
     const int word_length = 2 + (level / 3);
     if (i % word_length == 0) { w.push_back(""); }
-    const int index = std::rand() % static_cast<int>(chars.size());
-    w.back()+=chars[index];
+    const int index = std::rand() % static_cast<int>(any_word_list.get_chars_in_lesson().size());
+    w.back()+=any_word_list.get_chars_in_lesson()[index];
   }
 
-  std::random_shuffle(std::begin(w),std::end(w));
+  std::shuffle(std::begin(w),std::end(w),rng_engine);
 
   std::string result;
   std::for_each(
@@ -129,7 +117,6 @@ std::string ribi::ktclc::lesson::create_line(
 }
 
 std::vector<std::string> ribi::ktclc::lesson::create_lines(
-  const std::string& chars,
   std::mt19937& rng_engine,
   const word_list& any_word_list
 ) noexcept
@@ -138,7 +125,7 @@ std::vector<std::string> ribi::ktclc::lesson::create_lines(
   const int n_lines = n_lines_per_lesson;
   for (int i=0; i!=n_lines; ++i)
   {
-    v.push_back(create_line(chars,rng_engine,any_word_list));
+    v.push_back(create_line(rng_engine,any_word_list));
   }
   return v;
 }
@@ -217,15 +204,14 @@ void ribi::ktclc::lesson::test() noexcept
   }
   {
     helper();
-    word_list();
+    word_list("abcdefghijklmnopqrstuvwxyz","ab");
   }
   const test_timer test_timer(__func__,__FILE__,1.0);
-  const word_list a_word_list;
+  const word_list a_word_list("abcdefghijklmnopqrstuvwxyz","ab");
   {
     constexpr int rng_seed = 42;
     std::mt19937 rng_engine(rng_seed);
     const lesson a(
-      "abcdefghijklmnopqrstuvwxyz",
       "AB",
       "test title",
       rng_engine,
