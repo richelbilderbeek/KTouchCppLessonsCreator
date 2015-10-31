@@ -29,7 +29,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 ribi::ktclc::course::course(const int rng_seed) noexcept
   : m_description("KTouch lessons file created by KTouchCppLessonsCreator (using seed " + std::to_string(rng_seed) + "), www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm"),
-    m_levels(create_levels(rng_seed)),
+    m_lessons(create_levels(rng_seed)),
     m_title("C++")
 {
   #ifndef NDEBUG
@@ -74,7 +74,7 @@ void ribi::ktclc::course::test() noexcept
     const lessons a(rng_engine);
     assert(!a.to_xml().empty());
   }
-  const test_timer my_test_timer(__func__,__FILE__,1.0);
+  const test_timer my_test_timer(__func__,__FILE__,10.0);
   {
     constexpr int rng_seed = 42;
     const course a(rng_seed);
@@ -92,12 +92,13 @@ std::vector<std::string> ribi::ktclc::course::to_xml() const noexcept
   v.push_back("  <title>"+m_title+"</title>");
   v.push_back("  <description>" + m_description + "</description>");
   v.push_back("  <keyboardLayout>us</keyboardLayout>");
-  const std::vector<std::string> w = m_levels.to_xml();
-  std::transform(std::begin(w),std::end(w),std::back_inserter(v),
-    [](const std::string& s)
-    {
-      return std::string("  ") + s;
-    }
+  //m_lessons must supply the correct indentation. Note that
+  //XML text tag has an indentation level of zero
+  const std::vector<std::string> w = m_lessons.to_xml();
+  std::copy(
+    std::begin(w),
+    std::end(w),
+    std::back_inserter(v)
   );
   v.push_back("</course>");
   return v;

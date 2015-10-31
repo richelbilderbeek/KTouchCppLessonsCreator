@@ -19,10 +19,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 //From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
 //---------------------------------------------------------------------------
 #include "ktouchcpplessonscreatorlesson.h"
+
 #include <algorithm>
 #include <cassert>
 #include <numeric>
 #include <set>
+#include <sstream>
+
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
@@ -36,13 +39,17 @@ ribi::ktclc::lesson::lesson(
   const std::string& title,
   std::mt19937& rng_engine
 )  noexcept
-  : m_line{create_line(chars,rng_engine)},
+  : m_lines{create_lines(chars,rng_engine)},
     m_new_chars{new_chars},
-    m_title{title}
+    m_title{title},
+    m_uuid{helper().create_uuid()}
 {
   #ifndef NDEBUG
   test();
   #endif
+  assert(!helper().has_forbidden(m_uuid));
+  assert(!helper().has_forbidden(m_title));
+  assert(!helper().has_forbidden(m_new_chars));
 }
 
 std::string ribi::ktclc::lesson::create_line(
@@ -50,13 +57,20 @@ std::string ribi::ktclc::lesson::create_line(
   std::mt19937& rng_engine
 ) noexcept
 {
-  const std::vector<std::string> v
-  {
+  const std::vector<std::string> v_raw = {
     " ",
+    "==",
+    "<=",
+    ">=",
+    "!=",
+    "^=",
+    "<<",
+    ">>",
     "&&",
     "||",
-//    "//",
-//    "/* */",
+    "//",
+    "/*",
+    "*/",
     "++a",
     "++b",
     "a!=b",
@@ -142,7 +156,7 @@ std::string ribi::ktclc::lesson::create_line(
     "operator==",
     "operator-=",
     "operator--",
-//    "operator/=",
+    "operator/=",
     "operator",
     "operator*=",
     "operator+=",
@@ -344,6 +358,18 @@ std::string ribi::ktclc::lesson::create_line(
     "wchar_t",
     "while"
   };
+  #ifdef KTOUCH_CAN_HANDLE_BRACKETS
+  const std::vector<std::string> v = v_raw;
+  #else
+  std::vector<std::string> v;
+  std::copy_if(
+    std::begin(v_raw),
+    std::end(v_raw),
+    std::back_inserter(v),
+    [](const std::string& s) { return !helper().has_forbidden(s); }
+  );
+  #endif
+
   //Collect all fitting words
   std::vector<std::string> w;
   std::copy_if(std::begin(v),std::end(v),std::back_inserter(w),
@@ -360,18 +386,17 @@ std::string ribi::ktclc::lesson::create_line(
     int sum = 0;
     for (int i=0; i!=sz; ++i)
     {
-      sum += static_cast<int>(w.at(i).size());
+      assert(i >= 0);
+      assert(i < static_cast<int>(w.size()));
+      sum += static_cast<int>(w[i].size());
       if (sum > 30)
       {
         w.resize(i);
-       break;
+        break;
       }
     }
   }
-  //Create histogram of used chars
-  //const std::vector<std::pair<char,int> > histogram = Tally(w,chars);
-
-  //Add words until 60 chars is reached
+  //Add words until n_characters_per_line chars is reached
   const int n_chars_used = std::accumulate(
     std::begin(w),
     std::end(w),
@@ -381,8 +406,8 @@ std::string ribi::ktclc::lesson::create_line(
       return init + static_cast<int>(s.size());
     }
   );
-  // - a lesson have about n_characters_per_lesson chars
-  const int n_chars_extra = n_characters_per_lesson - n_chars_used;
+  // - a lesson have about n_characters_per_line chars
+  const int n_chars_extra = n_characters_per_line - n_chars_used;
   // - level = number_of_chars / 2
   const int level = static_cast<int>(chars.size());
   for (int i=0; i!=n_chars_extra; ++i)
@@ -407,7 +432,19 @@ std::string ribi::ktclc::lesson::create_line(
   );
   //Remove trailing whitespace
   result.resize(result.size()-1);
-  return result;
+
+ return result;
+}
+
+std::vector<std::string> ribi::ktclc::lesson::create_lines(
+  const std::string& chars,
+  std::mt19937& rng_engine
+) noexcept
+{
+  std::vector<std::string> v;
+  const int n_lines = n_lines_per_lesson;
+  for (int i=0; i!=n_lines; ++i) { v.push_back(create_line(chars,rng_engine)); }
+  return v;
 }
 
 std::string ribi::ktclc::lesson::get_version() noexcept
@@ -425,13 +462,49 @@ std::vector<std::string> ribi::ktclc::lesson::get_version_history() noexcept
 
 std::vector<std::string> ribi::ktclc::lesson::to_xml() const noexcept
 {
+  assert(!helper().has_forbidden(m_uuid));
+  assert(!helper().has_forbidden(m_title));
+  assert(!helper().has_forbidden(m_new_chars));
+
   std::vector<std::string> v;
-  v.push_back("<lesson>");
-  v.push_back("<id>" + helper().create_uuid() + "</id>");
-  v.push_back("<title>" + m_title + "</title>");
-  v.push_back("<newCharacters>" + m_new_chars + "</newCharacters>");
-  v.push_back("<text>" + m_line + "</text>");
-  v.push_back("</lesson>");
+  v.push_back("    <lesson>");
+  v.push_back("      <id>" + m_uuid + "</id>");
+  v.push_back("      <title>" + m_title + "</title>");
+  v.push_back("      <newCharacters>" + m_new_chars + "</newCharacters>");
+  {
+    //There must be no spaces in the text:
+    //
+    // BAD:
+    // <lesson>
+    //   <text>
+    //     fjfj fjfj fjfj fjfj
+    //     fjfj fjfj fjfj fjfj
+    //   </text>
+    // </lesson>
+    //
+    // GOOD:
+    // <lesson>
+    //   <text>fjfj fjfj fjfj fjfj
+    // fjfj fjfj fjfj fjfj</text>
+    // </lesson>
+    //
+    // If the space is in the text,
+    // KTouch interprets it as a long
+    // series of spaces that need to be typed
+    std::stringstream s;
+    s << "      <text>";
+    std::copy(
+      std::begin(m_lines),
+      std::end(m_lines),
+      std::ostream_iterator<std::string>(s,"\n")
+    );
+    std::string text = s.str();
+    assert(!text.empty());
+    text.pop_back(); //Pop the trailing '\n' to direct append the </text>
+    text += "</text>";
+    v.push_back(text);
+  }
+  v.push_back("    </lesson>");
   return v;
 }
 
@@ -449,8 +522,8 @@ void ribi::ktclc::lesson::test() noexcept
     constexpr int rng_seed = 42;
     std::mt19937 rng_engine(rng_seed);
     const lesson a(
-      "ab",
-      "cd",
+      "abcdefghijklmnopqrstuvwxyz",
+      "AB",
       "test title",
       rng_engine
     );

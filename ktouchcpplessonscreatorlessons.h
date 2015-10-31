@@ -29,6 +29,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 namespace ribi {
 namespace ktclc {
 
+///Can create the XML of KTouch lesson series
 struct lessons
 {
   lessons(std::mt19937& rng_engine) noexcept;
@@ -39,8 +40,8 @@ struct lessons
 
   private:
 
-  const std::vector<lesson> m_v;
-  static std::vector<lesson> create_levels(std::mt19937& rng_engine) noexcept;
+  const std::vector<lesson> m_lesson;
+  static std::vector<lesson> create_lessons(std::mt19937& rng_engine) noexcept;
 
   #ifndef NDEBUG
   static void test() noexcept;

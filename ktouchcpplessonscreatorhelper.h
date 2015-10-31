@@ -19,6 +19,8 @@ struct helper
   static std::string get_version() noexcept;
   static std::vector<std::string> get_version_history() noexcept;
 
+  bool has_forbidden(const std::string& s) const noexcept;
+
   template <class T>
   T sort(T t) const noexcept
   {

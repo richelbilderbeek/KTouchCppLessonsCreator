@@ -28,8 +28,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 namespace ribi {
 namespace ktclc {
 
+///Can create the XML of a KTouch lesson
 struct lesson
 {
+  ///chars: character that can be assumed to be mastered
+  ///new_chars: new character that are to be mastered in this lesson
+  ///title: title of this lesson
+  ///rng_engine: RNG engine
   lesson(
     const std::string& chars,
     const std::string& new_chars,
@@ -43,16 +48,24 @@ struct lesson
   std::vector<std::string> to_xml() const noexcept;
 
   private:
-  const std::string m_line;
+  const std::vector<std::string> m_lines;
   const std::string m_new_chars;
   const std::string m_title;
+  const std::string m_uuid;
 
   static std::string create_line(
     const std::string& chars,
     std::mt19937& rng_engine
   ) noexcept;
 
+  static std::vector<std::string> create_lines(
+    const std::string& chars,
+    std::mt19937& rng_engine
+  ) noexcept;
+
+  constexpr static const int n_characters_per_line = 60;
   constexpr static const int n_characters_per_lesson = 1000;
+  constexpr static const int n_lines_per_lesson = n_characters_per_lesson / n_characters_per_line;
 
   #ifndef NDEBUG
   static void test() noexcept;

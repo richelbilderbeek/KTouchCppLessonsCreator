@@ -1,5 +1,6 @@
 #include "ktouchcpplessonscreatorhelper.h"
 
+#include <set>
 #include <sstream>
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
@@ -48,6 +49,21 @@ std::vector<std::string> ribi::ktclc::helper::get_version_history() noexcept
   };
 }
 
+bool ribi::ktclc::helper::has_forbidden(const std::string& s) const noexcept
+{
+  const std::set<char> forbidden = { '<', '>', '&', '/', '"', '\'' };
+
+  const auto iter = std::find_if(
+    std::begin(s),
+    std::end(s),
+    [forbidden](const char c)
+    {
+      return forbidden.count(c) == 1;
+    }
+  );
+  return iter != std::end(s);
+}
+
 #ifndef NDEBUG
 void ribi::ktclc::helper::test() noexcept
 {
@@ -58,7 +74,7 @@ void ribi::ktclc::helper::test() noexcept
   }
   const test_timer my_test_timer(__func__,__FILE__,1.0);
   const helper h;
-  //DoesFit
+  //does_fit
   {
     assert( h.does_fit("a","a"));
     assert(!h.does_fit("b","a"));
@@ -66,6 +82,12 @@ void ribi::ktclc::helper::test() noexcept
     assert( h.does_fit("b","ab"));
     assert( h.does_fit("a","ba"));
     assert( h.does_fit("b","ba"));
+  }
+  //has_forbidden
+  {
+    assert(!h.has_forbidden("static_cast"));
+    assert( h.has_forbidden("1 < 2"));
+    assert( h.has_forbidden("1 > 2"));
   }
 }
 #endif

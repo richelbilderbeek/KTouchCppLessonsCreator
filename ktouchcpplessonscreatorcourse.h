@@ -29,6 +29,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 namespace ribi {
 namespace ktclc {
 
+///Can create the XML of a KTouch course
 struct course
 {
   course(const int rng_seed) noexcept;
@@ -40,7 +41,7 @@ struct course
 
   private:
   const std::string m_description;
-  const lessons m_levels;
+  const lessons m_lessons;
   const std::string m_title;
 
   static lessons create_levels(const int rng_seed) noexcept;
