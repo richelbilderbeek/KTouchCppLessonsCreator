@@ -479,7 +479,7 @@ std::string ribi::ktclc::word_list::get_version() noexcept
 std::vector<std::string> ribi::ktclc::word_list::get_version_history() noexcept
 {
   return {
-    "2013-12-18: version 1.0: initial version",
+    "2015-10-31: version 1.0: initial version",
   };
 }
 

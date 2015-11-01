@@ -43,37 +43,17 @@ std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_lessons(
 {
   const std::vector<std::string> new_chars
   {
-    #ifdef KTOUCH_CAN_HANDLE_XML_ESCAPED_CHARACTERS
-    //Cannot allow / because file will mess up
-    //Cannot allow & because file will mess up
-    //Cannot allow < because file will mess up
-    //Cannot allow > because file will mess up
-    "fj","dk","sl","a;","gh'", //Home
-    "cn","vm","b,",".x","z\\", //Low
-    "eu","ri","to","yp","w[","q]", //High
-    "39","48","57","60","2-","1=","`", //Numbers
-    "FJ","DK","SL","A:","GH\"", //Shift + Home
-    "CN","VM","B",">X","Z?", //Shift + Low
-    "EU","RI","TO","YP","W{","Q}", //Shift + High
-    "#(","$*","%","^)","@_","!+","~|" //Shift + Numbers
-    #else
-    "fj","dk","sl","a;","gh", //Home
-    "cn","vm","b,",".x","z/", //Low
-    "eu","ri","to","yp","w[","q]", //High
-    "39","48","57","60","2-","1=","`\\", //Numbers
-    "FJ","DK","SL","A:","GH", //Shift + Home
-    "CN","VM","BX","Z?", //Shift + Low
-    "EU","RI","TO","YP","W{","Q}", //Shift + High
-    "#(","$*","%","^)","@_","!+","~|" //Shift + Numbers
-    #endif //KTOUCH_CAN_HANDLE_XML_ESCAPED_CHARACTERS
+    "fjdksla;gh", //Home
+    "cnvmb,.xz/", //Low
+    "euritoypwq[]", //Top
+    "0123456789-=", "`\\", //Numbers
+    "{}", //Top
+    "?:", //Home
+    "+_","()","!*","|^","#~","%@$" //Shift + Numbers
   };
   #ifndef NDEBUG
   {
-    #ifdef KTOUCH_CAN_HANDLE_XML_ESCAPED_CHARACTERS
-    const std::string all_chars = "`1234567890-=qwertyuiop[]asdfghjkl;'zxcvbnm,./~!@#$%^*()_+QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM>?|";
-    #else
-    const std::string all_chars = "`1234567890-=qwertyuiop[]asdfghjkl;zxcvbnm,.~!@#$%^*()_+QWERTYUIOP{}ASDFGHJKL:ZXCVBNM?|\\/";
-    #endif //KTOUCH_CAN_HANDLE_XML_ESCAPED_CHARACTERS
+    const std::string all_chars = "`1234567890-=qwertyuiop[]asdfghjkl;zxcvbnm,.~!@#$%^*()_+{}:?|\\/";
     assert(!helper().has_forbidden(all_chars));
     const std::string all_chars_sorted = helper().sort(all_chars);
 
@@ -188,8 +168,8 @@ std::vector<std::string> ribi::ktclc::lessons::get_version_history() noexcept
 {
   return {
     "2013-12-18: version 1.0: initial version",
-    "2015-02-18: version 2.0: works with KTouch version 2.3.0, use C++ Core Guideline coding standards",
-    "2015-02-18: version 2.1: accept forward slash"
+    "2015-10-31: version 2.0: works with KTouch version 2.3.0, use C++ Core Guideline coding standards",
+    "2015-10-31: version 2.1: accept forward slash"
   };
 }
 

@@ -34,7 +34,7 @@ struct word_list;
 struct lesson
 {
   ///chars: character that can be assumed to be mastered
-  ///new_chars: new character that are to be mastered in this lesson
+  ///new_chars: new characters that are to be mastered in this lesson
   ///title: title of this lesson
   ///rng_engine: RNG engine
   lesson(
@@ -66,7 +66,7 @@ struct lesson
   ) noexcept;
 
   constexpr static const int n_characters_per_line = 60;
-  constexpr static const int n_characters_per_lesson = 1000;
+  constexpr static const int n_characters_per_lesson = 600;
   constexpr static const int n_lines_per_lesson = n_characters_per_lesson / n_characters_per_line;
 
   #ifndef NDEBUG

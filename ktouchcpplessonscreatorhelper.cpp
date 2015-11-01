@@ -144,12 +144,16 @@ std::string ribi::ktclc::helper::enumerate(const std::string& s) const noexcept
   {
     return s[0] + std::string(" and ") + s[1];
   }
-  if (s.size() == 3)
+  const int n_commas = s.size() - 2;
+  std::string t;
+  t += s[0];
+  for (int i=0; i!=n_commas; ++i)
   {
-    return s[0] + std::string(", ") + s[1] + " and " + s[2];
+    t += std::string(", ") + s[i+1];
   }
-  assert(!"Not implemented");
-  return s;
+  t += " and ";
+  t += s.back();
+  return t;
 }
 
 int ribi::ktclc::helper::get_sum_length(
@@ -176,8 +180,8 @@ std::vector<std::string> ribi::ktclc::helper::get_version_history() noexcept
 {
   return {
     "2015-02-18: version 1.0: collected function used in KTouchCppLessonsCreator 1.0 in this class"
-    "2015-02-18: version 1.1: added convert_to_escape"
-    "2015-02-18: version 1.2: added is_desired, calculate_score, enumerate, cap_at_sum_length, get_sum_length"
+    "2015-10-31: version 1.1: added convert_to_escape"
+    "2015-10-31: version 1.2: added is_desired, calculate_score, enumerate, cap_at_sum_length, get_sum_length"
   };
 }
 
@@ -293,6 +297,8 @@ void ribi::ktclc::helper::test() noexcept
     assert(h.enumerate("A") == "A");
     assert(h.enumerate("AB") == "A and B");
     assert(h.enumerate("ABC") == "A, B and C");
+    assert(h.enumerate("ABCD") == "A, B, C and D");
+    assert(h.enumerate("ABCDE") == "A, B, C, D and E");
   }
   //concatenate
   {

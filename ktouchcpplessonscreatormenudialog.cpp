@@ -28,6 +28,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "testtimer.h"
 #include "trace.h"
 
+#include "ktouchcpplessonscreatorwordlist.h"
 #include "ktouchcpplessonscreatorhelper.h"
 #include "ktouchcpplessonscreatorcourse.h"
 
@@ -138,14 +139,13 @@ ribi::About ribi::ktclc::menu_dialog::GetAbout() const noexcept
     "Richel Bilderbeek",
     "KTouchCppLessonsCreator",
     "create KTouch lessons for C++ programmers",
-    "on the 31st of October 2015",
+    "on the 1st of November 2015",
     "2013-2015",
     "http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm",
     GetVersion(),
     GetVersionHistory());
 
-  a.AddLibrary("apfloat version: 2.4.1");
-  a.AddLibrary("FileIo version: " + fileio::FileIo().GetVersion());
+  a.AddLibrary("FileIo version: " + FileIo().GetVersion());
   a.AddLibrary("test_timer version: " + test_timer::GetVersion());
   a.AddLibrary("Trace version: " + Trace::GetVersion());
 
@@ -153,6 +153,7 @@ ribi::About ribi::ktclc::menu_dialog::GetAbout() const noexcept
   a.AddLibrary("ribi::ktclc::helper version: " + ribi::ktclc::helper::get_version());
   a.AddLibrary("ribi::ktclc::lesson version: " + ribi::ktclc::lesson::get_version());
   a.AddLibrary("ribi::ktclc::lessons version: " + ribi::ktclc::lessons::get_version());
+  a.AddLibrary("ribi::ktclc::wordlist version: " + ribi::ktclc::word_list::get_version());
 
   return a;
 }
@@ -181,17 +182,18 @@ ribi::Help ribi::ktclc::menu_dialog::GetHelp() const noexcept
 
 std::string ribi::ktclc::menu_dialog::get_version() noexcept
 {
-  return "2.3";
+  return "2.4";
 }
 
 std::vector<std::string> ribi::ktclc::menu_dialog::get_version_history() noexcept
 {
   return {
     "2013-12-18: version 1.0: initial version",
-    "2015-02-18: version 2.0: works with KTouch version 2.3.0, added menu dialog, use C++ Core Guideline coding standards",
-    "2015-02-18: version 2.1: added menu",
-    "2015-02-18: version 2.2: works in KTouch",
-    "2015-02-18: version 2.3: accept forward slash, improved quality of the lessons"
+    "2015-10-31: version 2.0: works with KTouch version 2.3.0, added menu dialog, use C++ Core Guideline coding standards",
+    "2015-10-31: version 2.1: added menu",
+    "2015-10-31: version 2.2: works in KTouch",
+    "2015-10-31: version 2.3: accept forward slash, improved quality of the lessons"
+    "2015-11-01: version 2.4: improved quality of the lessons"
   };
 }
 

@@ -52,7 +52,7 @@ std::vector<std::string> ribi::ktclc::course::get_version_history() noexcept
 {
   return {
     "2013-12-18: version 1.0: initial version",
-    "2015-02-18: version 2.0: works with KTouch version 2.3.0, use C++ Core Guideline coding standards"
+    "2015-10-31: version 2.0: works with KTouch version 2.3.0, use C++ Core Guideline coding standards"
   };
 }
 
