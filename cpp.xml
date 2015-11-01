@@ -1,954 +1,204 @@
 <?xml version="1.0"?>
 <course>
-  <id>{8b0d06db-81ee-4897-bea9-64a5526425e9}</id>
+  <id>{30c9e345-a7c2-4110-b253-1a78123cca63}</id>
   <title>C++</title>
   <description>KTouch lessons file created by KTouchCppLessonsCreator (using seed 42), www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm</description>
   <keyboardLayout>us</keyboardLayout>
   <lessons>
     <lesson>
-      <id>{8ae807b2-90c2-4b8f-9ecd-e55bfc7865b4}</id>
-      <title>Lesson 1: f and j</title>
-      <newCharacters>fj</newCharacters>
-      <text>jfjf jffj jfjf fjfj jffj jffj ffjj fjfj fjfj jfjf fjfj jfjf jffj ffjj jfjf
-fjfj jffj jfjf jfjf fjfj ffjj jffj fjfj jfjf jfjf jffj fjfj jfjf fjfj jffj
-jffj fjfj fjfj jfjf jfjf ffjj jfjf fjfj ffjj fjfj jfjf jfjf jffj jffj jffj
-jfjf fjfj jfjf fjfj ffjj jffj jffj fjfj jfjf jffj jffj jffj jfjf fjfj fjfj
-jfjf jffj fjfj jffj fjfj jfjf ffjj jfjf fjfj fjfj jfjf jffj jfjf jfjf jffj
-jfjf fjfj fjfj jffj jfjf jfjf ffjj fjfj jffj jfjf fjfj jfjf jffj ffjj jfjf
-jffj fjfj jffj jffj fjfj jffj ffjj jffj fjfj jfjf jfjf jffj jfjf jfjf jfjf
-jfjf fjfj jffj ffjj ffjj fjfj jfjf jffj jfjf jfjf fjfj fjfj fjfj jffj jffj
-jffj ffjj jffj jfjf jfjf jffj jfjf jffj jfjf fjfj jfjf jfjf fjfj fjfj fjfj
-jffj fjfj fjfj jfjf jfjf jffj jffj jfjf jfjf fjfj jfjf jfjf fjfj ffjj jffj
-jffj jfjf jffj jfjf fjfj jfjf jfjf jffj fjfj jffj ffjj fjfj jffj fjfj jfjf
-ffjj jfjf jfjf ffjj fjfj jffj fjfj jfjf ffjj jffj jffj fjfj jffj jfjf jfjf
-ffjj jfjf jffj fjfj jffj fjfj jfjf fjfj ffjj jffj fjfj jffj fjfj jfjf fjfj
-fjfj jfjf ffjj fjfj ffjj fjfj jffj fjfj jffj jfjf ffjj jffj jfjf jffj fjfj
-ffjj fjfj fjfj fjfj jfjf jfjf jffj fjfj fjfj ffjj fjfj jffj jffj jfjf jffj
-fjfj jffj fjfj ffjj fjfj ffjj jffj fjfj jfjf jfjf fjfj jfjf jfjf jffj jffj</text>
+      <id>{9b8e9517-bf10-4a4d-a122-e0495c46925f}</id>
+      <title>Lesson 1: f, j, d, k, s, l, a, ;, g and h</title>
+      <newCharacters>fjdksla;gh</newCharacters>
+      <text>fkgjh;lsad khaglfd;sj shdk;gjlaf fgkljh;sda ;fldkajghs shdk;gjlaf
+shdk;gjlaf khaglfd;sj ;fldkajghs asd;kfhjgl fkgjh;lsad kls;djgahf
+fgkljh;sda kls;djgahf shdk;gjlaf asd;kfhjgl fdlaghs;jk fkgjh;lsad
+asd;kfhjgl gjh;fksald ;fldkajghs fkgjh;lsad gjh;fksald hajksfdl;g
+gjh;fksald fkgjh;lsad khaglfd;sj kls;djgahf fdlaghs;jk shdk;gjlaf
+fgkljh;sda hajksfdl;g khaglfd;sj fdlaghs;jk kls;djgahf fgkljh;sda
+gjh;fksald kls;djgahf asd;kfhjgl kls;djgahf fkgjh;lsad fgkljh;sda
+gjh;fksald hajksfdl;g asd;kfhjgl ;fldkajghs fgkljh;sda hajksfdl;g
+kls;djgahf gjh;fksald ;fldkajghs hajksfdl;g fdlaghs;jk asd;kfhjgl
+asd;kfhjgl kls;djgahf gjh;fksald fkgjh;lsad hajksfdl;g fgkljh;sda</text>
     </lesson>
     <lesson>
-      <id>{c698d77f-c118-47c3-aa38-8ac88a776c03}</id>
-      <title>Lesson 2: d and k</title>
-      <newCharacters>dk</newCharacters>
-      <text>dkdk kkdd kdkd kkdd kkdd kddk ddkk dkdk kddk dkdk kkdd kkdd kkdd kkdd kkdd
-kddk kkdd kdkd dkdk ddkk kdkd kkdd dkdk kddk kkdd kkdd kkdd kkdd kkdd kkdd
-kdkd dkdk ddkk kddk kkdd kkdd kkdd kkdd kkdd kkdd ddkk kkdd kkdd kkdd dkdk
-kkdd kkdd kddk dkdk kkdd kkdd dkdk kkdd kkdd ddkk kkdd kdkd dkdk kdkd kkdd
-ddkk dkdk kkdd kkdd kddk kkdd kkdd ddkk kdkd dkdk kkdd kdkd kkdd dkdk kkdd
-kddk kkdd kdkd kkdd ddkk kkdd kddk kkdd dkdk dkdk kdkd kkdd dkdk kkdd kkdd
-kkdd kdkd kkdd dkdk ddkk ddkk kkdd kddk kdkd dkdk kkdd kkdd dkdk kkdd ddkk
-ddkk dkdk ddkk kkdd kkdd kkdd kkdd kkdd kkdd kddk kkdd kddk dkdk kdkd kdkd
-kkdd kkdd ddkk kkdd kdkd ddkk kkdd kdkd dkdk kkdd dkdk kddk kkdd kkdd kkdd
-kkdd kkdd kkdd kkdd kkdd kkdd kddk kddk kkdd kkdd dkdk ddkk kdkd ddkk dkdk
-dkdk ddkk dkdk kkdd kdkd kkdd kddk ddkk kkdd kkdd kddk kdkd kdkd kkdd kkdd
-kkdd kdkd kkdd kkdd kddk dkdk kkdd kdkd dkdk dkdk kkdd ddkk dkdk kkdd kkdd
-ddkk kkdd kkdd kddk kkdd dkdk ddkk kddk kkdd kkdd kdkd kkdd kkdd kdkd dkdk
-dkdk kkdd kkdd dkdk ddkk kkdd kddk kdkd kkdd kkdd dkdk kddk kkdd kkdd ddkk
-kkdd kkdd kdkd dkdk kkdd dkdk kddk dkdk ddkk kkdd kkdd kkdd kdkd kkdd kkdd
-kkdd kkdd dkdk ddkk kkdd kkdd dkdk dkdk kkdd kdkd kkdd kkdd dkdk kddk kdkd</text>
+      <id>{c19b3488-8957-49ee-9e30-294d11b57adc}</id>
+      <title>Lesson 2: c, n, v, m, b, ,, ., x, z and /</title>
+      <newCharacters>cnvmb,.xz/</newCharacters>
+      <text>bm.cvzx/n, vncm/bzx,. xz,./bncmv asm ,zv.x/cbmn asm ,zc.x/nmvb
+/v.,xcmzbn zv,b/.mnxc ,/cxmznv.b asm asm ,zc.x/nmvb vxmcz/n,b.
+,zc.x/nmvb asm /v.,xcmzbn vncm/bzx,. ,/cxmznv.b vxmcz/n,b. asm
+zv,b/.mnxc vxmcz/n,b. asm ,zv.x/cbmn asm /,zxmcbvn. xz,./bncmv
+asm vxmcz/n,b. xz,./bncmv asm /,zxmcbvn. bm.cvzx/n, vncm/bzx,.
+asm /v.,xcmzbn xz,./bncmv vxmcz/n,b. zv,b/.mnxc vncm/bzx,. asm
+asm vxmcz/n,b. ,zc.x/nmvb asm zv,b/.mnxc xz,./bncmv ,/cxmznv.b
+,zv.x/cbmn bm.cvzx/n, asm ,/cxmznv.b ,zc.x/nmvb zv,b/.mnxc asm
+,zc.x/nmvb ,zv.x/cbmn asm asm ,/cxmznv.b vxmcz/n,b. vncm/bzx,.
+,zc.x/nmvb ,zv.x/cbmn asm ,/cxmznv.b asm /v.,xcmzbn xz,./bncmv</text>
     </lesson>
     <lesson>
-      <id>{f8a8f678-697e-4e8b-849d-9f5583789ebc}</id>
-      <title>Lesson 3: s and l</title>
-      <newCharacters>sl</newCharacters>
-      <text>slls slsl slls ssll llss slls lsls slsl slsl slls lsls lsls slls lsls slsl
-lsls lsls slls slsl lsls slsl ssll slsl slls lsls slls slls llss slsl slls
-slls lsls slls llss ssll slsl lsls slsl slls slsl slls slsl llss lsls ssll
-slls slsl lsls slsl slsl llss lsls llss slsl ssll slls slsl lsls ssll slls
-slsl slsl slsl slsl llss slsl lsls llss ssll slls slls lsls slls slls slsl
-slsl lsls slls lsls slls lsls slsl llss slls slls lsls slsl slsl slsl ssll
-slls slsl slls slsl ssll llss ssll lsls slls lsls slls slsl slsl slls slsl
-slsl lsls slsl slls ssll slls slsl lsls slls lsls slls llss slsl slsl llss
-slsl lsls ssll slls slls slls slls lsls llss ssll slls slsl lsls slsl ssll
-llss slls lsls slls lsls ssll slsl slsl slsl slsl slsl ssll slls slls slls
-slls slsl slls lsls slls slls slls lsls slls slls slsl ssll lsls slsl llss
-slsl slls slsl slsl slls llss lsls slls ssll slsl slls lsls slls slls slsl
-llss ssll slls slls slls lsls slsl lsls slsl ssll slls slsl slls slls lsls
-lsls slsl slls slls llss slls ssll lsls lsls ssll lsls slls slsl slsl llss
-slsl slsl slsl slsl slls slsl lsls ssll llss slls ssll lsls slls slsl lsls
-ssll lsls slls slsl ssll slls slls slls slsl slsl slsl lsls slls lsls llss</text>
+      <id>{0e2f2f68-04d0-4b05-90e4-79a1031765c5}</id>
+      <title>Lesson 3: e, u, r, i, t, o, y, p, w, q, [ and ]</title>
+      <newCharacters>euritoypwq[]</newCharacters>
+      <text>while io[]uypetwrq void export double if true friend short break; auto
+try long break while char wrqp]y[oetui double public throw private
+using auto void for this default float break throw p]wryq[tieou throw
+double sizeof .size virtual virtual typeid io[]uypetwrq true auto
+.empty typeid io[]uypetwrq friend try double try new while .empty
+wrqp]y[oetui short mutable float constexpr .empty sizeof export
+mutable typeid for private urtwpi]oq[ye enum default void friend try
+const virtual typeid auto uqip[oewy]rt throw mutable double private
+export .empty wryt[ipeuq]o private public int export public new throw
+.empty constexpr while char urtwpi]oq[ye .empty typeid private true</text>
     </lesson>
     <lesson>
-      <id>{2060c213-d35d-4b29-9d31-14fd62803cad}</id>
-      <title>Lesson 4: a and ;</title>
-      <newCharacters>a;</newCharacters>
-      <text>;;aa a;a; ;a;a a;a; aa;; ;aa; ;;aa aa;; aa;; ;a;a a;a; ;a;a aa;; aa;; ;aa;
-;a;a ;;aa aa;; ;a;a ;a;a ;aa; a;a; aa;; a;a; aa;; aa;; aa;; aa;; a;a; a;a;
-;a;a aa;; ;a;a a;a; a;a; a;a; ;a;a ;aa; aa;; ;a;a aa;; ;;aa aa;; a;a; ;aa;
-;a;a aa;; ;aa; a;a; a;a; aa;; ;a;a aa;; ;;aa ;a;a ;aa; aa;; ;a;a ;a;a aa;;
-a;a; ;a;a ;a;a ;aa; a;a; ;a;a aa;; aa;; ;a;a a;a; ;;aa aa;; aa;; aa;; ;a;a
-aa;; ;a;a aa;; ;aa; ;a;a a;a; a;a; ;a;a aa;; a;a; ;;aa aa;; aa;; ;a;a ;aa;
-;;aa a;a; a;a; ;a;a ;a;a aa;; ;a;a aa;; ;a;a ;aa; ;a;a aa;; a;a; a;a; a;a;
-;;aa ;a;a aa;; aa;; ;aa; a;a; ;a;a a;a; a;a; ;a;a a;a; ;a;a ;;aa aa;; aa;;
-a;a; a;a; ;aa; aa;; aa;; aa;; ;;aa ;a;a ;;aa ;a;a ;a;a ;a;a a;a; aa;; ;a;a
-aa;; ;a;a a;a; a;a; aa;; aa;; ;aa; ;a;a ;aa; ;a;a aa;; aa;; ;a;a ;;aa ;a;a
-;a;a aa;; a;a; ;a;a aa;; aa;; aa;; aa;; aa;; a;a; ;;aa ;aa; ;;aa ;aa; ;a;a
-;aa; aa;; aa;; ;a;a a;a; ;a;a ;;aa aa;; ;aa; a;a; aa;; aa;; ;a;a ;a;a a;a;
-a;a; ;a;a aa;; ;aa; a;a; ;a;a ;a;a aa;; aa;; aa;; ;aa; ;;aa ;a;a ;a;a ;;aa
-aa;; aa;; a;a; ;a;a ;aa; ;a;a ;a;a aa;; a;a; a;a; ;a;a ;;aa aa;; ;a;a aa;;
-;aa; aa;; ;;aa a;a; ;a;a a;a; ;a;a ;a;a a;a; aa;; ;;aa ;;aa ;a;a aa;; ;a;a
-;a;a a;a; aa;; aa;; aa;; ;aa; ;a;a ;;aa aa;; ;a;a ;;aa ;a;a a;a; ;a;a ;;aa</text>
+      <id>{65a42157-d5b1-40b9-a2f8-d3750ca8edb2}</id>
+      <title>Lesson 4: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, - and =</title>
+      <newCharacters>0123456789-=</newCharacters>
+      <text>t[0] do break private w[0] t[0] this v[0] w[0] s[0] 360579=-4128 v[1]
+v[0] .size if mutable v[1] float long s[0] new t[0] w[0] 156472-0893=
+156472-0893= w[0] false float v[1] t[0] s[0] t[0] v[0] int for s[0]
+t[0] w[0] .empty signed v[1] using for w[0] 8-943051267= s[0] v[0] void
+mutable t[0] v[1] s[0] v[0] t[0] .at throw w[0] for v[1] 360579=-4128
+const sizeof v[0] w[0] w[0] 04=6392158-7 s[0] using t[0] s[0] v[1]
+try t[0] 47=860-19523 switch s[0] s[0] w[0] v[0] this v[1] typeid case
+v[0] sizeof v[1] w[0] .at virtual 8-943051267= t[0] false break s[0]
+v[0] t[0] s[0] w[0] if const v[0] 876=405-2319 private export v[1]
+break for long virtual w[0] s[0] t[0] v[0] switch 47=860-19523 v[1]</text>
     </lesson>
     <lesson>
-      <id>{0894946a-f187-49e2-8968-345468e7f4e4}</id>
-      <title>Lesson 5: g and h</title>
-      <newCharacters>gh</newCharacters>
-      <text>ghgh hggh gghh hghg ghhg hghg ghhg hggh ghgh ghgh ghhg ghgh gghh hghg ghgh
-ghhg hggh hghg gghh hggh hggh ghhg ghgh ghhg ghgh ghgh hghg ghgh ghgh ghgh
-ghgh ghgh hghg ghgh ghhg hggh ghgh ghhg hghg hggh ghgh ghgh gghh hggh ghgh
-ghhg hghg hggh hghg hggh hghg ghgh ghgh hggh gghh ghgh ghgh hggh hghg ghgh
-hghg ghgh hggh ghgh ghgh hghg hghg ghgh hghg hggh gghh ghgh ghhg ghgh hggh
-ghhg hghg gghh hggh ghgh hghg ghgh ghgh hggh hggh ghgh hghg ghgh ghgh ghgh
-gghh hggh ghgh hghg hggh ghhg ghgh ghhg ghgh hghg ghgh ghgh ghgh hggh ghgh
-hggh ghgh ghgh ghgh hggh hghg hghg ghgh ghgh hghg ghhg gghh ghgh ghgh hggh
-hggh ghgh hghg ghgh ghgh hghg ghgh ghgh hghg hggh hghg ghhg ghgh gghh ghgh
-ghgh hggh ghgh ghgh ghgh hggh gghh hghg gghh ghgh hghg ghgh hggh ghhg ghhg
-ghhg hghg hghg hghg hggh hggh ghgh ghgh ghgh gghh ghgh ghgh gghh ghgh ghgh
-ghgh ghgh ghgh hggh hghg hggh ghgh ghgh ghhg hghg gghh hghg hghg hggh ghgh
-ghgh ghgh gghh ghhg hghg ghgh ghgh gghh ghhg hghg hggh hghg hggh ghgh hggh
-hghg ghgh ghgh hggh ghgh ghhg ghgh hggh hghg ghgh ghgh hghg ghgh hggh gghh
-hghg hggh hggh hghg ghhg ghgh ghgh ghgh ghgh hggh ghgh gghh ghgh hghg hggh
-hghg hghg ghgh ghgh hghg ghhg ghgh hggh ghhg hggh ghhg gghh hggh ghgh ghgh</text>
-    </lesson>
-    <lesson>
-      <id>{b67e6da8-c399-42a3-92a4-529ba365d023}</id>
-      <title>Lesson 6: c and n</title>
-      <newCharacters>cn</newCharacters>
-      <text>ccncnn ccnnnc cnncnc nncccn nncncc ccnnnc nnccnc ncccnn cncncn nccncn
-cncncn ccnnnc cnncnc ccncnn cccnnn nccncn ncccnn nnccnc ccnnnc nncncc
-nncccn ccnnnc nccncn ncccnn nccncn cccnnn cnncnc nncncc cncncn nnccnc
-nncccn ccnnnc nccncn cncncn nncncc cccnnn nnccnc ccncnn ncccnn cnncnc
-cnncnc ccnnnc nnccnc ccncnn ccncnn nncccn cncncn ncccnn cccnnn nccncn
-cccnnn ccnnnc nncncc cncncn ccncnn nccncn nncccn cnncnc ncccnn ccncnn
-ccnnnc nncccn cnncnc ccncnn ncccnn nnccnc cncncn cncncn nccncn cccnnn
-nccncn cncncn nncncc ccnnnc ccnnnc ccncnn nncccn cnncnc cccnnn ncccnn
-nnccnc nccncn cncncn ccnnnc nncncc ccncnn cnncnc ncccnn nncccn cccnnn
-cncncn nncccn cnncnc cccnnn ccncnn ccnnnc nncncc nccncn nnccnc nncccn
-ccncnn cccnnn ncccnn cccnnn cnncnc nccncn ccnnnc nncncc nnccnc nncccn
-ncccnn cnncnc nncccn cccnnn nccncn nncncc ccnnnc ccncnn cncncn nncncc
-nccncn cncncn nncccn ccnnnc cncncn nncncc ccncnn cnncnc nnccnc cccnnn
-cccnnn ccnnnc ncccnn nncccn nccncn ccncnn ccncnn cncncn cnncnc nncncc
-nncncc cncncn nnccnc ccnnnc nncccn ccncnn cccnnn nccncn cnncnc cccnnn
-ccnnnc cncncn nncncc cccnnn nnccnc cnncnc nccncn ccncnn nncccn cnncnc</text>
-    </lesson>
-    <lesson>
-      <id>{8989ea2a-2f73-4be4-b0d2-a2af8ac3bb26}</id>
-      <title>Lesson 7: v and m</title>
-      <newCharacters>vm</newCharacters>
-      <text>mvvvmm vmmvmv vmvvmm mvmvmv asm asm vmvvmm vmmmvv vvmmmv vmvmmv vvmvmm
-mvmvmv mvvvmm vvmmmv vmmvmv vmmmvv vmvmmv vvmvmm mvmvmv vmmmvv asm asm
-vmmvmv mvmvmv vvmvmm asm mvvmvm vmvvmm asm vmvmmv mvmvmv vvmmmv mvmvmv
-mvvvmm mvvmvm mvmvmv vmvmmv mvmvmv vvmvmm vmvvmm asm mvvmvm vmmmvv asm
-vmvmmv mvvvmm vmvvmm mvvmvm vmmmvv asm vvmmmv asm mvmvmv vvmvmm mvmvmv
-vmvmmv vvmmmv vvmvmm vmmmvv vmvvmm asm mvvmvm asm vvmmmv vmmvmv mvmvmv
-asm vvmmmv vvmvmm vmmvmv asm vmvmmv vvmvmm mvmvmv vmmmvv vmvvmm mvmvmv
-vvmvmm vmmmvv vvmmmv vmmvmv mvmvmv mvvvmm asm vmvvmm mvvvmm asm mvvmvm
-asm vmmvmv vmmmvv mvmvmv vvmvmm vmvvmm asm mvmvmv mvvvmm mvvmvm vmmvmv
-mvvmvm vvmmmv vmmvmv asm vmmmvv vmvvmm asm mvvvmm mvmvmv vvmmmv mvmvmv
-mvmvmv vmmvmv asm mvvmvm vmvmmv vvmvmm vvmmmv vmvvmm vmmmvv mvmvmv asm
-asm vvmvmm mvvmvm vmvmmv mvmvmv asm vmmmvv vvmvmm mvvvmm vmmvmv mvmvmv
-asm vmvmmv mvvvmm vmmvmv vmvmmv vvmvmm mvmvmv asm vmvvmm vmmmvv vvmmmv
-vvmvmm vmmvmv vmvvmm mvmvmv vmmmvv vmmmvv mvvvmm vmvmmv asm asm vvmmmv
-vvmvmm asm mvmvmv vmmvmv mvmvmv mvvvmm asm vmvmmv mvvmvm vmvmmv vvmmmv
-vmmvmv asm mvmvmv vmvmmv asm mvmvmv vvmvmm mvvmvm mvmvmv vmmmvv vmvvmm</text>
-    </lesson>
-    <lesson>
-      <id>{d80d47a8-7423-4cd8-a582-7dc4b5f42a84}</id>
-      <title>Lesson 8: b and ,</title>
-      <newCharacters>b,</newCharacters>
-      <text>b,b,,b b,b,b, b,,bb, ,,bbb, ,b,bb, asm b,,bb, ,,bbb, ,,b,bb b,b,,b
-b,,bb, asm ,,b,bb b,,bb, ,b,bb, b,,bb, bb,,b, b,b,,b b,b,b, b,b,,b
-b,b,,b bb,,b, b,b,,b ,,bbb, ,,b,bb asm b,,bb, ,b,bb, b,b,,b b,b,,b
-b,b,,b b,,bb, b,b,,b ,,bbb, bb,,b, b,,bb, ,b,bb, asm ,,b,bb b,b,,b
-,,bbb, ,b,bb, asm b,b,,b b,b,,b ,,b,bb bb,,b, b,,bb, b,b,,b b,b,,b
-b,b,,b ,b,bb, b,b,b, bb,,b, b,,bb, ,,b,bb b,b,,b b,b,,b asm b,,bb,
-b,,bb, b,,bb, b,b,,b ,,b,bb b,b,,b b,,bb, asm ,,bbb, b,b,b, bb,,b,
-,,b,bb b,b,,b b,,bb, ,b,bb, b,b,b, b,b,,b asm ,b,bb, bb,,b, b,,bb,
-b,b,b, ,b,bb, b,b,,b b,,bb, b,b,,b bb,,b, b,b,,b asm ,b,bb, b,,bb,
-b,b,b, b,b,,b b,b,,b ,,b,bb ,b,bb, b,,bb, asm b,,bb, bb,,b, ,,bbb,
-b,,bb, ,,b,bb b,b,,b asm ,,bbb, bb,,b, b,b,,b ,b,bb, b,b,,b b,,bb,
-asm b,b,,b ,,bbb, ,,b,bb b,b,b, bb,,b, b,,bb, b,b,,b b,,bb, ,b,bb,
-b,,bb, ,b,bb, b,b,,b ,,bbb, bb,,b, b,,bb, b,b,,b b,b,,b b,b,b, asm
-b,b,,b ,b,bb, bb,,b, b,b,b, asm b,,bb, b,b,,b b,b,,b ,,bbb, b,,bb,
-asm b,,bb, bb,,b, ,b,bb, b,,bb, b,b,b, b,b,,b ,,bbb, b,b,,b b,b,,b
-b,b,b, bb,,b, b,b,,b ,,b,bb b,,bb, b,,bb, asm b,b,,b ,,bbb, ,b,bb,</text>
-    </lesson>
-    <lesson>
-      <id>{49e73aba-e1be-4dec-aa3f-8cc3a21d75b0}</id>
-      <title>Lesson 9: . and x</title>
-      <newCharacters>.x</newCharacters>
-      <text>.xxx.. x..x.x x..xx. x..xx. xx.x.. ..xxx. x.x..x x.xx.. ..xx.x asm
-.xxx.. x.x..x ..xx.x ..xxx. x..xx. .xxx.. asm x.xx.. x.xx.. x..x.x
-..xxx. .xxx.. x..xx. x..x.x ..xx.x x.x..x x.xx.. asm xx.x.. x..xx.
-xxx... x.xx.. ..xxx. xx.x.. asm .xxx.. x.xx.. ..xx.x .xxx.. x..xx.
-x.xx.. x.x..x asm xxx... .xxx.. x..xx. x.xx.. ..xxx. x..x.x ..xx.x
-x..xx. x.xx.. ..xx.x x..xx. xxx... x.xx.. .xxx.. x..x.x xx.x.. asm
-xxx... ..xxx. xx.x.. x..x.x x.xx.. ..xx.x x.xx.. xx.x.. x.x..x asm
-x.xx.. x..xx. asm x.xx.. xx.x.. ..xxx. ..xx.x x..x.x x.xx.. xxx...
-asm x..xx. xx.x.. x..x.x ..xxx. x..x.x ..xx.x x.xx.. .xxx.. xxx...
-x..x.x x.xx.. ..xx.x x..x.x xx.x.. asm x..xx. xxx... .xxx.. x.x..x
-xx.x.. x..xx. x.xx.. x.xx.. asm x..x.x xxx... ..xxx. x.xx.. .xxx..
-..xxx. x.x..x asm x.xx.. ..xx.x x.xx.. x..xx. x..x.x x..xx. xx.x..
-..xx.x xx.x.. ..xxx. asm .xxx.. x.xx.. x..x.x x..xx. x.xx.. xxx...
-x.xx.. ..xx.x x..x.x asm x..xx. x.xx.. xx.x.. ..xxx. xxx... x.xx..
-x.x..x ..xx.x x..xx. x..x.x xx.x.. ..xxx. asm x.xx.. xxx... x.x..x
-.xxx.. xx.x.. xx.x.. ..xxx. ..xx.x x..xx. asm x.xx.. x..x.x x.x..x</text>
-    </lesson>
-    <lesson>
-      <id>{6371f435-ced5-41bb-b724-7f4a5e5ac147}</id>
-      <title>Lesson 10: z and /</title>
-      <newCharacters>z/</newCharacters>
-      <text>zz//z/ z//zz/ z//z/z zz//z/ z/zz// asm /zz/z/ //zzz/ //zz/z //zzz/
-asm /zz/z/ z//z/z z/zz// z//zz/ //zz/z //zzz/ zz//z/ //zzz/ /zz/z/
-//zzz/ z/zz// //zzz/ asm //zz/z z//z/z z//zz/ zz//z/ /zz/z/ //zzz/
-z/zz// z/z//z z//z/z //zzz/ z//zz/ //zz/z //zzz/ asm z//zz/ /zz/z/
-z/zz// /zz/z/ zz//z/ //zzz/ z//z/z z/z//z zz//z/ asm z/z//z z//zz/
-asm //zz/z /zz/z/ //zzz/ zz//z/ z//z/z z//zz/ zz//z/ //zzz/ z/zz//
-//zz/z /zz/z/ //zzz/ z/z//z asm z//zz/ zz//z/ z/zz// z//z/z //zz/z
-//zz/z zz//z/ /zz/z/ z/z//z /zz/z/ //zzz/ z//zz/ z//z/z asm zz//z/
-/zz/z/ z//zz/ z//z/z zz//z/ z/z//z z/zz// asm zz//z/ //zzz/ z/zz//
-asm //zzz/ /zz/z/ zz//z/ //zzz/ z//z/z zz//z/ //zz/z zz//z/ z//zz/
-z//z/z /zz/z/ //zz/z asm //zzz/ //zzz/ zz//z/ z//zz/ z/zz// zz//z/
-asm z//z/z z//zz/ /zz/z/ //zz/z z/z//z zz//z/ z//z/z z/zz// zz//z/
-zz//z/ //zzz/ z//zz/ asm /zz/z/ zz//z/ z//z/z //zz/z z/zz// z/z//z
-zz//z/ //zzz/ z//z/z z/z//z asm //zz/z zz//z/ zz//z/ /zz/z/ z/zz//
-zz//z/ z/z//z z//z/z asm z//zz/ zz//z/ z/z//z //zzz/ //zz/z /zz/z/
-asm z/z//z z//z/z //zzz/ zz//z/ zz//z/ z//zz/ //zzz/ //zz/z z//zz/</text>
-    </lesson>
-    <lesson>
-      <id>{23a7f9cc-b729-45c5-95a0-d57fd7176ffb}</id>
-      <title>Lesson 11: e and u</title>
-      <newCharacters>eu</newCharacters>
-      <text>euueue false enum ueeueu eueueu enum false asm case enum case eueeuu
-false enum false uueeue euueue eeuueu asm enum ueeueu case case enum
-case case asm enum enum ueeueu false euueue false eeuueu enum euueue
-case enum asm euueue false eeeuuu false ueeueu uueeue enum case enum
-asm false eeeuuu eueeuu enum euueue case case enum false ueeueu enum
-uueeue false ueeueu enum case ueeueu enum case euueue asm false enum
-euueue asm enum false case ueeueu enum enum case false uueeue eeuueu
-case false ueeueu asm euueue enum enum case eueeuu euueue enum false
-false case enum eueeuu case enum euueue eeeuuu enum asm eueeuu false
-eeuueu false euueue case eueueu ueeueu enum case enum false enum asm
-enum false eeeuuu asm eeuueu enum case enum case eueeuu ueeueu false
-false case ueeueu euueue enum uueeue enum euueue false enum case asm
-enum euueue false enum euueue asm eeeuuu case enum false case euueue
-false enum eueueu ueeueu enum case eueeuu false asm euueue case enum
-case ueeueu eeuueu false enum eueeuu enum case euueue false enum asm
-enum asm eueueu eueeuu false case euueue enum enum false case eeeuuu</text>
-    </lesson>
-    <lesson>
-      <id>{ead6fa04-4389-4512-8e71-6769034e9c05}</id>
-      <title>Lesson 12: r and i</title>
-      <newCharacters>ri</newCharacters>
-      <text>friend using if signed irririri .size break; char break final friend
-friend char break if final friend riiiirrr using .size break; signed
-riiiirrr if final break; .size if friend using break char signed friend
-break using iirriirr signed friend break; .size final char if friend
-iirriirr if break; using char friend friend .size break signed final
-break friend break; riiirrir if final .size char friend signed using
-signed .size break friend using final friend rirririi char if break;
-char iirrriir signed final if friend friend using .size break break;
-friend friend signed break irrrriii using .size char if final break;
-signed iirriirr .size break; char break if friend final friend using
-break char using irririri friend break; final .size if friend signed
-break; rriirrii friend final char if break friend signed .size using
-using if signed .size break riiiirrr break; char friend if final friend
-final using if char friend signed friend .size rriirrii break; break
-signed friend break char irrrriii final .size break; if friend if using
-friend using if friend break final signed char irrrriii break; .size</text>
-    </lesson>
-    <lesson>
-      <id>{67238b0f-d95b-4578-9fb1-b7722c60b97c}</id>
-      <title>Lesson 13: t and o</title>
-      <newCharacters>to</newCharacters>
-      <text>long sizeof toottoto true auto float void auto .at for mutable do
-float long .at double mutable void tooottot sizeof int for do short this
-default const ttotooto mutable true alignof int this sizeof short auto
-default for ttttoooo short this alignof float const do long const
-do this const const virtual true short alignof for double auto toottoto
-auto for do virtual short float this mutable alignof otttooto .at
-true float alignof auto long float default short tooottot virtual
-.at double for do alignof auto int auto ttttoooo float virtual const
-for true sizeof ttotooto float const short auto .at do default long
-this double void alignof short .at auto virtual short oottttoo auto
-const default virtual long .at sizeof this short auto do tooottot float
-float short long const .at void this virtual float otttooto default
-const otttooto const default short mutable virtual .at long alignof
-oottttoo default do int virtual this true float long sizeof const auto
-const virtual oottttoo .at for double alignof long do this auto short
-alignof short otttooto do double mutable default int virtual auto auto</text>
-    </lesson>
-    <lesson>
-      <id>{c7017646-2678-42c5-997a-6fcde4f8c36c}</id>
-      <title>Lesson 14: y and p</title>
-      <newCharacters>yp</newCharacters>
-      <text>constexpr ppyypypy typeid export try private .empty typeid .empty
-.empty private .empty try constexpr typeid typeid pypyyypp export
-.empty public try typeid typeid export private .empty pyyppypy
-private typeid constexpr public export ppyypyyp typeid .empty .empty
-pyyyyppp .empty typeid export typeid .empty constexpr public try
-constexpr .empty .empty yypypppy public typeid private export typeid
-export .empty try public typeid constexpr private yypypppy typeid
-typeid export private yypypppy .empty public constexpr try typeid
-public private try pyyppypy typeid export .empty constexpr typeid
-private typeid try pyyyppyp public typeid .empty export constexpr
-private .empty constexpr yypypppy try .empty export typeid public
-private try export pypyyypp constexpr .empty public typeid .empty
-typeid public .empty private export .empty constexpr try pyyyyppp
-.empty ppyypyyp private typeid typeid export .empty constexpr try
-export .empty .empty ppyypypy typeid typeid constexpr public private
-.empty typeid .empty yypypppy typeid try export constexpr private</text>
-    </lesson>
-    <lesson>
-      <id>{ff82bfb9-0dc6-47c7-9b88-f82072372b26}</id>
-      <title>Lesson 15: w and [</title>
-      <newCharacters>w[</newCharacters>
-      <text>new throw do switch final constexpr new while [[w[ww[w alignof false if
-void char long while ww[[ww[[ break switch throw this enum new throw
-while for throw export new true double switch char .empty ww[[ww[[
-new sizeof throw switch signed this alignof switch w[ww[[w[ while
-switch while true new try friend w[w[[[ww throw float typeid switch do
-false try switch new while int while .size throw [w[w[w[w switch enum
-throw new true switch .empty public while short [w[w[w[w const void
-switch true enum throw do new for break; long [[w[ww[w while throw while
-true char constexpr if using throw [www[w[[ while double new switch
-new switch double int final do float void [w[ww[w[ while for throw
-false do void new while throw auto switch [w[ww[w[ throw friend if case
-private .at asm break; [w[w[w[w virtual new while switch new throw enum
-asm final true switch new switch while [[w[ww[w throw default while
-while alignof new switch auto w[ww[[w[ switch long new for throw true
-.at void throw short this while case true enum long switch new w[w[[[ww
-true w[w[[[ww throw friend char new switch using break while if auto</text>
-    </lesson>
-    <lesson>
-      <id>{2bc4cab7-4c20-4cb1-8288-2e91422b4e2a}</id>
-      <title>Lesson 16: q and ]</title>
-      <newCharacters>q]</newCharacters>
-      <text>switch final for q]]]]qqq .size private public const int constexpr
-final private sizeof case if virtual this auto float int false ]]q]qq]q
-sizeof if virtual break for q]]]qqq] private try auto friend this
-q]]]qqq] .empty for private const public asm sizeof signed constexpr
-signed try .size ]q]]q]qq friend void private int false final true
-]q]]q]qq alignof friend true break; export enum signed float long
-throw q]q]]qq] signed private using sizeof .at short for typeid asm
-q]q]]qq] using double .at do export default sizeof true .size case void
-void export qq]q]q]] typeid constexpr default float .empty true
-short qqqq]]]] for asm break throw new switch export sizeof final
-throw ]q]]]qqq .size try private int do true enum if long short typeid
-while throw ]q]]q]qq do false friend constexpr float break; const for
-alignof false q]]]]qqq signed virtual true short const if export
-q]q]]qq] alignof double long .empty void throw false while if mutable
-export new switch char mutable ]q]]q]qq public float false private
-sizeof using break; qq]]qq]] .at typeid mutable false do float while</text>
-    </lesson>
-    <lesson>
-      <id>{aa418a85-74ea-41f1-948d-33a7815095ba}</id>
-      <title>Lesson 17: 3 and 9</title>
-      <newCharacters>39</newCharacters>
-      <text>93339399 try case char default signed short void .empty const while do
-new using if enum alignof while typeid case .at 39399339 for short void
-try auto if asm int false void switch .empty using typeid const 33993399
-this short auto default 99339933 export .at for break; try friend case
-char final default long for switch this private 33939993 .size public
-.size sizeof int if true long new try .at alignof while throw 93939339
-alignof short .empty case int float signed constexpr while 93339939
-new 93939339 private try int public enum virtual if switch float
-while char auto enum .empty 39339939 try break .size break; if .at
-break sizeof case .empty switch asm false this void long 39339939
-.size virtual throw float char using while constexpr typeid 99339933
-virtual new long do true 39399339 enum double break; while char for
-case break .at while constexpr if switch 39399339 double .size asm
-switch float .at 99339933 final case private const .size asm double
-using short mutable break; long 33939993 private friend const true
-short do sizeof asm 93339939 try const int throw enum true .size mutable</text>
-    </lesson>
-    <lesson>
-      <id>{a7da345d-3994-41bc-a265-e35e130afce5}</id>
-      <title>Lesson 18: 4 and 8</title>
-      <newCharacters>48</newCharacters>
-      <text>4848844488 constexpr throw break; void default auto this final float
-export const switch friend break; break 4848888444 false try alignof
-default const new throw auto void int 4848888444 break; do final switch
-.size default .at void public for double friend 4848888444 sizeof char
-void break; 8844448848 .size public enum this int char throw friend if
-default this .at if 8884844844 sizeof case public private break; while
-4848848484 typeid if mutable using do .empty char .at this void export
-auto .at 8884844448 void throw new signed public export virtual short
-private default throw try export auto float break; virtual 8444848488
-public using int sizeof default long .empty final float 8884844448
-.empty while try friend 4888448844 default long new case mutable true
-enum 8444848488 void for const .empty try long alignof .size break;
-using constexpr 8844448848 new virtual signed char while float sizeof
-switch long this virtual break; using for 4848848484 .size final
-true for throw typeid enum const default mutable void 4888448844 auto
-float .empty break void constexpr final 8444848884 alignof private</text>
-    </lesson>
-    <lesson>
-      <id>{8ae0f65f-cb3e-4482-9342-7cbca30bb7da}</id>
-      <title>Lesson 19: 5 and 7</title>
-      <newCharacters>57</newCharacters>
-      <text>7775755755 using enum int typeid asm virtual .at private sizeof true
-mutable 7775755755 auto int case true void using this export asm false
-private final 5577757557 char constexpr break; using while void this
-while try .empty typeid do final .size 7555777557 const void double
-asm mutable default double true do short 7755557577 public enum friend
-void mutable throw enum signed while try .size if 5577755775 false
-case signed int char true friend 7755557577 export void typeid do while
-enum public 5577757557 this new while break short friend mutable const
-break; signed case char public constexpr throw 7557557577 .size short
-private throw for break; float constexpr int friend 5577575577 sizeof
-auto for while alignof int break; 7557557577 .size new do long true
-export sizeof do 5757755775 virtual try short enum float int const case
-this for .size break; using char false if 5577575577 float void .at
-sizeof private throw break; alignof switch 7755557577 short final
-friend false break void enum .empty throw 5577755775 virtual sizeof
-7775755755 alignof .at new typeid .size true private virtual throw</text>
-    </lesson>
-    <lesson>
-      <id>{ebcb7148-ed2a-487a-bbe5-3c00d2bc1c4b}</id>
-      <title>Lesson 20: 6 and 0</title>
-      <newCharacters>60</newCharacters>
-      <text>new 6600660006 float s[0] w[0] w[0] virtual t[0] friend .empty v[0]
-float t[0] v[0] private double friend w[0] 6600660006 s[0] typeid
-t[0] virtual v[0] true case 6600660006 w[0] s[0] default this throw
-final alignof do int using v[0] char t[0] long w[0] s[0] 6000660606 v[0]
-t[0] 6600660006 short w[0] v[0] case while s[0] break; true void break
-0660000666 new if this sizeof void s[0] .at v[0] t[0] using double w[0]
-public 0066660006 double throw s[0] v[0] t[0] s[0] export w[0] default
-w[0] v[0] w[0] s[0] switch float while t[0] auto friend true 0660000666
-s[0] do 0000660666 default typeid w[0] friend w[0] short v[0] t[0]
-break v[0] mutable const w[0] .empty s[0] 0006666060 t[0] constexpr
-s[0] for t[0] true v[0] w[0] 6066660000 w[0] export .at t[0] default
-do s[0] false sizeof t[0] w[0] v[0] mutable 0000660666 default new try
-true v[0] public friend s[0] this throw 0066006606 t[0] .empty w[0]
-final new friend v[0] t[0] t[0] switch s[0] v[0] w[0] 0066660006 try
-v[0] .at t[0] w[0] s[0] v[0] short auto 0000660666 using break; final
-s[0] if 6000660606 char w[0] s[0] new while virtual v[0] t[0] sizeof</text>
-    </lesson>
-    <lesson>
-      <id>{71169e3c-0b33-4ad1-8beb-aa8d0c1eabee}</id>
-      <title>Lesson 21: 2 and -</title>
-      <newCharacters>2-</newCharacters>
-      <text>--22-2-2-2 alignof switch .size for const char mutable break; using
-enum .empty if --22-2-2-2 false w[0] final double v[0] true float
-auto const double private --2-2-22-2 final constexpr break for int
-alignof break const t[0] true for mutable float export -2--222--2
-do private virtual while mutable 2-2---222- char this const case using
-2--222---2 for default true alignof break; v[0] .size virtual double
-case short default true int friend s[0] -2--222--2 for throw typeid
-sizeof default final enum typeid char short w[0] ---2-2-222 .at public
-virtual .empty -2--222--2 break asm typeid .size try public throw
-break; throw private void public w[0] -2--222--2 default true typeid
-void alignof 2-2---222- signed .empty break .size char private new
-throw virtual s[0] --2-2-22-2 case .size using break constexpr try
-final throw long .at .empty friend for enum using 22---2-2-2 typeid
-s[0] .empty long switch friend for double ---2-2-222 virtual auto
-new -2--222--2 while .at signed using true short do asm case sizeof
-switch alignof auto --22-2-2-2 virtual t[0] signed case constexpr</text>
-    </lesson>
-    <lesson>
-      <id>{61f7cb3d-0ad4-4a85-9630-b95ff07ffa8a}</id>
-      <title>Lesson 22: 1 and =</title>
-      <newCharacters>1=</newCharacters>
-      <text>v[1] .at double new =1=1==1=11 auto true private char signed enum
-break 1===111==1 using v[1] alignof while default s[0] throw void char
-v[1] 1==11==11= int virtual private double float .size alignof friend
-v[1] short long export 1==11==11= char do break int sizeof try v[1]
-v[1] int 11=11==1== .size v[1] v[0] default throw friend short final
-virtual do false while v[1] =1=1==1=11 try v[1] v[0] typeid char void
-default float try .empty v[1] asm void 1===111==1 int using sizeof t[0]
-.size try short 11=11==1== int alignof sizeof v[1] final new .at false
-signed float virtual v[1] sizeof final switch while break 1===111==1
-long v[1] throw t[0] sizeof .size 1===1=111= asm if alignof default
-v[1] v[1] while void virtual case 11=11==1== using float mutable
-break for if const v[1] case 1=1=11=1== switch this friend float t[0]
-v[1] void asm while alignof case mutable 1==11==11= typeid float auto
-v[1] mutable short 1==11==11= do try t[0] s[0] virtual int this while
-virtual void const true double int false 1==11==11= typeid v[1] try
-===111=1=1 while v[1] double mutable w[0] .at v[0] auto s[0] export</text>
-    </lesson>
-    <lesson>
-      <id>{f25f990d-da31-4d06-ad43-9ac4814235f5}</id>
-      <title>Lesson 23: ` and \</title>
+      <id>{11ded808-1804-482f-b845-e16c4c2bb587}</id>
+      <title>Lesson 5: ` and \</title>
       <newCharacters>`\</newCharacters>
-      <text>void true \n throw try v[1] \n if .size .at virtual this ``\\\\`\``
-true this \n long do \``\\``\\` false friend case mutable virtual w[0]
-break auto v[1] break; case ``\``\\\`\ \n constexpr s[0] char throw
-private case \n \n double using .empty throw .size \`\`\`\`\` t[0] for
-\n const auto case float \``\\``\\` private v[1] char using .empty
-sizeof s[0] private \n final .empty typeid break ``\``\\\`\ v[0] for
-true break \n export signed long v[1] false float double ``\\\``\\`
-double case .size break; s[0] \`\`\\`\`` throw \n \n final false v[1]
-v[1] this new float sizeof final virtual switch `\\\\```\` s[0] \n char
-this \n constexpr t[0] public mutable \\``\```\\ v[0] s[0] short false
-export \`\`\`\`\` t[0] typeid \n try for true .empty .at v[1] s[0]
-this \`\`\\`\`` const float public \n enum int asm break; alignof
-\n \n final while `\\\\```\` new default long break; alignof public
-enum \n ``\\\\`\`` try v[1] long sizeof default constexpr void \n case
-this private enum .empty mutable \n default float ``\\\\`\`` final
-case `\\`\\``\` try .empty final s[0] do \n auto int enum new this \n</text>
+      <text>private constexpr v[1] \n default public `\`\``\\\` w[0] friend false
+mutable asm false try v[1] typeid auto export \```\\`\\` final true \n
+\n char sizeof .size \``\`\`\\` private final switch false auto break
+switch \n friend double default int export alignof \`\`\``\\` break do
+double mutable \``\`\`\\` break; enum \n using this friend try \n final
+auto char \`\`\\`\`` sizeof typeid \n false virtual short using this
+\n private break if sizeof for short int \```\\`\\` void alignof \n
+void .at `\``\\\``\ short new while virtual .empty using \n do default
+false long friend break; \n public t[0] switch final \`\``\\`\` true
+t[0] w[0] \n new break signed break; `\``\\\``\ \n sizeof mutable while</text>
     </lesson>
     <lesson>
-      <id>{9c01216f-5afd-4f1b-8da8-23df73705122}</id>
-      <title>Lesson 24: F and J</title>
-      <newCharacters>FJ</newCharacters>
-      <text>case this FJFJFJJFFJFJ try w[0] auto true friend long for sizeof export
-FJFJFJJFFJJF case true void mutable break; \n final w[0] asm alignof
-this if FJFJFJJFFJFJ signed typeid \n switch w[0] using char v[1]
-if sizeof const final .empty v[0] alignof false try FFFJFJFJFJJJ auto
-asm .empty w[0] case this break; virtual t[0] while FJFFJFJJJFJF
-.at friend if FFFJFJFJFJJJ alignof v[0] private export void try double
-.size FJFJFJJFFJJF .at case break; alignof \n private t[0] sizeof
-short constexpr const friend v[0] new JFFFJFFJJJJF char w[0] this \n
-char switch JFFFJFFJJJJF if constexpr .at false .size mutable do throw
-constexpr mutable public export JFJFFFFJJFJJ signed for float false
-JFFFJFFJJJJF true signed w[0] new if float constexpr typeid private
-break public break; export for private v[1] JFJFFFFJJFJJ typeid
-FJFFJFJJJFJF false alignof do s[0] while \n true constexpr .at public
-while try sizeof export .size new if true default void asm FFFJFJJJJJFF
-true while FFFJFJJJJJFF case try float v[1] if char auto alignof
-v[1] for auto signed w[0] .empty break constexpr enum FJFFJFJJJFJF</text>
+      <id>{0a74ee2b-0aee-4b57-b5bb-362382842ff7}</id>
+      <title>Lesson 6: { and }</title>
+      <newCharacters>{}</newCharacters>
+      <text>{}{}{}{{}}}{ export {1} for throw {1} {0} switch case .at .size enum {0}
+{0} {0} public try {1} {1} {0} while char this {1} {}{{}{}}}{}{ enum long
+true float {1} {0} this constexpr break; v[1] {1} {0} }{{{}{}}{}}{ t[0]
+{}{{{{}}}}{} switch {0} using if {1} asm {0} {1} alignof .at mutable
+{0} v[0] t[0] }}}{{{}{{}{} double {1} w[0] short {1} switch v[1] {0}
+constexpr long double float .empty {0} }{{{{{}}}}}{ {0} {1} switch {1}
+{0} s[0] constexpr {1} switch break; {0} default case {1} {}{}{}{{}}}{
+try break double {0} int friend enum }{{{}{}}{}}{ {1} {1} {0} {1}
+{1} {0} {1} false t[0] public short double {}{{{{}}{}}} {0} long w[0]
+virtual {0} .size asm this {1} {0} char sizeof {1} {}{{{{}}{}}} {0}</text>
     </lesson>
     <lesson>
-      <id>{65202fb2-de0f-41cd-b433-e9e3ee72aebf}</id>
-      <title>Lesson 25: D and K</title>
-      <newCharacters>DK</newCharacters>
-      <text>asm break; mutable KKKKDKKDDDDD case true virtual float char short for
-s[0] try default void v[1] constexpr t[0] for int KDDDKDKKDKDK float
-v[1] switch t[0] short s[0] long final DKDKDKKKDDKD auto sizeof do
-public DKDDKDKKDDKK if constexpr throw case char for v[1] using float
-KDDDDDKKDKKK int void w[0] private short .at mutable \n .empty alignof
-if t[0] char virtual false w[0] do .size sizeof using this KKDKKDKDDDKD
-DKDKDKKKDDKD true s[0] final .empty .size switch private auto alignof
-.empty try for short new constexpr alignof float char KKKKDKKDDDDD
-constexpr char KKDKKDKDDDKD while const do .at new final v[0] for enum
-KDDDKDKKDKDK new v[1] int .size .empty break; constexpr v[0] try
-typeid do .size try sizeof virtual asm enum DKDDKDKKDDKK t[0] new break
-w[0] KKDKKDKDDDKD enum using .empty asm new switch virtual public this
-double constexpr const char false private try KKDDKKKDKDDD short
-private case .size alignof for switch double DKDDKDKKDDKK public this
-KDDDDDKKDKKK break \n final t[0] constexpr s[0] void throw const
-while KKDKKDKDDDKD asm switch sizeof .empty true enum do .at private</text>
+      <id>{423ae734-0f60-4b78-aa6e-742611ed24b8}</id>
+      <title>Lesson 7: ? and :</title>
+      <newCharacters>?:</newCharacters>
+      <text>??::?::??:?: float int private: public: {0} enum case: default:
+private: default: ?:?::??:::?? mutable private public: try case:
+??::?::??:?: public: case case: \n virtual for v[0] default: private:
+float default: constexpr case: public: private: ??:::?::??:?
+private: {1} using mutable public: false default: case: ?:?::??:::??
+export ??::?::??:?: case: true private: default: default: public:
+private: char case: sizeof :?:?::??:??: public: .empty default:
+constexpr :?:?::??:??: public: case: default: t[0] short private:
+t[0] case: private: switch friend default: v[0] ?:?:?:?::??: public:
+private: :?????::::?: default: case: break public: constexpr</text>
     </lesson>
     <lesson>
-      <id>{58b53888-3aa6-435e-865e-7178317989e8}</id>
-      <title>Lesson 26: S and L</title>
-      <newCharacters>SL</newCharacters>
-      <text>while virtual new switch float LSSSLLSSLLLS public short asm long
-.empty true LSSSLLSSLLLS mutable .size \n break; v[1] signed break
-break; \n for s[0] case LLLSSSLSSLSL long .empty true final friend do
-SLLLSSSLSLSL final alignof for void auto const float .at try v[1] .size
-sizeof char using virtual double asm const s[0] LSLLSLSLSSSL break
-using short LLLSSSLSSLSL s[0] float t[0] signed throw enum sizeof int
-constexpr .size virtual break; int try .at SSLLLSLLSLSS break export
-using LLSSLSSSLLSL .size int s[0] virtual break w[0] .at v[1] for false
-double long default signed try \n v[0] do public w[0] enum SSLLLSLLSLSS
-using s[0] const LSLLSLSLSSSL enum sizeof default final mutable v[0]
-int v[1] mutable const LSSSLSSLSLLL case default break .at .size do
-using \n true w[0] typeid false throw this public for LLSSLSLLSLSS
-enum typeid \n long this signed LLLSSSLSSLSL void constexpr asm .size
-typeid short LSLLSLSLSSSL for do v[0] if v[1] t[0] signed float this
-s[0] new short long void virtual alignof enum do LSLLSLSLSSSL v[0]
-while auto void LLSSLSLLSLSS asm t[0] double v[0] default break; this</text>
+      <id>{40f14104-2ccf-41f7-af6e-10ab8b9e2519}</id>
+      <title>Lesson 8: + and _</title>
+      <newCharacters>+_</newCharacters>
+      <text>.at int wchar_t w[0] for char32_t .size char16_t +_++_+_+__+_ using
+char16_t +___+__++++_ default: asm wchar_t wchar_t sizeof char32_t
+char16_t final _+_+_+_+_+_+ {1} wchar_t while char32_t v[1] alignof
+char16_t +_++_+___++_ case: do v[1] char32_t wchar_t true char int
+new wchar_t char32_t sizeof +___+__++++_ char16_t virtual public if
+wchar_t char16_t false char16_t _+_+++___+_+ .empty char32_t asm
+char16_t ++__+++_+___ virtual v[1] if char32_t auto wchar_t long
+break _+_+++___+_+ final wchar_t new char16_t this char32_t default:
+char32_t wchar_t ___+_++_+++_ char16_t .size v[1] private: case: new
+v[1] final wchar_t for virtual char16_t false +___+__++++_ char32_t</text>
     </lesson>
     <lesson>
-      <id>{6f1d8571-9375-4b77-abf2-57b1421fbd2a}</id>
-      <title>Lesson 27: A and :</title>
-      <newCharacters>A:</newCharacters>
-      <text>case case: public: typeid private: AA::AAA::A:: public: default:
-private: public: float virtual A::AA::A:AA: default: default: case:
-case: float private: using enum public: A:AAA:::A:A: .empty default:
-throw public: A:AAA:::A:A: private: using case: char default: void
-double :A::A::AAA:A private: public: case: break; private: default:
-constexpr private: public: default: A::AA::A:AA: case: try .empty
-public: private: A::AA::A:AA: default: default: sizeof case: .size
-short ::AA::::AAAA case: switch public: default: private: typeid
-short public: case: private: default: case for A:AAA:::A:A: break
-v[1] for private: default: .at public: ::AAA:A:A::A s[0] true case:
-case: long alignof auto case: A:A:::AAAA:: public: default: private:
-public: ::AAA:A:A::A using try private: default: private: case: long
-case: false ::AA:A::AA:A for private: friend default: public:
-final case: asm private: sizeof public: :A::A::AAA:A export default:
-case: A:A:A:A:::AA private auto case: default: v[1] public: private:
-virtual public: private: s[0] ::AA::::AAAA default: case: .at export</text>
+      <id>{b3b86cb4-0b47-4026-a95d-21eaa6f02bc4}</id>
+      <title>Lesson 9: ( and )</title>
+      <newCharacters>()</newCharacters>
+      <text>)()()(())(() .empty() v.empty() .size() .at(i) v.at(1) w.size()
+w.at(0) v.size() )()()(())(() s.at(0) w.empty() .empty() w.size()
+)()()(())(() v.at(1) w.size() v.size() .size() t.size() .at(i)
+s.empty() .empty() .size() w.size() )()((())()() w.empty() v.at(1)
+s.empty() w.at(0) .empty() .at(i) ())(()))((() w.size() .size()
+)()((())()() .empty() w.at(0) v.at(1) s.empty() w.size() t.size()
+w.empty() w.size() v.at(1) )(()()(())() .empty() t.size() v.at(0)
+)(()))))(((( s.at(0) s.empty() v.at(0) v.at(0) s.empty() t.size()
+s.at(0) s.empty() .empty() v.at(1) ())(()))((() w.at(0) v.empty()
+v.size() v.empty() v.at(1) (((()(())))) .at(i) .empty() w.empty()</text>
     </lesson>
     <lesson>
-      <id>{28bcae3e-a085-412e-8fb8-3cf17c082922}</id>
-      <title>Lesson 28: G and H</title>
-      <newCharacters>GH</newCharacters>
-      <text>\n float .size mutable long try s[0] sizeof this enum HHHGHHGHGGGG
-s[0] .size while virtual private: t[0] case: mutable GGHGHGHHGHGH
-case while constexpr HHGGGHHHGGGH const break; sizeof public throw
-for s[0] public: asm constexpr GGGGHHGHHHGH sizeof v[1] false
-final true false const sizeof switch alignof GGGGHHGHHHGH virtual
-private for break friend public HHHGHHGHGGGG .at \n this v[1] double
-int mutable const while case: for break .at HHHGHHGHGGGG constexpr
-v[0] case: signed HHHHGGGGHGGH this long virtual typeid final using
-case: sizeof case true GHHHGGHHGGHG this virtual w[0] switch enum \n
-GHHHGGHHGGHG s[0] v[1] public typeid alignof short double break;
-asm try w[0] void case: s[0] using GGGGHHGHHHGH const enum break
-this if public: s[0] v[1] void const GHGHGHGHGHHG short enum default:
-using void try w[0] t[0] while break; case HGHGGHHHGGGH public: case:
-true false HHHGHHGHGGGG break; sizeof int enum default: switch w[0]
-switch t[0] using asm this auto .size const GGHGHGHHGHGH case try enum
-.at final signed if mutable case false HHGGGHHHGGGH short break; s[0]</text>
+      <id>{c70aedbb-42f9-4d01-9e46-729e40498287}</id>
+      <title>Lesson 10: ! and *</title>
+      <newCharacters>!*</newCharacters>
+      <text>switch a!=b *!*!!*!*!**! */ char32_t w.empty() i!=j /* */ .at(i) !=
+i!=j a!=b true /* false public w.empty() != v[0] *!*!!*!*!**! */
+break; double */ a!=b int switch friend /* *!*!!*!*!**! != i!=j true
+v[1] /* t.size() /* while a!=b !**!**!*!!*! != */ a!=b v[0] mutable i!=j
+virtual final export /* {0} i!=j */ .empty !!!***!**!!* try a!=b != */
+*/ new while double const !!**!***!!!* != i!=j /* t.size() a!=b w[0] do
+enum /* .empty i!=j */ this private a!=b != !****!!!!!** using public:
+!= private: alignof */ break; **!!**!!**!! i!=j /* .at(i) a!=b
+!= !**!**!*!!*! i!=j */ char32_t w.empty() /* a!=b != break virtual
+a!=b !****!!!!!** char s.empty() /* i!=j */ != w.size() s.at(0)</text>
     </lesson>
     <lesson>
-      <id>{6453eee7-1d49-4374-8c2b-a7852fe41a08}</id>
-      <title>Lesson 29: C and N</title>
-      <newCharacters>CN</newCharacters>
-      <text>try default for \n CNNCCCCNNNNC virtual auto signed enum int w[0] v[1]
-sizeof NCNNCNCNCCCN false asm const long mutable try if short break;
-while enum CNNNCNNCCNCC v[0] if .size false virtual break; s[0] final
-true t[0] asm virtual do char switch new NCNNCNCNCCCN throw for sizeof
-for .empty w[0] CNNNCNNCCNCC switch char if constexpr signed alignof
-char void CCNNCCNNCNCN for false break w[0] float .empty break; export
-private public s[0] switch public: while \n export CNNNCNNCCNCC new
-false default constexpr private: default: NNCNCNCCCNCN sizeof void
-int break false private new try char auto default public: CCNCCCCNNNNN
-NNCNCNCCCNCN s[0] default: default break; void false true t[0] int
-CCNCCCCNNNNN mutable short int using virtual break private: true v[0]
-default: case: enum false CCNNNNCNNCCC public: using double .empty
-enum public do new const case CNNNCNNCCNCC int float case: \n asm using
-char auto if break; alignof t[0] final private throw CCNNNCNCNNCC
-typeid new false alignof void v[0] public while CNNNCCCCNCNN break
-virtual CNNNCNNCCNCC .empty s[0] while \n false typeid asm break; for</text>
+      <id>{f5be6de6-3052-4292-ac8c-e1de7c6e33f0}</id>
+      <title>Lesson 11: | and ^</title>
+      <newCharacters>|^</newCharacters>
+      <text>while case: != */ alignof ^= ^|||^^^^||^| .empty() signed double
+^= const v.empty() ^^|^^||||^^| throw while w.size() mutable {0}
+typeid const try case default ^= this mutable |^|^^^|||^|^ .empty()
+t[0] constexpr |^^|^^|||^|^ true s.at(0) ^= sizeof using {0} false {1}
+auto private wchar_t int default: v.size() s[0] ^|||^^^^||^| .at ^= !=
+public: void asm t.size() w[0] final .size() ^^|^^||||^^| ^= .empty()
+double != try /* |^^|^^|||^|^ break; ^= */ switch wchar_t private:
+wchar_t v.empty() .empty ^= asm final .at public new auto |^||^||^^^|^
+\n break; typeid ^^|||||^^|^^ switch false .size() s.empty() ^=
+/* != |^|^^^||^|^| virtual ^= asm true public: this friend switch</text>
     </lesson>
     <lesson>
-      <id>{75230676-be6b-4561-8205-a8e52f55f3fc}</id>
-      <title>Lesson 30: V and M</title>
-      <newCharacters>VM</newCharacters>
-      <text>MVMMVMMVVMVVMV s[0] .empty break final export private: do default:
-while if long new default: MVMMVMMVVMVVMV export short const double
-private mutable t[0] case switch private: enum VVVMMVMMVVMMMV double
-if MVMMVMMVVMVVMV break; for true constexpr default: signed void do
-MMMVMVVMVVMVVM sizeof typeid private: alignof this auto enum if try
-v[0] break; double for export MVVMVVMMVMMMVV if auto using \n long
-char while using friend case: .at VVMVMMVMVMMMVV new private throw
-break alignof break; friend char VMVMMVVMVVVMMM private: t[0] v[1]
-final int .empty for private: enum public public: if MVMVMVVVVMVMMM
-false throw char default: VVMMVVMVVMMVMM if \n friend case: switch
-switch private: long w[0] try VVMVMMVMVMMMVV \n typeid v[0] .at
-s[0] default: void short true typeid private VMVMMVVMVVVMMM char if
-default: export signed void VMVMVMVMVVMVMM while break; friend v[1]
-final v[1] try throw case new MVMVMVVVVMVMMM v[0] friend signed auto
-MVVMVVMMVMMMVV typeid try default case .at public: friend public
-try do this long default float mutable VMVMMVVMVVVMMM .size case: auto</text>
+      <id>{b7019671-52f7-4e0f-9aea-a6fcf56642e1}</id>
+      <title>Lesson 12: # and ~</title>
+      <newCharacters>#~</newCharacters>
+      <text>#elif #include case char16_t void ~###~#~#~~##~~ export sizeof
+v.at(0) i!=j #elif #include a!=b #~~~#~#~#~~### w.at(0) private */
+##~###~~~~~#~# v[0] #include .at #elif short w.empty() final s.at(0)
+##~#~#~###~~~~ #include i!=j w.empty() short double /* #elif
+false public short #include ~#~#~~#~~#~### #elif sizeof i!=j
+default: .at \n if #include using #elif v.empty() #~#~##~#~~##~~
+private: t[0] #include private #elif #~#~##~#~~##~~ i!=j asm
+v[1] #elif .empty #include /* {0} public: .size ##~###~~~~~#~# signed
+#include final #include #elif char ~#~#~~#~~#~### .at(i) double
+#include default friend char #~#~##~#~~##~~ constexpr #elif ^= asm</text>
     </lesson>
     <lesson>
-      <id>{fdd52c97-3fc5-40c8-85fd-e56736bdf1e2}</id>
-      <title>Lesson 31: B and X</title>
-      <newCharacters>BX</newCharacters>
-      <text>final try long do .at short alignof default auto XBXBXBBBXXBXBX v[0] if
-char true short sizeof mutable .size alignof XXXXXXBBBBXBBB t[0]
-constexpr try this long asm default: BBXBBBXBXXBXXX alignof while
-.size try public: mutable default BXXXXBBBXBBBXX float this signed
-public: default asm break; using sizeof w[0] s[0] XXBBBXXBXXBXBB
-auto friend mutable false v[1] void export .size BBXXXBXBBXXBBX t[0]
-s[0] using v[0] typeid char friend XXBXBXXBBBXBBX public: break
-this switch break sizeof long s[0] true false asm XXXXXXBBBBXBBB t[0]
-public double signed void false s[0] default BBXBBBXBXXBXXX asm break
-signed float public default auto typeid BXXXXBBBXBBBXX .at char
-break friend throw signed s[0] public BBXBBBXBXXBXXX for .empty
-.at t[0] throw w[0] while new signed BBXBBBXBXXBXXX double v[0] short
-float false export private signed try break; XBXBXBBBXXBXBX mutable
-XBXBBBXXXBXBBX switch if throw w[0] v[1] true sizeof typeid try signed
-asm BXXXXBBBXBBBXX default const while mutable private: \n private do
-XXBBBBXXBXBXXB this .at virtual w[0] asm mutable v[1] default float</text>
-    </lesson>
-    <lesson>
-      <id>{ca56e0a2-fbe1-4341-90bb-6dfd7c80d80e}</id>
-      <title>Lesson 32: Z and ?</title>
-      <newCharacters>Z?</newCharacters>
-      <text>int asm enum public: sizeof w[0] short Z?ZZZ?ZZ??Z??? throw break;
-\n default typeid short ZZZ??ZZ?Z??Z?? constexpr sizeof int signed
-double asm short case .empty private friend ?ZZZ??Z?Z?ZZ?? constexpr
-public double w[0] final Z??Z??ZZZ?Z??Z for break float case int
-.size double .at ??ZZ?Z??Z?Z?ZZ w[0] friend export using public: void
-Z????Z?ZZZ?Z?Z case: try s[0] \n const break default: void this v[0]
-.size Z?Z??Z??Z?Z?ZZ mutable \n enum case private: .at public switch
-v[0] case: break; double const new Z????Z?ZZZ?Z?Z default int throw
-?ZZZ??Z?Z?ZZ?? private: s[0] private alignof switch default: double
-mutable constexpr .size typeid public: Z?Z??Z??Z?Z?ZZ signed public
-private: case: enum void v[1] for case this constexpr ?ZZZ??Z?Z?ZZ??
-constexpr int ZZ?Z??Z??ZZ??Z t[0] throw v[1] case default: alignof
-while this try break signed long public enum friend ??ZZ?Z??Z?Z?ZZ
-ZZZ??ZZ?Z??Z?? false enum break; if int private float default new try
-asm ??ZZ?Z??Z?Z?ZZ this auto void mutable s[0] typeid public char
-try using signed double const typeid enum w[0] long ??ZZ?ZZ?Z???ZZ</text>
-    </lesson>
-    <lesson>
-      <id>{9d2cf2ef-e6f5-4602-bca7-227f16938f0b}</id>
-      <title>Lesson 33: E and U</title>
-      <newCharacters>EU</newCharacters>
-      <text>const for true new \n break; double short EEEEEUUUUUEEUU case long
-default .empty for UUUEEEEUUEUEUE new public const mutable friend if
-.empty private: asm EEUUEUEEEUUUEU virtual typeid t[0] default short
-asm .size private \n v[1] enum w[0] break; EEUUEUEEEUUUEU typeid do
-public EEEEEUUUUUEEUU double this break const public: long for enum
-EEEEEUUUUUEEUU default: true private: .at \n while double default
-final break EEUUEUEEUEEUUU constexpr \n private .empty public void
-alignof int short break break; if final switch auto UUEUUUEEEEUEUE
-public alignof typeid .empty auto new double signed UEEUUUUEEEEUEU
-float double long for s[0] false v[1] friend export EEEEUUEUUEUUUE
-break; short break for UEEUUEEUUUUEEE export case v[0] asm signed
-signed default: for constexpr asm default UEEUUEEUUUUEEE if break
-default: const for typeid this EEUUEUEEEUUUEU t[0] public char if long
-try EEEEEUUUUUEEUU v[0] sizeof w[0] v[1] friend private case: virtual
-asm const final mutable sizeof this \n v[0] public: UEEUUUUEEEEUEU do
-constexpr friend EEEEEUUUUUEEUU mutable do signed private: private</text>
-    </lesson>
-    <lesson>
-      <id>{bd408608-dfd3-418b-831f-a3acc500df78}</id>
-      <title>Lesson 34: R and I</title>
-      <newCharacters>RI</newCharacters>
-      <text>true break; for int false using long RIRIRRRRIIIIIR \n this w[0] throw
-w[0] do false asm if const while IRRIIIIRRIRIRR switch s[0] final
-.empty constexpr IRRRIRIIRIIIRR true double default .at asm false
-false .empty signed mutable public IRRIIRIRIRRIIR long alignof throw
-signed false constexpr t[0] .empty IRRIIRIRIRRIIR case void sizeof
-case .size v[1] typeid float v[0] .at asm private long RIRIRRRRIIIIIR
-void .empty IIIRRIRIRIRRRI char alignof asm break; mutable auto using
-mutable break v[0] case float enum for void IRIIRIRIRIRIRR default
-default s[0] new export IIIRRIRIRIRRRI do public: float final this
-do break .at short final t[0] for .size sizeof new RIRRIRRRIIIIRI
-asm void private: typeid .at RRRIIIIRRIRIIR break; new v[0] t[0] if
-do s[0] for signed export default: throw RIIRRIRIIIIRRR public:
-public: throw private final if alignof do signed short IRRRIRIIRIIIRR
-break; RIRIRRRRIIIIIR asm w[0] private: constexpr signed export int
-try public: v[0] if enum char IRRIIIIRRIRIRR while double alignof v[1]
-constexpr v[1] default final const typeid IRRIIRIRIRRIIR while void</text>
-    </lesson>
-    <lesson>
-      <id>{c9aa74c6-7e1e-40ac-bdd4-d13c347389d3}</id>
-      <title>Lesson 35: T and O</title>
-      <newCharacters>TO</newCharacters>
-      <text>default: while .size asm float try TOTTTOOOOTTTOO auto virtual break;
-v[0] const this mutable TTOOTOTOTTOOTO switch .empty true public: asm
-s[0] TTOOTOTOTTOOTO .at try virtual \n long do float enum signed
-if TOTTTOOOOTTTOO virtual this v[0] t[0] w[0] public s[0] export void
-s[0] friend case: alignof signed break; public TOTTTOOOOTTTOO enum
-float TOOTTOOTTOOOTT asm .empty sizeof do mutable w[0] default v[0]
-.empty TOTTTOOOOTTTOO short public: for int long false while v[1]
-TOOTTOOTTOOOTT long true public private: for const signed short float
-TTTTOOTOTOOOOT double default auto constexpr int float do long using
-false true v[0] asm const default: float new v[1] TOOTTOOTTOOOTT short
-float case mutable .size using default TTTTOOTOTOOOOT typeid for
-default int export for v[1] while this OOOOTOTTTOTTTO new try double
-long private: case t[0] enum public: .at throw TTOOTOTOTTOOTO s[0]
-TTTTOOTOTOOOOT break; v[1] public constexpr auto short default
-double try virtual throw public OOOOTTTTOOTTTO export asm char break
-break default: default virtual false try sizeof TOOOOTTOTOTTOT auto</text>
-    </lesson>
-    <lesson>
-      <id>{4f96bbae-812b-4360-b2a7-8c0fd4fb9519}</id>
-      <title>Lesson 36: Y and P</title>
-      <newCharacters>YP</newCharacters>
-      <text>public mutable using .size const YPPPPYYPYPPYYPYY asm while default:
-double private: char throw false float do while PYPYYPPYPPYYYPYP
-PYYYYPPPYYYPPPYP default: \n public sizeof v[0] asm default auto
-.at case export v[0] YYYYYPPYPYPPPPYP .empty if v[1] s[0] default for
-case: .size public: .at private: break; YYYPYYYYPPPPPYPP case float
-if for default long default: float short YYYYYPPYPYPPPPYP try s[0]
-break; v[1] asm virtual final YPPPPYYPYPPYYPYY .at for constexpr do
-PYYYYPPPYYYPPPYP mutable private: int public const .empty final
-asm switch private auto void virtual true YYPPYYYPYYPYPPPP mutable
-case break while do false default: YYYYYPPYPYPPPPYP switch asm this
-alignof .at s[0] default: .empty YPYYPPYPPYPYPPYY .size for virtual
-public: mutable signed case: YPYYPPYPPYPYPPYY try final long t[0] \n
-long short s[0] float alignof .empty YYPPYYYYPYPYPPPP friend
-double true try using float if final this case: PYPYYPPYPPYYYPYP
-YYPPYYYPYYPYPPPP .empty v[1] s[0] const signed constexpr \n final do
-sizeof public v[0] t[0] long void enum final int YPPPPYYPYPPYYPYY</text>
-    </lesson>
-    <lesson>
-      <id>{dfa56950-38c9-4b34-8707-340379b723c3}</id>
-      <title>Lesson 37: W and {</title>
-      <newCharacters>W{</newCharacters>
-      <text>asm .size for W{{W{{WWWWW{{{{W private case: sizeof enum double
-mutable break WWW{W{W{W{W{{{W{ for alignof new auto throw public s[0]
-WWW{W{W{W{W{{{W{ s[0] sizeof t[0] long break; try export do void while
-long public: v[0] mutable switch .empty W{{{{{{W{WWWWW{W using char
-this while void double s[0] float asm {WWW{{{W{W{W{W{W private: case
-long enum .empty const final int W{W{WW{{WW{{{WW{ v[0] mutable try do
-enum {W{WW{W{{{W{W{WW private .size void this v[1] case: default:
-constexpr {W{{WWW{W{W{W{{W float break do t[0] v[1] .size case
-while .at this export {W{{WWW{W{W{W{{W v[1] .size true short asm for
-char s[0] virtual w[0] const float throw W{{W{{WWWWW{{{{W new
-\n char false if WWW{W{W{W{W{{{W{ signed default: case sizeof do
-w[0] void friend do throw t[0] break; W{{{{{{WWWWW{W{W \n short false
-.size void W{W{WW{{WW{{{WW{ v[1] do w[0] const export sizeof v[0]
-default virtual default: W{W{WW{{WW{{{WW{ const typeid break; .at
-default: w[0] v[1] case v[0] throw virtual const W{W{WW{{WW{{{WW{ do
-s[0] private: constexpr default: private {W{{WWW{W{W{W{{W using</text>
-    </lesson>
-    <lesson>
-      <id>{e3b8be08-80fc-475c-ac75-aa592f70af54}</id>
-      <title>Lesson 38: Q and }</title>
-      <newCharacters>Q}</newCharacters>
-      <text>{0} v[1] float export {1} int }}QQ}}}}}QQQQQQ} long const using
-{1} }Q}QQ}Q}QQ}}}QQ} private int auto w[0] case true while break; {0}
-{0} {1} s[0] while Q}QQQ}}}}Q}Q}Q}Q virtual case: break; \n char
-this }}QQ}}}}}QQQQQQ} \n sizeof {0} while try {1} do asm float {1} final
-const break; this v[0] }}}Q}QQQ}}}QQQ}Q typeid {0} \n break {1} {0}
-virtual default: v[1] {1} do throw }}}Q}QQQ}}}QQQ}Q {1} s[0] {0} int
-{0} {1} short signed final const v[1] sizeof float }}}Q}QQQ}}}QQQ}Q
-s[0] v[1] this false {1} short sizeof t[0] {0} Q}QQQ}}}}Q}Q}Q}Q final
-{1} mutable switch }}}Q}QQQ}}}QQQ}Q {0} {0} false w[0] const enum
-sizeof export {1} {0} true }}}}Q}QQQQQ}Q}Q} double using float v[1]
-new \n signed .at }}QQQ}QQ}Q}}}Q}Q {1} v[0] {0} case double alignof
-}}QQQ}QQ}Q}}}Q}Q if private using {0} private: {1} while new export
-using {0} virtual friend v[1] alignof public: {1} QQ}}Q}Q}QQ}}}QQ}
-{1} v[0] signed \n for long true {0} const t[0] QQ}}Q}Q}QQ}}}QQ} s[0]
-typeid if new final long {1} friend {0} int short }Q}QQ}Q}QQ}}}QQ}
-mutable this default: new case: false void {0} {1} }}}}Q}QQQQQ}Q}Q}</text>
-    </lesson>
-    <lesson>
-      <id>{6d4de865-8b57-4134-b235-46112588887f}</id>
-      <title>Lesson 39: # and (</title>
-      <newCharacters>#(</newCharacters>
-      <text>friend #include ((#(#(###(###((( #elif if public: while #include
-private sizeof #elif while case: #include #elif try ((##((###((((###
-for char private: false virtual #include #elif asm ###((##((#((#((#
-do ##(#(((#(###(#(( default .at #include #elif try default: #include
-.size #elif (###(#((##((#(#( throw #include asm for false break const
-long #elif asm #include case: ##(##(##(((#(#(( mutable public t[0]
-using friend #include v[0] .at #((##(####(((#(( int #elif virtual
-((##((###((((### #elif int .at {0} this #include private constexpr
-#elif default: ##((((##((#(###( friend long enum signed #include
-{0} private: #((##(####(((#(( #include typeid do #elif char .at
-while float export if for asm .size #elif #include ##((((##((#(###(
-break ##(##(##(((#(#(( #include v[0] #elif export switch int double
-signed (#(#((###(#((#(# v[0] #elif break public true #include
-v[0] ##(#(((#(###(#(( enum s[0] #elif friend throw break #include
-#elif #include false .empty if public: private: ((#(#(###(###(((
-constexpr #include #elif false if const using throw #((##(####(((#((</text>
-    </lesson>
-    <lesson>
-      <id>{dd037325-5da3-48ef-a249-d079c4adf16e}</id>
-      <title>Lesson 40: $ and *</title>
-      <newCharacters>$*</newCharacters>
-      <text>/* private friend alignof */ $$$$****$**$$**$ #elif using public
-\n private: $**$****$$$**$$$ /* sizeof typeid */ /* public: mutable
-.empty default: case: *$$*$$**$$****$$ asm long sizeof float */ /* /*
-friend true break s[0] for short {0} */ **$$**$*$**$$*$$ char /* w[0]
-$**$****$$$**$$$ */ /* #elif {1} */ if export break; throw break
-/* public $$$$****$**$$**$ friend */ throw private: /* do auto double
-public constexpr this /* v[0] try **$$**$*$**$$*$$ */ float void
-{1} *$*$$$**$$*$***$ /* new */ default: double break */ {0} private:
-if case for /* default: asm true friend .size *$***$$$*$$$$*** new */
-*/ **$$**$*$**$$*$$ mutable .empty default /* virtual #include case:
-public: /* alignof float */ sizeof *$**$$**$$*$$**$ .at private
-*$**$$**$$*$$**$ const /* v[1] using private: */ constexpr w[0] while
-*/ float do public: *$*$$$**$$*$***$ int long default: const public /*
-while enum const friend char $$$*$$*$*$***$** auto virtual try \n */ /*
-s[0] export new /* *$***$$$*$$$$*** */ asm do #elif .at mutable switch
-{0} /* throw try *$$****$$*$*$$*$ */ case int typeid virtual v[0]</text>
-    </lesson>
-    <lesson>
-      <id>{3ca36cd0-92a1-46b3-9f57-02b7f14a6edb}</id>
-      <title>Lesson 41: %</title>
-      <newCharacters>%</newCharacters>
-      <text>.empty %%%%%%%%%%%%%%%% new default private const w[0] {0} default:
-{1} friend default mutable {0} %%%%%%%%%%%%%%%% new private: char
-export s[0] while private default {0} .size .empty %%%%%%%%%%%%%%%%
-false const case: auto public: do %%%%%%%%%%%%%%%% v[0] double v[1]
-const .size try break; %%%%%%%%%%%%%%%% default #elif .at char long
-void short final double %%%%%%%%%%%%%%%% private public default:
-auto public: %%%%%%%%%%%%%%%% {1} true v[1] asm final s[0] #include
-s[0] short private %%%%%%%%%%%%%%%% sizeof do constexpr float long
-constexpr private: default: auto %%%%%%%%%%%%%%%% throw new
-double v[0] #elif public /* default mutable false %%%%%%%%%%%%%%%%
-*/ #elif .at v[1] try public: export private while /* %%%%%%%%%%%%%%%%
-/* \n %%%%%%%%%%%%%%%% #elif w[0] public .empty {1} typeid using final
-if w[0] virtual %%%%%%%%%%%%%%%% .empty char default: enum export
-public alignof switch */ %%%%%%%%%%%%%%%% mutable enum float .at /* \n
-default default: false sizeof #elif new %%%%%%%%%%%%%%%% mutable
-if public for export asm %%%%%%%%%%%%%%%% {0} .size false friend throw</text>
-    </lesson>
-    <lesson>
-      <id>{a96a6cde-9466-4c01-ab22-2ee1f54c89cc}</id>
-      <title>Lesson 42: ^ and )</title>
-      <newCharacters>^)</newCharacters>
-      <text>v.empty() t.size() .size() v.at(1) v.size() )^)^^^)^)^^)^)))
-w.size() ^= .empty() s.empty() v.at(0) s.at(0) )^)^)^)^)))^^^)^
-v.size() w.at(0) t.size() s.at(0) ))))))^)^^^^^^)^ .empty()
-.at(i) w.at(0) t.size() ^^)))^^^)^^))))^ v.at(1) w.empty() v.at(0)
-w.at(0) t.size() .size() )^)^)^)^)))^^^)^ s.empty() .empty()
-.empty() v.size() v.empty() s.empty() ^)^^^^))))^^))^) t.size()
-.empty() w.at(0) ^= w.empty() ^^)))))^^)^^)^)^ s.at(0) .size()
-v.at(0) v.size() ^)^))^))))^)^^^^ w.size() .empty() w.at(0)
-w.size() .at(i) t.size() )^)^)^)^)))^^^)^ w.at(0) v.empty()
-v.at(1) w.at(0) s.empty() )^)^^^)^)^^)^))) s.at(0) v.empty()
-v.size() v.empty() v.at(1) .at(i) ^= .size() )^)^^^)^)^^)^)))
-^)))^^)))^^^^))^ t.size() .size() ^= w.empty() v.at(0) s.empty()
-.size() v.size() ^= .empty() ^^)))^^^)^^))))^ .at(i) v.at(1)
-w.size() )))))^^^^)^^^))^ v.at(1) s.at(0) ^= s.empty() v.size()
-v.at(1) s.at(0) w.at(0) )))))^^^^)^^^))^ w.empty() .at(i) .size()
-w.empty() w.at(0) ^= .at(i) ^^)))^^^)^^))))^ .empty() v.at(0)</text>
-    </lesson>
-    <lesson>
-      <id>{6233016a-61d7-479c-aa32-9b786e76f1da}</id>
-      <title>Lesson 43: @ and _</title>
-      <newCharacters>@_</newCharacters>
-      <text>.at(i) .at {0} char16_t @@@_@@@__@_____@@_ virtual char32_t wchar_t
-char16_t t[0] ___@@_@_@_@_@@_@@_ wchar_t char32_t typeid char16_t
-wchar_t char16_t w.empty() short @___@@@@@_____@@_@ final char32_t
-true wchar_t mutable const ___@@_@_@_@_@@_@@_ char32_t char16_t
-w.size() _@@_@___@@@@@__@__ char32_t t.size() char16_t wchar_t
-__@_@@__@@@__@@@__ char32_t wchar_t char16_t w.at(0) public:
-char16_t @_@@@___@@_@___@@_ char32_t signed enum char wchar_t while
-final char32_t {0} {1} ___@@_@_@_@_@@_@@_ t.size() char16_t wchar_t
-char16_t v[1] w.empty() @_@___@@@_@@__@__@ char32_t wchar_t
-typeid char32_t @_@@@___@@_@___@@_ w.at(0) if char16_t wchar_t
-char32_t @__@@___@@@__@_@_@ t[0] wchar_t t.size() char16_t const
-virtual #elif using char32_t wchar_t __@_@__@@___@@@@@_ char16_t
-using char32_t case */ wchar_t do char16_t @__@@___@@@__@_@_@ break;
-alignof char16_t @@_____@_@@@@_@@__ wchar_t public: char32_t .at
-char16_t w[0] wchar_t char32_t */ public __@_@__@@___@@@@@_ signed
-char16_t wchar_t wchar_t char32_t try v.at(1) __@_@@__@@@__@@@__</text>
-    </lesson>
-    <lesson>
-      <id>{32dc8855-2bd0-47c7-81d6-3811f1c247e0}</id>
-      <title>Lesson 44: ! and +</title>
-      <newCharacters>!+</newCharacters>
-      <text>++++!!!!+!++++!!!! v.empty() != i!=j while t.size() .empty() a!=b
-.size != a!=b v.empty() +!+!!+!+!!+!!+!+++ != ^= i!=j int this w[0]
-typeid +!!+++!!!!+!++!+!+ i!=j true {0} v[1] != a!=b v[0] const
-true asm short i!=j const != +!!!++!++++!+!!+!! final public: a!=b
-i!=j +!++!+!+!!+++!!+!! #include w.at(0) break; != try a!=b this
-!= using !!!++!!!+++!++!++! sizeof int asm a!=b s.at(0) i!=j !=
-t.size() !+++!++!+!!!!+!+!+ i!=j ^= != v.at(1) {0} signed for a!=b
-a!=b private alignof != if i!=j public: !++++!!+!!!++!++!! using ^=
-i!=j != a!=b w.at(0) wchar_t long \n private int +!!!++!++++!+!!+!!
-a!=b i!=j */ != double constexpr signed mutable !!!++!!!+++!++!++!
-{1} != break; t[0] alignof a!=b +!++!++!+!!!+!!+!+ this i!=j while
-*/ case: !++!!!+++!!+!+!++! != i!=j a!=b switch char16_t i!=j private
-i!=j w[0] a!=b .at(i) ++++!!!!+!++++!!!! break try default: !=
-\n {1} !++!!!+++!!+!+!++! while case: this .empty a!=b != i!=j
-a!=b break +!++!+!+!!+++!!+!! constexpr wchar_t virtual != i!=j new
-w.at(0) != ++++!!!!+!++++!!!! friend a!=b v.size() i!=j default</text>
-    </lesson>
-    <lesson>
-      <id>{fb3acc97-62bd-4daf-bc7c-c7e8b81ff9f9}</id>
-      <title>Lesson 45: ~ and |</title>
-      <newCharacters>~|</newCharacters>
-      <text>switch new v.at(1) ~|~~|~|~|~|~||~|~| if void {0} for asm try
-using if float ~|||~|||~~|~~|~~|~ private: while auto const true
-constexpr char s.empty() ~~|||~||~~~~~||||~ t[0] i!=j public
-enum {1} ~|||~|||~~|~~|~~|~ export s.at(0) double v.size() while /*
-throw .at(i) v.size() v.at(1) v[1] float ~|||~|||~~|~~|~~|~
-.empty() s.at(0) throw |~~~|||~~|~||~~~|| v.at(1) a!=b break; final
-.empty float char16_t s.at(0) int throw w.at(0) |~~~~~|||~~||||~~|
-sizeof /* s.at(0) {0} s[0] ~|~|~~~||~~~|~|||| char switch final
-private: case enum short ~|~~||~|~|||~~||~~ while i!=j .at char16_t
-v.at(0) export char32_t for .at(i) ~|~~|~|~|~|~||~|~| v.at(1) */
-case true v.size() ~||||~~|~~~~|~~||| default wchar_t {1} asm
-for {1} while const throw switch ~||||~~|~~~~|~~||| ^= using .at
-final typeid default: ~|~|~~~||~~~|~|||| {1} ^= int const s.at(0)
-using v.at(0) char16_t ~~|||~||~~~~~||||~ w.size() wchar_t
-export v.size() while auto a!=b ~||||~~|~~~~|~~||| this char
-break; new break .empty |~~~~~|||~~||||~~| .size() w.at(0) \n if v[1]</text>
+      <id>{8073a092-54f7-40ad-bab6-d2a9229a3bd8}</id>
+      <title>Lesson 13: %, @ and $</title>
+      <newCharacters>%@$</newCharacters>
+      <text>if char16_t v[0] */ %@@@$%@%$$@%%$$ enum private: v.size() friend
+void short t.size() for case: char final %$$%@@$$$%%%@@@ s[0] mutable
+break w.size() s.empty() sizeof v.at(1) %$$%@@$$$%%%@@@ false #elif
+@@%@$$%$@@$$%%% v.empty() long while s[0] alignof v.size() export
+s[0] switch sizeof s.at(0) */ char wchar_t char32_t $%$@$%%$@@$%@@%
+virtual while v[0] auto sizeof $%@@@%$@%$@$%%$ public: #elif this
+w[0] .at for @%$$%@%$%$@@$%@ v.at(0) long #elif != switch .empty
+while s[0] case: @@$$%$$@%@$%%%@ .at v.at(0) virtual constexpr
+@@%@$$%$@@$$%%% #include throw v.empty() sizeof i!=j w[0] short v[0]
+%@@@$%@%$$@%%$$ auto s.at(0) float typeid w[0] throw */ v.at(0) true</text>
     </lesson>
   </lessons>
 </course>
