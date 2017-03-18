@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <string>
+#include <vector>
 
 namespace ribi {
 namespace ktclc {
@@ -68,11 +69,6 @@ struct helper
     std::sort(std::begin(t),std::end(t));
     return t;
   }
-
-  private:
-  #ifndef NDEBUG
-  static void test() noexcept;
-  #endif
 };
 
 } //~namespace ktclc

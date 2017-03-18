@@ -1,40 +1,17 @@
-//---------------------------------------------------------------------------
-/*
-KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
-Copyright (C) 2013-2015 Richel Bilderbeek
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
-//---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
-//---------------------------------------------------------------------------
 #include "ktouchcpplessonscreatorlessons.h"
 
 #include <algorithm>
 #include <cassert>
 #include <numeric>
+#include <sstream>
 
 #include "ktouchcpplessonscreatorhelper.h"
 #include "ktouchcpplessonscreatorwordlist.h"
-#include "testtimer.h"
-#include "trace.h"
 
 ribi::ktclc::lessons::lessons(std::mt19937& rng_engine) noexcept
   : m_lesson(create_lessons(rng_engine))
 {
-  #ifndef NDEBUG
-  test();
-  #endif
+
 }
 
 std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_lessons(
@@ -79,17 +56,6 @@ std::vector<ribi::ktclc::lesson> ribi::ktclc::lessons::create_lessons(
         std::end(  all_chars_sorted),
         std::back_inserter(difference)
       );
-      if (!difference.empty())
-      {
-        std::stringstream s;
-        s << "Error: all the " << new_chars_str.size()
-          << " characters in new_chars must be in the "
-          << all_chars.size() << " characters of all_chars, "
-          << "the difference being the characters(s) '" << difference << "'"
-          << " (note: I put '' around that character) "
-        ;
-        TRACE(s.str());
-      }
       assert(difference.empty());
     }
     #endif
@@ -172,25 +138,6 @@ std::vector<std::string> ribi::ktclc::lessons::get_version_history() noexcept
     "2015-10-31: version 2.1: accept forward slash"
   };
 }
-
-#ifndef NDEBUG
-void ribi::ktclc::lessons::test() noexcept
-{
-  {
-    static bool is_tested = false;
-    if (is_tested) return;
-    is_tested = true;
-  }
-  helper();
-  const test_timer my_test_timer(__func__,__FILE__,1.0);
-  {
-    constexpr int rng_seed = 42;
-    std::mt19937 rng_engine(rng_seed);
-    const lessons a(rng_engine);
-    assert(!a.to_xml().empty());
-  }
-}
-#endif
 
 std::vector<std::string> ribi::ktclc::lessons::to_xml() const noexcept
 {

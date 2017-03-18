@@ -1,23 +1,3 @@
-//---------------------------------------------------------------------------
-/*
-KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
-Copyright (C) 2013-2015 Richel Bilderbeek
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
-//---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
-//---------------------------------------------------------------------------
 #include "ktouchcpplessonscreatorlesson.h"
 
 #include <algorithm>
@@ -32,7 +12,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 #include "ktouchcpplessonscreatorhelper.h"
 #include "ktouchcpplessonscreatorwordlist.h"
-#include "testtimer.h"
 
 ribi::ktclc::lesson::lesson(
   const std::string& new_chars,
@@ -45,9 +24,6 @@ ribi::ktclc::lesson::lesson(
     m_title{title},
     m_uuid{helper().create_uuid()}
 {
-  #ifndef NDEBUG
-  test();
-  #endif
   assert(!helper().has_forbidden(m_uuid));
   assert(!helper().has_forbidden(m_title));
   assert(!helper().has_forbidden(m_new_chars));
@@ -188,7 +164,7 @@ std::vector<std::string> ribi::ktclc::lesson::to_xml() const noexcept
       std::begin(m_lines),
       std::end(m_lines),
       std::ostream_iterator<std::string>(s,"\n"),
-      [](const std::string& s) { return helper().convert_to_escape(s); }
+      [](const std::string& t) { return helper().convert_to_escape(t); }
     );
     std::string text = s.str();
     assert(!text.empty());
@@ -199,33 +175,3 @@ std::vector<std::string> ribi::ktclc::lesson::to_xml() const noexcept
   v.push_back("    </lesson>");
   return v;
 }
-
-#ifndef NDEBUG
-void ribi::ktclc::lesson::test() noexcept
-{
-  {
-    static bool is_tested = false;
-    if (is_tested) return;
-    is_tested = true;
-  }
-  {
-    constexpr int rng_seed = 42;
-    std::mt19937 rng_engine(rng_seed);
-    helper();
-    word_list("abcdefghijklmnopqrstuvwxyz","ab",rng_engine);
-  }
-  const test_timer test_timer(__func__,__FILE__,1.0);
-  constexpr int rng_seed = 42;
-  std::mt19937 rng_engine(rng_seed);
-  const word_list a_word_list("abcdefghijklmnopqrstuvwxyz","ab",rng_engine);
-  {
-    const lesson a(
-      "AB",
-      "test title",
-      rng_engine,
-      a_word_list
-    );
-    assert(!a.to_xml().empty());
-  }
-}
-#endif

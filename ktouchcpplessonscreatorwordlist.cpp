@@ -1,29 +1,8 @@
-//---------------------------------------------------------------------------
-/*
-KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
-Copyright (C) 2013-2015 Richel Bilderbeek
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
-//---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
-//---------------------------------------------------------------------------
 #include "ktouchcpplessonscreatorwordlist.h"
 
 #include <algorithm>
 #include <cassert>
 
-#include "testtimer.h"
 #include "ktouchcpplessonscreatorhelper.h"
 
 ribi::ktclc::word_list::word_list(
@@ -39,9 +18,6 @@ ribi::ktclc::word_list::word_list(
     m_new_char_words{create_new_char_words(new_characters,10,get_lesson_index(chars_in_lesson),rng_engine)}
 
 {
-  #ifndef NDEBUG
-  test();
-  #endif
 }
 
 std::vector<std::string> ribi::ktclc::word_list::create_all() noexcept
@@ -482,20 +458,3 @@ std::vector<std::string> ribi::ktclc::word_list::get_version_history() noexcept
     "2015-10-31: version 1.0: initial version",
   };
 }
-
-#ifndef NDEBUG
-void ribi::ktclc::word_list::test() noexcept
-{
-  {
-    static bool is_tested = false;
-    if (is_tested) return;
-    is_tested = true;
-  }
-  const test_timer my_test_timer(__func__,__FILE__,1.0);
-  constexpr int rng_seed = 42;
-  std::mt19937 rng_engine(rng_seed);
-  const word_list w("abcdefghijklmnopqrstuvwxyz","ab",rng_engine);
-  //assert(!w.get_all().empty());
-}
-#endif
-

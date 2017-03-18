@@ -37,7 +37,7 @@ script:
   # Console
   - qmake KTouchCppLessonsCreator.pro
   - make debug
-  - ./KTouchCppLessonsCreator --help
+  - ./KTouchCppLessonsCreator
   # cppcheck
   - cppcheck --quiet --error-exitcode=1 . 
   # Code coverage

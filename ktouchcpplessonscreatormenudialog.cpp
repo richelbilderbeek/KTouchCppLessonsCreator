@@ -1,32 +1,11 @@
-//---------------------------------------------------------------------------
-/*
-KTouchCppLessonsCreator, create KTouch lessons for C++ programmers
-Copyright (C) 2013-2015 Richel Bilderbeek
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <http://www.gnu.org/licenses/>.
-*/
-//---------------------------------------------------------------------------
-//From http://www.richelbilderbeek.nl/ToolKTouchCppLessonsCreator.htm
-//---------------------------------------------------------------------------
 #include "ktouchcpplessonscreatormenudialog.h"
 
+#include <cassert>
 #include <fstream>
 #include <iostream>
 #include <iterator>
 
 #include "fileio.h"
-#include "testtimer.h"
-#include "trace.h"
 
 #include "ktouchcpplessonscreatorwordlist.h"
 #include "ktouchcpplessonscreatorhelper.h"
@@ -34,9 +13,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 ribi::ktclc::menu_dialog::menu_dialog() noexcept
 {
-  #ifndef NDEBUG
-  test();
-  #endif
+
 }
 
 int ribi::ktclc::menu_dialog::execute_specific(const std::vector<std::string>& args) noexcept
@@ -146,9 +123,6 @@ ribi::About ribi::ktclc::menu_dialog::GetAbout() const noexcept
     GetVersionHistory());
 
   a.AddLibrary("FileIo version: " + FileIo().GetVersion());
-  a.AddLibrary("test_timer version: " + test_timer::GetVersion());
-  a.AddLibrary("Trace version: " + Trace::GetVersion());
-
   a.AddLibrary("ribi::ktclc::course version: " + ribi::ktclc::course::get_version());
   a.AddLibrary("ribi::ktclc::helper version: " + ribi::ktclc::helper::get_version());
   a.AddLibrary("ribi::ktclc::lesson version: " + ribi::ktclc::lesson::get_version());
@@ -196,30 +170,3 @@ std::vector<std::string> ribi::ktclc::menu_dialog::get_version_history() noexcep
     "2015-11-01: version 2.4: improved quality of the lessons"
   };
 }
-
-#ifndef NDEBUG
-void ribi::ktclc::menu_dialog::test() noexcept
-{
-  {
-    static bool is_tested{false};
-    if (is_tested) return;
-    is_tested = true;
-  }
-  {
-    fileio::FileIo();
-    helper();
-    course(42);
-  }
-  const test_timer my_test_timer(__func__,__FILE__,1.0);
-  const fileio::FileIo f;
-  {
-    menu_dialog d;
-    const std::string tmp_filename{f.GetTempFileName(".xml")};
-    d.Execute( { "KTouchCppLessonsCreator", "-o", tmp_filename, "-r" , "42", "--silent" } );
-    assert(f.IsRegularFile(tmp_filename));
-    f.DeleteFile(tmp_filename);
-    assert(!f.IsRegularFile(tmp_filename));
-  }
-}
-#endif
-

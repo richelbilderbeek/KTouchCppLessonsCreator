@@ -68,10 +68,6 @@ struct lesson
   constexpr static const int n_characters_per_line = 60;
   constexpr static const int n_characters_per_lesson = 600;
   constexpr static const int n_lines_per_lesson = n_characters_per_lesson / n_characters_per_line;
-
-  #ifndef NDEBUG
-  static void test() noexcept;
-  #endif
 };
 
 } //~namespace ktclc
