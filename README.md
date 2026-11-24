@@ -1,5 +1,7 @@
 # KTouchCppLessonsCreator
 
+[Go to the nicely rendered website](https://richelbilderbeek.github.io/KTouchCppLessonsCreator/).
+
 Create C++ lessons for KTouch. In C++, a lot of non-letter characters are used. 
 This course builds up similar to a normal course without ignoring symbols
 and punctuation.
